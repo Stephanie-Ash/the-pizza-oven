@@ -1,3 +1,11 @@
-#down-page {
-    height: 1000px;
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.heading-text {
+    font-family: 'Poppins', sans-serif;
+}
+
+.faint-bg {
+    background-color: rgba(0, 0, 0, 0.15);
 }
