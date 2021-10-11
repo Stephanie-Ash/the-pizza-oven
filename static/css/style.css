@@ -9,3 +9,11 @@ body {
 .faint-bg {
     background-color: rgba(0, 0, 0, 0.15);
 }
+
+header {
+    background-image: url('/media/restaurant.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+}
