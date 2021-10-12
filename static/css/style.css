@@ -5,6 +5,9 @@ body {
 
 .heading-text {
     font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
     color: #F4F7F5;
 }
 
@@ -12,7 +15,8 @@ body {
     background-color: rgba(32, 22, 34, 0.5);
 }
 
-/* Header and Nav */
+/* base.html */
+/* Header including nav and page heading */
 header {
     background-image: url('/media/restaurant.jpg');
     background-repeat: no-repeat;
@@ -37,7 +41,6 @@ header {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgba(32, 22, 34, 0.5);
 }
 
 /* Footer */
@@ -45,8 +48,6 @@ footer {
     background-color: #201622;
     text-align: center;
     color: #F4F7F5;
-    position: absolute;
-    bottom: 0;
 }
 
 footer > p, ul {
@@ -66,4 +67,10 @@ footer > p {
     font-size: 25px;
     padding: 10px;
     color: #F4F7F5;
+}
+
+/* index.html */
+/* About Us section */
+.about-text {
+    text-align: justify;
 }
