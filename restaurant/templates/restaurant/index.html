@@ -10,15 +10,38 @@
         </div>
     </div>
     <!-- Image dividers -->
-    <div class="row g-0">
-        <div class="col-sm-6 col-lg-4 d-none d-sm-inline-block">
+    <div class="row g-0 bg-color-dividers">
+        <div class="col-sm-6 col-lg-4 d-none d-sm-inline-block divider1">
             <img class="img-fluid" src="{{ MEDIA_URL }}pizza1.jpg" alt="A pizza on a plate.">
         </div>
-        <div class="col-lg-4 d-none d-lg-inline-block">
+        <div class="col-lg-4 d-none d-lg-inline-block divider2">
             <img class="img-fluid" src="{{ MEDIA_URL }}pizza2.jpg" alt="A pizza firing in a pizza oven.">
         </div>
-        <div class="col-12 col-sm-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4 divider3">
             <img class="img-fluid" src="{{ MEDIA_URL }}pizza3.jpg" alt="A pizza next to rosemary and some tomatoes.">
+        </div>
+    </div>
+</section>
+
+<!-- Menu section -->
+<section id="menu">
+    <div class="container-fluid bg-color-menu">
+        <div class="row">
+            <div class="col-3 offset-1">
+                <p class="lead">
+                    Our pizzas are handmade using only the freshest ingredients.
+                </p>
+                <p class="lead">
+                    Why not check out our menu.
+                </p>
+                <a class="btn btn-large btn-red" href="{{ MEDIA_URL }}the-pizza-oven_menu.jpg">View Menu</a>
+            </div>
+            <div class="col-4">
+                <img class="img-fluid" src="{{ MEDIA_URL }}pizza-making.jpg" alt="">
+            </div>
+            <div class="col-4">
+                <img class="img-fluid" src="{{ MEDIA_URL }}pizza-ingredients.jpg" alt="">
+            </div>
         </div>
     </div>
 </section>

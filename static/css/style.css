@@ -81,3 +81,20 @@ footer > p {
 .bg-color-about {
     background-color: #43b792;
 }
+
+.bg-color-dividers {
+    background-color: #43b792;
+}
+
+.bg-color-menu {
+    background-color: #F4F7F5;
+}
+
+.btn-red {
+    background-color: #b03f57;
+}
+
+.btn-red:hover {
+    background-color: #8a3244;
+}
+
