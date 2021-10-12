@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -7,9 +8,10 @@ body {
 }
 
 .faint-bg {
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(32, 22, 34, 0.2);
 }
 
+/* Header and Nav */
 header {
     background-image: url('/media/restaurant.jpg');
     background-repeat: no-repeat;
@@ -18,6 +20,17 @@ header {
     height: 600px;
 }
 
+.nav-link, .navbar-brand {
+    color: #F4F7F5 !important;
+}
+
+.nav-link:hover,
+.navbar-brand:hover,
+.social:hover {
+    color: #9DAEAD !important;
+}
+
+/* Footer */
 footer {
     background-color: #201622;
     text-align: center;
