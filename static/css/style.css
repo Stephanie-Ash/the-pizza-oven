@@ -7,12 +7,16 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-h1, h2 {
+.txt-light {
     color: #F4F7F5;
 }
 
 .faint-bg {
     background-color: rgba(32, 22, 34, 0.5);
+}
+
+.txt-dark {
+    color: #201622;
 }
 
 /* base.html */
@@ -47,7 +51,6 @@ header {
 footer {
     background-color: #201622;
     text-align: center;
-    color: #F4F7F5;
 }
 
 footer > p, ul {
@@ -73,4 +76,8 @@ footer > p {
 /* About Us section */
 .about-text {
     text-align: justify;
+}
+
+.bg-color-about {
+    background-color: #43b792;
 }
