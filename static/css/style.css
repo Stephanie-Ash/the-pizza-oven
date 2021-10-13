@@ -90,6 +90,10 @@ footer > p {
     background-color: #F4F7F5;
 }
 
+.bg-color-location {
+    background-color: #b03f57;
+}
+
 .btn-red {
     background-color: #b03f57;
 }
@@ -97,6 +101,9 @@ footer > p {
 .btn-red:hover {
     background-color: #8a3244;
 }
+
+/* Location Section */
+
 
 /* Media queries */
 

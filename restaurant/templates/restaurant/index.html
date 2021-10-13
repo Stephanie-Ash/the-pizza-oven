@@ -23,7 +23,7 @@
     </div>
 </section>
 
-<!-- Menu section -->
+<!-- View menu section -->
 <section id="menu">
     <div class="container-fluid bg-color-menu">
         <div class="row">
@@ -47,6 +47,29 @@
             </div>
             <div class="col-6 col-xl-4 d-none d-sm-inline-block py-5 menu-pic2">
                 <img class="img-fluid" src="{{ MEDIA_URL }}pizza-ingredients.jpg" alt="Various pizza ingredients">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location and opening times -->
+<section id="location">
+    <div class="container-fluid bg-color-location">
+        <div class="row">
+            <div class="col-7">
+                <div class="map-wrapper ratio ratio-16x9">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4966.4150964133705!2d-0.11525606640763726!3d51.50940817988433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b13ccb6055%3A0x8b75aa8f71277ddf!2s56%20Upper%20Ground%2C%20London%20SE1%209PP!5e0!3m2!1sen!2suk!4v1634117260344!5m2!1sen!2suk"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-5 txt-dark">
+                <h3><i class="fas fa-pizza-slice"></i> The Pizza Oven</h3>
+                <p>56 Upper Ground, South Bank, London. SE1 9PP</p>
+                <p>Phone: 020 7946 0441</p>
+                <p>Opening Hours:<br>Monday to Sunday - {{ restaurant.opening_time|time:"H:i" }} to
+                    {{ restaurant.closing_time|time:"H:i" }}</p>
             </div>
         </div>
     </div>
