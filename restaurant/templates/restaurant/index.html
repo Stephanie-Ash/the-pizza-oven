@@ -3,7 +3,7 @@
 {% block content %}
 <!-- About section -->
 <section id="about">
-    <div class="row bg-color-about txt-dark px-4 g-0">
+    <div class="row bg-color-about txt-dark g-0 px-5">
         <div class="col text-center my-4">
             <h3 class="heading-text display-6">About Us</h3>
             <p class="about-text lead my-0">{{ restaurant.description }}</p>
@@ -27,20 +27,26 @@
 <section id="menu">
     <div class="container-fluid bg-color-menu">
         <div class="row">
-            <div class="col-3 offset-1">
+            <div class="col-12 col-sm-4 offset-sm-1 offset-xl-0 my-auto py-5 menu-text">
                 <p class="lead">
                     Our pizzas are handmade using only the freshest ingredients.
                 </p>
                 <p class="lead">
                     Why not check out our menu.
                 </p>
-                <a class="btn btn-large btn-red" href="{{ MEDIA_URL }}the-pizza-oven_menu.jpg">View Menu</a>
+                {% if "placeholder" in restaurant.menu.url %}
+                <a class="btn btn-large btn-red" target="_blank" href="{{ MEDIA_URL }}the-pizza-oven_menu.pdf"
+                    aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
+                {% else %}
+                <a class="btn btn-large btn-red" target="_blank" href="{{ restaurant.menu.url }}"
+                    aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
+                {% endif %}
             </div>
-            <div class="col-4">
-                <img class="img-fluid" src="{{ MEDIA_URL }}pizza-making.jpg" alt="">
+            <div class="col-xl-4 d-none d-xl-inline-block py-5 menu-pic1">
+                <img class="img-fluid" src="{{ MEDIA_URL }}pizza-making.jpg" alt="Hands kneading pizza dough">
             </div>
-            <div class="col-4">
-                <img class="img-fluid" src="{{ MEDIA_URL }}pizza-ingredients.jpg" alt="">
+            <div class="col-6 col-xl-4 d-none d-sm-inline-block py-5 menu-pic2">
+                <img class="img-fluid" src="{{ MEDIA_URL }}pizza-ingredients.jpg" alt="Various pizza ingredients">
             </div>
         </div>
     </div>

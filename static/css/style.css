@@ -98,3 +98,45 @@ footer > p {
     background-color: #8a3244;
 }
 
+/* Media queries */
+
+/* For screens 1200px and up */
+@media screen and (min-width: 1200px) {
+    .menu-text {
+        padding-right: 1rem;
+        padding-left: 3rem;
+    }
+
+    .menu-pic1 {
+        padding-right: 3rem;
+    }
+
+    .menu-pic2 {
+        padding-right: 3rem;
+    }
+}
+
+/* For screens 575px and down */
+@media screen and (max-width: 575px) {
+    .menu-text {
+        text-align: center;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+/* For screens 465px and down */
+@media screen and (max-width: 465px) {
+    .menu-text {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+/* For screens 375px and down */
+@media screen and (max-width: 375px) {
+    .menu-text {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}

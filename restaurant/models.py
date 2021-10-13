@@ -1,9 +1,11 @@
+""" Models for the restaurant app """
+import datetime
 from django.db import models
 from cloudinary.models import CloudinaryField
-import datetime
 
 
 class Restaurant(models.Model):
+    """ Model to add information about the restuarant """
     name = models.CharField(max_length=50)
     description = models.TextField()
     opening_time = models.TimeField(
