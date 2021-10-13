@@ -103,32 +103,29 @@ footer > p {
 }
 
 /* Location Section */
-
-
-/* Media queries */
-
-/* For screens 1200px and up */
-@media screen and (min-width: 1200px) {
-    .menu-text {
-        padding-right: 1rem;
-        padding-left: 3rem;
-    }
-
-    .menu-pic1 {
-        padding-right: 3rem;
-    }
-
-    .menu-pic2 {
-        padding-right: 3rem;
-    }
+.opening-wkday {
+    margin-left: 10px;
 }
 
+.opening-wkend {
+    margin-left: 72px;
+}
+
+.map-wrapper {
+    height: 400px;
+}
+
+/* Media queries */
 /* For screens 575px and down */
 @media screen and (max-width: 575px) {
     .menu-text {
         text-align: center;
         padding-left: 20%;
         padding-right: 20%;
+    }
+
+    .location-text p {
+        font-size: 18px;
     }
 }
 
@@ -145,5 +142,72 @@ footer > p {
     .menu-text {
         padding-left: 5%;
         padding-right: 5%;
+    }
+
+    .location-text p {
+        font-size: 16px;
+    }
+}
+
+/* For screens 768px and up */
+@media screen and (min-width: 768px) {
+    .location-text p, .location-header {
+        text-align: left;
+    }
+
+    .opening-hours {
+        padding-left: 35px;
+    }
+}
+
+/* For screens 992px and up */
+@media screen and (min-width: 992px) {
+    .opening-wkday, .opening-wkend {
+        display: block;
+        margin-left: 0;
+    }
+
+    .opening-wkday {
+        margin-bottom: 10px;
+    }
+
+    .location-information {
+        padding-left: 10%;
+    }
+}
+
+/* For screens 1200px and up */
+@media screen and (min-width: 1200px) {
+    .menu-text {
+        padding-right: 1rem;
+        padding-left: 3rem;
+    }
+
+    .menu-pic1 {
+        padding-right: 3rem;
+    }
+
+    .menu-pic2 {
+        padding-right: 3rem;
+    }
+
+    .opening-wkday, .opening-wkend {
+        display: inline;
+    }
+
+    .opening-hours {
+        padding-left: 0;
+    }
+
+    .location-information {
+        padding-left: 5%;
+    }
+
+    .opening-wkday {
+        margin-left: 10px;
+    }
+    
+    .opening-wkend {
+        margin-left: 72px;
     }
 }
