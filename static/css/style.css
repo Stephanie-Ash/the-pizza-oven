@@ -1,4 +1,6 @@
-/* General Styles */
+/* ------------------General Styles------------------ */
+
+/* Text */
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -11,15 +13,42 @@ body {
     color: #F4F7F5;
 }
 
-.faint-bg {
-    background-color: rgba(32, 22, 34, 0.5);
-}
-
 .txt-dark {
     color: #201622;
 }
 
-/* base.html */
+/* Background colours */
+.bg-color-faint {
+    background-color: rgba(32, 22, 34, 0.5);
+}
+
+.bg-color-footer {
+    background-color: #201622;
+}
+
+.bg-color-about {
+    background-color: #43b792;
+}
+
+.bg-color-menu {
+    background-color: #F4F7F5;
+}
+
+.bg-color-location {
+    background-color: #b03f57;
+}
+
+/* Buttons */
+.btn-red {
+    background-color: #b03f57;
+}
+
+.btn-red:hover {
+    background-color: #8a3244;
+}
+
+/* --------------------base.html--------------------- */
+
 /* Header including nav and page heading */
 header {
     background-image: url('/media/restaurant.jpg');
@@ -49,7 +78,6 @@ header {
 
 /* Footer */
 footer {
-    background-color: #201622;
     text-align: center;
 }
 
@@ -69,37 +97,13 @@ footer > p {
 .social {
     font-size: 25px;
     padding: 10px;
-    color: #F4F7F5;
 }
 
-/* index.html */
+/* --------------------index.html-------------------- */
+
 /* About Us section */
 .about-text {
     text-align: justify;
-}
-
-.bg-color-about {
-    background-color: #43b792;
-}
-
-.bg-color-dividers {
-    background-color: #43b792;
-}
-
-.bg-color-menu {
-    background-color: #F4F7F5;
-}
-
-.bg-color-location {
-    background-color: #b03f57;
-}
-
-.btn-red {
-    background-color: #b03f57;
-}
-
-.btn-red:hover {
-    background-color: #8a3244;
 }
 
 /* Location Section */
@@ -115,7 +119,8 @@ footer > p {
     height: 400px;
 }
 
-/* Media queries */
+/* -------------------Media queries------------------ */
+
 /* For screens 575px and down */
 @media screen and (max-width: 575px) {
     .menu-text {
