@@ -25,7 +25,7 @@
 
 <!-- View menu section -->
 <section id="menu">
-    <div class="container-fluid bg-color-menu">
+    <div class="container-fluid bg-color-menu txt-dark">
         <div class="row">
             <div class="col-12 col-sm-4 offset-sm-1 offset-xl-0 my-auto py-5 menu-text">
                 <p class="lead">
@@ -35,10 +35,10 @@
                     Why not check out our menu.
                 </p>
                 {% if "placeholder" in restaurant.menu.url %}
-                <a class="btn btn-large btn-red" target="_blank" href="{{ MEDIA_URL }}the-pizza-oven_menu.pdf"
+                <a class="btn btn-large btn-red txt-dark" target="_blank" href="{{ MEDIA_URL }}the-pizza-oven_menu.pdf"
                     aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
                 {% else %}
-                <a class="btn btn-large btn-red" target="_blank" href="{{ restaurant.menu.url }}"
+                <a class="btn btn-large btn-red txt-dark" target="_blank" href="{{ restaurant.menu.url }}"
                     aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
                 {% endif %}
             </div>
