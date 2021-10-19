@@ -16,3 +16,21 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Table(models.Model):
+    """ Table model to add tables of a certain size to the restaurant"""
+
+    # Limit to only the most common tables sizes.
+    # These can be combined for bigger party sizes.
+    TABLE_SIZES = [
+        (2, 'Two Person'),
+        (4, 'Four Person'),
+    ]
+
+    restaurant = models.ForeignKey(
+        Restaurant, on_delete=models.CASCADE, related_name='tables')
+    size = models.IntegerField(choices=TABLE_SIZES)
+
+    def __str__(self):
+        return f"A table of {self.size} people size"
