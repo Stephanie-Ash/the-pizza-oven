@@ -52,7 +52,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Book a Table</a>
+                            <a class="nav-link" href="{% url 'make_booking' %}">Book a Table</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
@@ -79,7 +79,7 @@
                         <h1 class="display-4">{{ restaurant.name }}</h1>
                         <h2 class="display-5">South Bank</h2>
                     </div>
-                    <a class="btn btn-large btn-red txt-light" href="#">Book Table</a>
+                    <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}">Book Table</a>
                 </div>
             </div>
         </div>
