@@ -38,6 +38,15 @@ body {
     background-color: #b03f57;
 }
 
+.bg-color-bookings {
+    background-color: #F4F7F5;
+}
+
+.bg-color-bookingform {
+    background-color: #b03f57;
+}
+
+
 /* Buttons */
 .btn-red {
     background-color: #b03f57;
@@ -55,7 +64,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 600px;
+    height: 500px;
 }
 
 .nav-link,
@@ -121,17 +130,15 @@ footer > p {
     margin-left: 0;
 }
 
-/* .opening-wkday {
-    margin-left: 10px;
-}
-
-.opening-wkend {
-    margin-left: 72px;
-} */
-
 .map-wrapper {
     height: 400px;
 }
+
+
+/* make_booking.html */
+
+/* Booking form */
+
 
 /* -------------------Media queries------------------ */
 

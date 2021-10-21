@@ -4,9 +4,9 @@
 
 {% load crispy_forms_tags %}
 
-    <div class="container bg-color-bookings txt-dark">
+    <div class="container-fluid bg-color-bookings txt-light">
         <div class="row">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-4 mx-auto my-3 booking-form bg-color-bookingform">
                 <form action="{% url 'make_booking' %}" method="POST">
                     {% csrf_token %}
                     {{ booking_form | crispy }}
