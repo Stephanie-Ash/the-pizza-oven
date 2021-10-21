@@ -154,6 +154,18 @@ iframe {
 /* make_booking.html */
 
 /* Booking form */
+.booking-form {
+    border: 2px solid #8a3244;
+    border-radius: 5px;
+}
+
+.booking-info {
+    font-size: 18px;
+}
+
+.inline-form-field {
+    display: inline-block;
+}
 
 
 /* -------------------Media queries------------------ */

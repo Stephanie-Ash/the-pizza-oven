@@ -32,7 +32,7 @@ class Booking(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
     phone_number = models.CharField(max_length=20)
-    special_requirements = models.TextField()
+    special_requirements = models.TextField(blank=True)
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
 
