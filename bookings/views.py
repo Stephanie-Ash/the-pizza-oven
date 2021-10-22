@@ -1,5 +1,6 @@
 """ Views for the bookings app """
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from restaurant.models import Restaurant
 from .forms import BookingForm
 from .check_availability import create_booking_slots, find_tables
@@ -27,7 +28,11 @@ def make_booking(request):
             else:
                 booking.tables.add(tables)
                 booking.save()
+            messages.success(request, 'Booking successfully made!')
             return redirect('make_booking')
+        else:
+            messages.error(
+                request, 'Failed to make booking. Pleas check the form.')
     else:
         booking_form = BookingForm(slots)
 
