@@ -24,6 +24,11 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col">
+                            {{ booking_form.non_field_errors }}
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-12">
                             {{ booking_form.party_size | as_crispy_field }}
                             {{ booking_form.name | as_crispy_field }}
