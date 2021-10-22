@@ -13,5 +13,6 @@ class BookingForm(forms.ModelForm):
     def __init__(self, slots, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['time'].widget = forms.Select(choices=slots)
-        self.fields['date'].widget = forms.DateInput(format='%d-%m-%Y')
-        self.fields['special_requirements'].label = 'Comments or Special Requirements'
+        self.fields['date'].widget = forms.DateInput(attrs={'type': 'date'})
+        self.fields['special_requirements'].widget.attrs['placeholder'] = (
+            'Let us know of any special dietary or other requirements.')

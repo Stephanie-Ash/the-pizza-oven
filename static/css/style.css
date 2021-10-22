@@ -68,6 +68,15 @@ h3 {
     background-color: #8a3244;
 }
 
+.btn-green {
+    background-color: #43b792;
+}
+
+.btn-green:hover {
+    background-color: #0A8A8E;
+    color: #F4F7F5;
+}
+
 /* --------------------base.html--------------------- */
 
 /* Header including nav and page heading */
