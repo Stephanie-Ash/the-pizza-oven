@@ -79,6 +79,11 @@ h3 {
 
 /* --------------------base.html--------------------- */
 
+/* Messages */
+.messages-column {
+    margin-top: 80px;
+}
+
 /* Header including nav and page heading */
 header {
     background-image: url('/media/restaurant.jpg');

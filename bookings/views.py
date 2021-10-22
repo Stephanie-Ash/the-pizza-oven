@@ -1,7 +1,8 @@
 """ Views for the bookings app """
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from restaurant.models import Restaurant
+from .models import Booking
 from .forms import BookingForm
 from .check_availability import create_booking_slots, find_tables
 
@@ -29,7 +30,7 @@ def make_booking(request):
                 booking.tables.add(tables)
                 booking.save()
             messages.success(request, 'Booking successfully made!')
-            return redirect('make_booking')
+            return redirect(reverse('booking_confirmed', args=[booking.id]))
         else:
             messages.error(
                 request, 'Failed to make booking. Pleas check the form.')
@@ -41,3 +42,13 @@ def make_booking(request):
     }
 
     return render(request, 'bookings/make_booking.html', context)
+
+
+def booking_confirmed(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    context = {
+        'booking': booking,
+    }
+
+    return render(request, 'bookings/booking_confirmed.html', context)
