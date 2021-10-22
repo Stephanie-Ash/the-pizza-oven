@@ -1,8 +1,8 @@
 """ Views for the bookings app """
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from restaurant.models import Restaurant
 from .forms import BookingForm
-from .check_availability import create_booking_slots
+from .check_availability import create_booking_slots, find_tables
 
 
 def make_booking(request):
@@ -13,7 +13,23 @@ def make_booking(request):
     slots = create_booking_slots(
         restaurant.opening_time, restaurant.closing_time)
 
-    booking_form = BookingForm(slots)
+    if request.method == 'POST':
+        booking_form = BookingForm(slots, data=request.POST)
+        if booking_form.is_valid():
+            booking = booking_form.save()
+            tables = find_tables(
+                booking.date, booking.time, booking.end_time,
+                booking.party_size
+            )
+            if isinstance(tables, list):
+                booking.tables.set(tables)
+                booking.save()
+            else:
+                booking.tables.add(tables)
+                booking.save()
+            return redirect('make_booking')
+    else:
+        booking_form = BookingForm(slots)
 
     context = {
         'booking_form': booking_form,
