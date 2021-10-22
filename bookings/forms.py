@@ -35,5 +35,5 @@ class BookingForm(forms.ModelForm):
 
         if not tables:
             raise forms.ValidationError(
-                "There are no tables available at that time"
+                "Sorry no tables available at that time!"
             )

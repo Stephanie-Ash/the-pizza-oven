@@ -16,16 +16,16 @@
                 <form action="{% url 'make_booking' %}" method="POST">
                     {% csrf_token %}
                     <div class="row">
+                        <div class="col no-table-error txt-dark">
+                            {{ booking_form | as_crispy_errors }}
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-12 col-sm-6">
                             {{ booking_form.date | as_crispy_field }}
                         </div>
                         <div class="col-12 col-sm-6">
                             {{ booking_form.time | as_crispy_field }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            {{ booking_form.non_field_errors }}
                         </div>
                     </div>
                     <div class="row">

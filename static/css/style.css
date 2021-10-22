@@ -176,6 +176,14 @@ iframe {
     display: inline-block;
 }
 
+.no-table-error div {
+    background-color: #FFF3CD;
+}
+
+.no-table-error li {
+    list-style: none;
+}
+
 
 /* -------------------Media queries------------------ */
 
