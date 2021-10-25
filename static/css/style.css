@@ -58,7 +58,6 @@ h3 {
     background-color: #b03f57;
 }
 
-
 /* Buttons */
 .btn-red {
     background-color: #b03f57;
@@ -80,19 +79,14 @@ h3 {
 /* --------------------base.html--------------------- */
 
 /* Messages */
-.messages-column {
-    margin-top: 80px;
+.messages {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    z-index: 1;
 }
 
-/* Header including nav and page heading */
-header {
-    background-image: url('/media/restaurant.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 500px;
-}
-
+/* Nav */
 .nav-link,
 .navbar-brand {
     color: #F4F7F5 !important;
@@ -102,13 +96,6 @@ header {
 .navbar-brand:hover,
 .social:hover {
     color: #9DAEAD !important;
-}
-
-.page-heading {
-    width: -moz-fit-content;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* Footer */
@@ -135,6 +122,26 @@ footer > p {
 }
 
 /* --------------------index.html-------------------- */
+
+/* Page Heading */
+.heading {
+    background-image: url('/media/restaurant.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+}
+
+.heading > div {
+    height: 500px;
+}
+
+.page-heading {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* About Us section */
 .about-text {
@@ -168,6 +175,10 @@ iframe {
 /* make_booking.html */
 
 /* Booking form */
+.bookings {
+    padding-top: 150px;
+}
+
 .booking-form {
     border: 2px solid #8a3244;
     border-radius: 5px;
@@ -257,6 +268,10 @@ iframe {
 
     .opening-hours {
         padding-left: 35px;
+    }
+
+    .messages {
+        left: 17%;
     }
 }
 
@@ -348,5 +363,9 @@ iframe {
     
     .opening-wkend {
         margin-left: 72px;
+    }
+
+    .messages {
+        left: 25%;
     }
 }

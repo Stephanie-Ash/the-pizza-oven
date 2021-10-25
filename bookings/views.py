@@ -28,7 +28,7 @@ def make_booking(request):
             return redirect(reverse('booking_confirmed', args=[booking.id]))
         else:
             messages.error(
-                request, 'Failed to make booking. Please check the form.')
+                request, 'Failed to make the booking. Please check the form.')
     else:
         booking_form = BookingForm(slots)
 

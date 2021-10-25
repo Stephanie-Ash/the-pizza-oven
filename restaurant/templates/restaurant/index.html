@@ -1,5 +1,20 @@
 {% extends "base.html" %}
 
+{% block heading %}
+<!-- Page heading -->
+<div class="container-fluid heading">
+    <div class="row">
+        <div class="col my-auto text-center heading-text">
+            <div class="page-heading bg-color-faint txt-light">
+                <h1>{{ restaurant.name }}</h1>
+                <h2>South Bank</h2>
+            </div>
+            <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}">Book Table</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <!-- About section -->
 <section id="about">
