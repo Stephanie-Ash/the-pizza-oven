@@ -4,8 +4,8 @@
 
 {% load crispy_forms_tags %}
 
-    <div class="container-fluid bg-color-bookings">
-        <div class="row mx-2 bookings">
+    <div class="container-fluid bookings">
+        <div class="row mx-2 bookings-content">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto mb-4 booking-form bg-color-bookingform txt-light">
                 <p class="my-3 booking-info">Fill out the form below to make a booking:</p>
                 <form action="{% url 'make_booking' %}" method="POST">

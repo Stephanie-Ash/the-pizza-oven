@@ -50,10 +50,6 @@ h3 {
     background-color: #b03f57;
 }
 
-.bg-color-bookings {
-    background-color: #F4F7F5;
-}
-
 .bg-color-bookingform {
     background-color: #b03f57;
 }
@@ -174,8 +170,16 @@ iframe {
 
 /* make_booking.html */
 
-/* Booking form */
+/* Backgound */
 .bookings {
+    background-image: url('/media/pizza4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Booking form */
+.bookings-content {
     padding-top: 150px;
 }
 
@@ -186,10 +190,6 @@ iframe {
 
 .booking-info {
     font-size: 18px;
-}
-
-.inline-form-field {
-    display: inline-block;
 }
 
 .no-table-error div {
