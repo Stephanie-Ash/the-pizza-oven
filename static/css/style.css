@@ -171,8 +171,7 @@ iframe {
     border: none;
 }
 
-
-/* make_booking.html */
+/* -----------------make_booking.html---------------- */
 
 /* Backgound */
 .bookings {
@@ -205,6 +204,19 @@ iframe {
 
 .booking-details {
     height: 200px;
+}
+
+/* --------------booking_confirmed.html-------------- */
+
+.bookings-confirmed {
+    background-image: url('/media/pizza4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.confirmed-content {
+    padding-top: 150px;
 }
 
 .image-cont {
