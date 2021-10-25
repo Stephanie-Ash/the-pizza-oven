@@ -4,7 +4,7 @@ from django.contrib import messages
 from restaurant.models import Restaurant
 from .models import Booking
 from .forms import BookingForm
-from .check_availability import create_booking_slots, find_tables
+from .check_availability import create_booking_slots
 
 
 def make_booking(request):
@@ -18,22 +18,17 @@ def make_booking(request):
     if request.method == 'POST':
         booking_form = BookingForm(slots, data=request.POST)
         if booking_form.is_valid():
+            tables = booking_form.cleaned_data['tables']
             booking = booking_form.save()
-            tables = find_tables(
-                booking.date, booking.time, booking.end_time,
-                booking.party_size
-            )
             if isinstance(tables, list):
                 booking.tables.set(tables)
-                booking.save()
             else:
                 booking.tables.add(tables)
-                booking.save()
             messages.success(request, 'Booking successfully made!')
             return redirect(reverse('booking_confirmed', args=[booking.id]))
         else:
             messages.error(
-                request, 'Failed to make booking. Pleas check the form.')
+                request, 'Failed to make booking. Please check the form.')
     else:
         booking_form = BookingForm(slots)
 

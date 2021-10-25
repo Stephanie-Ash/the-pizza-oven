@@ -28,7 +28,7 @@ class Booking(models.Model):
     end_time = models.TimeField(
         auto_now=False, auto_now_add=False, editable=False)
     party_size = models.IntegerField(choices=PARTY_SIZE_CHOICES, default=2)
-    tables = models.ManyToManyField(Table, related_name='bookings', blank=True)
+    tables = models.ManyToManyField(Table, related_name='bookings')
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
     phone_number = models.CharField(max_length=20)

@@ -33,7 +33,11 @@ class BookingForm(forms.ModelForm):
         tables = find_tables(
             planned_date, planned_time, booking_end, planned_party_size)
 
-        if not tables:
+        if tables:
+            cleaned_data['tables'] = tables
+        else:
             raise forms.ValidationError(
                 "Sorry no tables available at that time!"
             )
+
+        return cleaned_data
