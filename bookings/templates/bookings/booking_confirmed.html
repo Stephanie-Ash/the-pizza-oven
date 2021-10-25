@@ -2,19 +2,30 @@
 
 {% block content %}
 
-    <div class="container-fluid bg-color-bookings">
-        <div class="row">
-            <div class="col-12 my-4 txt-dark text-center">
-                <h3 class="m-0 heading-text">Well Done!</h3>
+<div class="container-fluid bookings bookings-confirmed">
+    <div class="row bookings-content">
+        <div class="col-6 mx-auto mb-5 bg-colour-booking-confirmed txt-dark lead">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Thank You!</h3>
+                    <hr>
+                    <p>We have a spare table and your booking has been made.</p>
+                    <p>Your booking details are as follows:</p>
+                    
+                </div>
             </div>
-        </div>
-        <div class="row mx-2">
-            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto mb-4 booking-form bg-color-bookingform txt-light">
-                <p class="my-3 booking-info">{{ booking.date }}</p>
-                
-                
+            <div class="row booking-details">
+                <div class="col-6">
+                    <div class="image-cont"></div>
+                </div>
+                <div class="col-6">
+                    <p>The Pizza Oven</p>
+                    <p>Table for {{ booking.party_size }} people</p>
+                    <p>{{ booking.date }} at {{ booking.time }}</p>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 {% endblock %}
