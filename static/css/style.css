@@ -184,6 +184,8 @@ iframe {
 /* Booking form */
 .bookings-content {
     padding-top: 150px;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 .booking-form {
