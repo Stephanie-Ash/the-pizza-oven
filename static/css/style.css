@@ -300,6 +300,11 @@ iframe {
     .messages {
         left: 17%;
     }
+
+    .about-content {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
 }
 
 /* For screens 785px and up */
