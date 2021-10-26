@@ -17,5 +17,5 @@ class RestaurantAdmin(admin.ModelAdmin):
 @admin.register(Table)
 class TableAdmin(admin.ModelAdmin):
     """ Admin options for the Table model """
-    list_display = ('restaurant', 'size')
+    list_display = ('size', 'restaurant')
     ordering = ('size',)
