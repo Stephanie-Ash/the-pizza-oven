@@ -1,6 +1,7 @@
 """ Views for the bookings app """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+
 from restaurant.models import Restaurant
 from .models import Booking
 from .forms import BookingForm
@@ -9,7 +10,7 @@ from .check_availability import create_booking_slots
 
 def make_booking(request):
     """
-    Bring up the booking form and make a booking
+    Display the booking form and make a booking
     """
     restaurant = Restaurant.objects.get(name="The Pizza Oven")
     slots = create_booking_slots(
@@ -40,6 +41,9 @@ def make_booking(request):
 
 
 def booking_confirmed(request, booking_id):
+    """
+    Confirm a successful booking
+    """
     booking = get_object_or_404(Booking, id=booking_id)
 
     context = {
@@ -47,3 +51,18 @@ def booking_confirmed(request, booking_id):
     }
 
     return render(request, 'bookings/booking_confirmed.html', context)
+
+
+def manage_bookings(request):
+    """
+    Review and manage bookings
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry this area is for the retaurant owner.')
+        return redirect('home')
+
+    bookings = Booking.objects.all()
+    context = {
+        'bookings': bookings
+    }
+    return render(request, 'bookings/manage_bookings.html', context)

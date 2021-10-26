@@ -7,4 +7,5 @@ urlpatterns = [
     path(
         'booking_confirmed/<booking_id>',
         views.booking_confirmed, name='booking_confirmed'),
+    path('manage_bookings', views.manage_bookings, name='manage_bookings'),
 ]
