@@ -2,26 +2,25 @@
 
 {% block content %}
 
-<div class="container-fluid bookings-confirmed">
-    <div class="row no-gutters confirmed-content">
-        <div class="col-12 mb-5 bg-colour-booking-confirmed txt-dark lead">
-            <div class="row no-gutters">
-                <div class="col-12 pt-2 px-1">
-                    <h3>Thank You!</h3>
-                    <hr>
-                    <p>We have a spare table and your booking has been made.</p>
+<div class="container-fluid px-0 bookings-confirmed">
+    <div class="row confirmed-content">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6 mb-5 mx-auto bg-color-booking-confirmed confirmed-box txt-dark lead">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="mt-2"><strong>Thank You!</strong></h3>
+                    <hr class="m-0">
+                    <p class="mt-3">We have a spare table and your booking has been made.</p>
                     <p>Your booking details are as follows:</p>
-                    
                 </div>
             </div>
-            <div class="row no-gutters booking-details">
-                <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-sm-6 mt-2 mb-4">
                     <div class="image-cont"></div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-sm-6 mt-2 confirmed-info">
                     <p>The Pizza Oven</p>
                     <p>Table for {{ booking.party_size }} people</p>
-                    <p>{{ booking.date }} at {{ booking.time }}</p>
+                    <p>{{ booking.date }} at {{ booking.time|time:"H:i" }}</p>
                 </div>
             </div>
         </div>
