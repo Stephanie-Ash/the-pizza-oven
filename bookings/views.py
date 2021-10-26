@@ -58,7 +58,7 @@ def manage_bookings(request):
     Review and manage bookings
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry this area is for the retaurant owner.')
+        messages.error(request, 'Sorry this area is for the restaurant owner.')
         return redirect('home')
 
     bookings = Booking.objects.all()
