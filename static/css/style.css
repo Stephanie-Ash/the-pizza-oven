@@ -273,6 +273,14 @@ iframe {
     width: 80%;
 }
 
+.manage-options a {
+    display: inline-block;
+}
+
+.manage-cancel {
+    color: red;
+}
+
 /* -------------------Media queries------------------ */
 
 /* For screens 376px and up */
