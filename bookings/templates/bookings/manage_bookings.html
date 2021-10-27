@@ -54,7 +54,7 @@
                 </div>
                 <div class="manage-options pl-3 pb-3">
                     <a class="manage-view" href="" aria-label="View and update the booking">View/Update</a>
-                    <button class="btn-delete" data-toggle="modal" data-target="#booking-delete-modal">Cancel</button>
+                    <button class="btn-delete manage-delete" data-delete-url="{% url 'delete_booking' booking.id %}">Cancel</button>
                 </div>
             </div>
             {% endfor %}
@@ -64,7 +64,7 @@
 {% endblock %}
 
 {% block top-content %}
-<div class="modal" id="booking-delete-modal" tabindex="-1" role="alertdialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
+<div class="modal fade" id="booking-delete-modal" tabindex="-1" role="alertdialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -78,9 +78,21 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <a href="" class="btn btn-danger" aria-label="Delete the booking">Yes</a>
+          <a href="#" id="manage-delete" class="btn btn-danger" aria-label="Delete the booking">Yes</a>
         </div>
       </div>
     </div>
   </div>
+{% endblock %}
+
+{% block postloadjs %}
+<script>
+    $(document).ready(function() {
+        $(".manage-delete").click(function() {
+            var del_url = $(this).data('delete-url');
+            $("#manage-delete").attr("href", del_url);
+            $("#booking-delete-modal").modal();
+        });
+    });
+</script>
 {% endblock %}

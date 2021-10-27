@@ -70,9 +70,26 @@ def manage_bookings(request):
 
 
 def add_table_no(request, booking_id):
+    """
+    Add table numbers to the saved bookings
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only the restaurant owner can do this.')
+        return redirect('home')
+
     booking = get_object_or_404(Booking, id=booking_id)
     if request.method == 'POST':
         table_numbers = request.POST.get('table_numbers')
         booking.table_numbers = table_numbers
         booking.save()
-        return redirect('manage_bookings')
+        return redirect(reverse('manage_bookings'))
+
+
+def delete_booking(request, booking_id):
+    """
+    Cancel a booking
+    """
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    messages.success(request, 'Booking cancelled!')
+    return redirect(reverse('manage_bookings'))
