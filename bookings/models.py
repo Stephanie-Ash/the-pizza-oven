@@ -37,6 +37,9 @@ class Booking(models.Model):
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
 
+    class Meta:
+        ordering = ['-date', '-time']
+
     def _generate_end_time(self):
         end_time = (
             datetime.combine(date.today(), self.time)) + timedelta(hours=2)
