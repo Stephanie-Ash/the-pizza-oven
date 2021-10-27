@@ -265,6 +265,14 @@ iframe {
     display: inline-block;
 }
 
+.manage-table-no {
+    width: 100%;
+}
+
+.manage-table-no input {
+    width: 80%;
+}
+
 /* -------------------Media queries------------------ */
 
 /* For screens 376px and up */

@@ -66,3 +66,12 @@ def manage_bookings(request):
         'bookings': bookings
     }
     return render(request, 'bookings/manage_bookings.html', context)
+
+
+def add_table_no(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    if request.method == 'POST':
+        table_numbers = request.POST.get('table_numbers')
+        booking.table_numbers = table_numbers
+        booking.save()
+        return redirect('manage_bookings')
