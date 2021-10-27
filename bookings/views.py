@@ -27,7 +27,10 @@ def make_booking(request):
             else:
                 booking.tables.add(tables)
             messages.success(request, 'Booking successfully made!')
-            return redirect(reverse('booking_confirmed', args=[booking.id]))
+            if request.user.is_superuser:
+                return redirect(reverse('manage_bookings'))
+            else:
+                return redirect(reverse('booking_confirmed', args=[booking.id]))
         else:
             messages.error(
                 request, 'Failed to make the booking. Please check the form.')
