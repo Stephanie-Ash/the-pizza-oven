@@ -258,7 +258,11 @@ iframe {
 /* ---------------manage_bookings.html--------------- */
 
 .manage-bookings {
-    margin-top: 100px;
+    margin-top: 90px;
+}
+
+.manage-details {
+    display: inline-block;
 }
 
 /* -------------------Media queries------------------ */
@@ -311,6 +315,10 @@ iframe {
         margin-top: auto !important;
         margin-bottom: auto !important;
     }
+
+    .manage-sizes {
+        display: inline-block;
+    }
 }
 
 /* For screens 768px and up */
@@ -342,6 +350,14 @@ iframe {
     .about-content {
         padding-left: 50px !important;
         padding-right: 50px !important;
+    }
+
+    .manage-sizes {
+        display: block;
+    }
+
+    .manage-details {
+        display: block;
     }
 }
 
@@ -437,5 +453,9 @@ iframe {
 
     .messages {
         left: 25%;
+    }
+
+    .manage-details {
+        display: inline-block;
     }
 }
