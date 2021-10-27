@@ -1,4 +1,5 @@
 """ Views for the bookings app """
+import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 
@@ -61,7 +62,7 @@ def manage_bookings(request):
         messages.error(request, 'Sorry this area is for the restaurant owner.')
         return redirect('home')
 
-    bookings = Booking.objects.all()
+    bookings = Booking.objects.filter(date__gte=datetime.date.today())
     context = {
         'bookings': bookings
     }
