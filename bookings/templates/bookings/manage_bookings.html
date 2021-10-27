@@ -1,9 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-{% for booking in bookings %}
-<p>{{ booking.name }}</p>
-{% endfor %}
-
+<div class="container-fluid bg-color-manage">
+    <div class="row">
+        <div class="col-12 manage-bookings">
+            {% for booking in bookings %}
+            <div class="card txt-dark bg-color-manage-cards">
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <div class="card-body">
+                            <p><strong>Customer Name:</strong></p>
+                            <p>{{ booking.name }}</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card-body">
+                            <p><strong>Booking Details:</strong></p>
+                            <p>{{ booking.date }} {{ booking.time|time:"H:i" }} {{ booking.party_size }} people</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card-body">
+                            <p><strong>Table Size:</strong></p>
+                            {% for table in booking.tables.all %}
+                            <p>{{ table.size }} person</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card-body">
+                            <p><strong>Number(s):</strong></p>
+                            <p>{{ booking.table_numbers }}</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card-body">
+                            <p><strong>Requirements:</strong></p>
+                            <p>{{ booking.special_requirements }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}

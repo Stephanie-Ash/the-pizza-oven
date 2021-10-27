@@ -68,6 +68,14 @@ h3 {
     background-color: #F4F7F5;
 }
 
+.bg-color-manage {
+    background-color: #43b792;
+}
+
+.bg-color-manage-cards {
+    background-color: #F4F7F5;
+}
+
 /* Buttons */
 .btn-red {
     background-color: #b03f57;
@@ -245,6 +253,12 @@ iframe {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+/* ---------------manage_bookings.html--------------- */
+
+.manage-bookings {
+    margin-top: 150px;
 }
 
 /* -------------------Media queries------------------ */
