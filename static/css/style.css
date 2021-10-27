@@ -94,6 +94,16 @@ h3 {
     color: #F4F7F5;
 }
 
+.btn-delete {
+    color: Red;
+    border: none;
+    background-color: transparent;
+}
+
+.btn-delete:hover {
+    text-decoration: underline;
+}
+
 /* --------------------base.html--------------------- */
 
 /* Messages */

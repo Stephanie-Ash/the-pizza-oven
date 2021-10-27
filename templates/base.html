@@ -76,24 +76,24 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8 col-xl-6 text-center messages">
-                    {% for message in messages %}
-                    <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                        {{ message | safe }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-
         {% block heading %}
         {% endblock %}
     </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 col-xl-6 text-center messages">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     <!-- Main content -->
     <main>
@@ -126,6 +126,10 @@
         </ul>
         </div>
     </footer>
+
+    {% block top-content %}
+    {% endblock %}
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
