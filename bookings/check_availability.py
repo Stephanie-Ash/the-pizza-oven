@@ -2,6 +2,7 @@
 from datetime import datetime, date, timedelta
 from itertools import combinations, chain
 from restaurant.models import Table
+from .models import Booking
 
 
 def create_booking_slots(opening_time, closing_time):
@@ -22,15 +23,14 @@ def create_booking_slots(opening_time, closing_time):
     return [(slot.time(), slot.strftime('%H:%M')) for slot in booking_slots]
 
 
-def find_tables(date, time, end_time, party_size):
+def find_tables(date, time, end_time, party_size, booking_id):
     """ Search for available tables on the date and time of the booking """
 
-    # Exclude any tables whose bookings overlap
-    # the start time of the required booking
-    check1 = Table.objects.exclude(
-        bookings__date=date,
-        bookings__time__lt=time,
-        bookings__end_time__gt=time)
+    if booking_id:
+        check1 = Table.objects.exclude(
+            bookings__in=Booking.objects.exclude(id=booking_id).filter(date=date, time__lt=time, end_time__gt=time))
+    else:
+        check1 = Table.objects.exclude(bookings__date=date, bookings__time__lt=time, bookings__end_time__gt=time)
 
     # Exclude any tables whose bookings overlap
     # the end time of the required booking

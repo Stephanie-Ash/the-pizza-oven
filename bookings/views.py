@@ -5,8 +5,8 @@ from django.contrib import messages
 
 from restaurant.models import Restaurant
 from .models import Booking
-from .forms import BookingForm
-from .check_availability import create_booking_slots
+from .forms import BookingForm, UpdateBookingForm
+from .check_availability import create_booking_slots, find_tables
 
 
 def make_booking(request):
@@ -94,10 +94,38 @@ def update_booking(request, booking_id):
         restaurant.opening_time, restaurant.closing_time)
 
     booking = get_object_or_404(Booking, id=booking_id)
-    booking_form = BookingForm(slots, instance=booking)
+
+    if request.method == 'POST':
+        booking_form = UpdateBookingForm(slots, data=request.POST, instance=booking)
+        if booking_form.is_valid():
+            if ('date' not in booking_form.changed_data and
+                    'time' not in booking_form.changed_data and
+                    'party_size' not in booking_form.changed_data):
+                booking_form.save()
+                messages.success(request, 'Booking successfully updated.')
+                return redirect('manage_bookings')
+            else:
+                updated_data = booking_form.cleaned_data
+                tables = find_tables(updated_data['date'], updated_data['time'], updated_data['booking_end'], updated_data['party_size'], booking_id)
+            if tables:
+                if isinstance(tables, list):
+                    booking_form.save()
+                    booking.tables.set(tables)
+                else:
+                    booking_form.save()
+                    booking.tables.add(tables)
+                messages.success(request, 'Booking successfully updated.')
+                return redirect('manage_bookings')
+            else:
+                messages.error(request, 'Sorry no tables available at that time!')
+        else:
+            messages.error(request, 'Failed to update the booking. Please check the form.')
+    else:
+        booking_form = BookingForm(slots, instance=booking)
 
     context = {
         'booking_form': booking_form,
+        'booking': booking
     }
     return render(request, 'bookings/update_booking.html', context)
 

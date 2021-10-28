@@ -8,7 +8,7 @@
         <div class="row bookings-content">
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto mb-4 booking-form bg-color-bookingform txt-light">
                 <p class="my-3 booking-info">Fill out the form below to make a booking:</p>
-                <form action="{% url 'make_booking' %}" method="POST">
+                <form action="{% url 'update_booking' booking.id %}" method="POST">
                     {% csrf_token %}
                     <div class="row">
                         <div class="col no-table-error txt-dark">
