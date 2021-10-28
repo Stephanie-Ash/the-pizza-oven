@@ -88,6 +88,20 @@ def add_table_no(request, booking_id):
         return redirect(reverse('manage_bookings'))
 
 
+def update_booking(request, booking_id):
+    restaurant = Restaurant.objects.get(name="The Pizza Oven")
+    slots = create_booking_slots(
+        restaurant.opening_time, restaurant.closing_time)
+
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking_form = BookingForm(slots, instance=booking)
+
+    context = {
+        'booking_form': booking_form,
+    }
+    return render(request, 'bookings/update_booking.html', context)
+
+
 def delete_booking(request, booking_id):
     """
     Cancel a booking

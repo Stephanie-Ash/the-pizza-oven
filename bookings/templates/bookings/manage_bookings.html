@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="manage-options pl-3 pb-3">
-                    <a class="manage-view" href="" aria-label="View and update the booking">View/Update</a>
+                    <a class="manage-view" href="{% url 'update_booking' booking.id %}" aria-label="View and update the booking">View/Update</a>
                     <button class="btn-delete manage-delete" data-delete-url="{% url 'delete_booking' booking.id %}">Cancel</button>
                 </div>
             </div>
