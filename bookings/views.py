@@ -30,7 +30,8 @@ def make_booking(request):
             if request.user.is_superuser:
                 return redirect(reverse('manage_bookings'))
             else:
-                return redirect(reverse('booking_confirmed', args=[booking.id]))
+                return redirect(reverse(
+                    'booking_confirmed', args=[booking.id]))
         else:
             messages.error(
                 request, 'Failed to make the booking. Please check the form.')
@@ -96,7 +97,8 @@ def update_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
     if request.method == 'POST':
-        booking_form = UpdateBookingForm(slots, data=request.POST, instance=booking)
+        booking_form = UpdateBookingForm(
+            slots, data=request.POST, instance=booking)
         if booking_form.is_valid():
             if ('date' not in booking_form.changed_data and
                     'time' not in booking_form.changed_data and
@@ -106,9 +108,13 @@ def update_booking(request, booking_id):
                 return redirect('manage_bookings')
             else:
                 updated_data = booking_form.cleaned_data
-                tables = find_tables(updated_data['date'], updated_data['time'], updated_data['booking_end'], updated_data['party_size'], booking_id)
+                tables = find_tables(
+                    updated_data['date'], updated_data['time'],
+                    updated_data['booking_end'], updated_data['party_size'],
+                    booking_id)
             if tables:
                 booking.tables.clear()
+                booking.table_numbers = ''
                 if isinstance(tables, list):
                     booking_form.save()
                     booking.tables.set(tables)
@@ -118,9 +124,12 @@ def update_booking(request, booking_id):
                 messages.success(request, 'Booking successfully updated.')
                 return redirect('manage_bookings')
             else:
-                messages.error(request, 'Sorry no tables available at that time!')
+                messages.error(
+                    request, 'Sorry no tables available at that time!')
         else:
-            messages.error(request, 'Failed to update the booking. Please check the form.')
+            messages.error(
+                request,
+                'Failed to update the booking. Please check the form.')
     else:
         booking_form = BookingForm(slots, instance=booking)
 
