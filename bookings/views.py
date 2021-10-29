@@ -73,6 +73,21 @@ def manage_bookings(request):
     return render(request, 'bookings/manage_bookings.html', context)
 
 
+def booking_detail(request, booking_id):
+    """ A view to show individual booking details for the restaurant owner """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry this area is for the restaurant owner.')
+        return redirect('home')
+
+    booking = get_object_or_404(Booking, id=booking_id)
+
+    context = {
+        'booking': booking,
+    }
+
+    return render(request, 'bookings/booking_detail.html', context)
+
+
 def add_table_no(request, booking_id):
     """
     Add table numbers to the saved bookings

@@ -291,6 +291,10 @@ iframe {
     display: inline-block;
 }
 
+.manage-view {
+    color: green;
+}
+
 .manage-cancel {
     color: red;
 }
