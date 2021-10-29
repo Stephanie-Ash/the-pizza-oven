@@ -23,6 +23,10 @@ main {
     color: #201622;
 }
 
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+}
+
 h1 {
     font-size: 32px;
 }
@@ -42,6 +46,10 @@ h4 {
 /* Background colours */
 .bg-color-faint {
     background-color: rgba(32, 22, 34, 0.5);
+}
+
+.bg-color-accounts {
+    background-color: #F4F7F5;
 }
 
 .bg-color-footer {
@@ -148,6 +156,13 @@ footer > p {
 .social {
     font-size: 25px;
     padding: 10px;
+}
+
+/* ------------------accounts pages------------------ */
+
+.accounts-content {
+    flex: 1;
+    padding-top: 80px;
 }
 
 /* --------------------index.html-------------------- */
