@@ -45,14 +45,13 @@
                             <p class="mb-1"><strong>Table No(s):</strong></p>
                             {% if booking.table_numbers %}
                             <p class="mb-1">{{ booking.table_numbers }}</p>
-                            {% else %}
+                            {% endif %}
                             <form class="manage-table-no" action="{% url 'add_table_no' booking.id %}" method="POST">
                                 {% csrf_token %}
-                                <input type="text" name="table_numbers" placeholder="eg. 1, 2" aria-label="table number"
+                                <input type="text" name="table_numbers" placeholder="eg. 1, 2" aria-label="add table number"
                                     title="table number">
-                                <button type="submit" class="p-0 border-0"><i class="fas fa-plus-circle"></i></button>
+                                <button type="submit" class="p-0 border-0" title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}"><i class="fas fa-plus-circle"></i></button>
                             </form>
-                            {% endif %}
                         </div>
                     </div>
                     <div class="col-12 col-lg-3">
