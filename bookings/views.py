@@ -108,6 +108,7 @@ def update_booking(request, booking_id):
                 updated_data = booking_form.cleaned_data
                 tables = find_tables(updated_data['date'], updated_data['time'], updated_data['booking_end'], updated_data['party_size'], booking_id)
             if tables:
+                booking.tables.clear()
                 if isinstance(tables, list):
                     booking_form.save()
                     booking.tables.set(tables)
