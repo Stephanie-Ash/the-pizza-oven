@@ -46,8 +46,7 @@ class Booking(models.Model):
         return end_time.time()
 
     def save(self, *args, **kwargs):
-        if not self.end_time:
-            self.end_time = self._generate_end_time()
+        self.end_time = self._generate_end_time()
         super().save(*args, **kwargs)
 
     def __str__(self):
