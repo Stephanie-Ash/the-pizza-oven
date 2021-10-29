@@ -60,14 +60,14 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 {% if user.is_authenticated %}
-                                <a class="dropdown-item" href="#" aria-label="Logout of your account">Logout</a>
+                                <a class="dropdown-item" href="{% url 'account_logout' %}" aria-label="Logout of your account">Logout</a>
                                 {% if user.is_superuser %}
                                 <a class="dropdown-item" href="{% url 'manage_bookings' %}"
                                     aria-label="Go to the manage bookings page">Manage Bookings</a>
                                 {% endif %}
                                 {% else %}
-                                <a class="dropdown-item" href="#" aria-label="Register for an account">Register</a>
-                                <a class="dropdown-item" href="#" aria-label="Login to your account">Login</a>
+                                <a class="dropdown-item" href="{% url 'account_signup' %}" aria-label="Register for an account">Register</a>
+                                <a class="dropdown-item" href="{% url 'account_login' %}" aria-label="Login to your account">Login</a>
                                 {% endif %}
                             </div>
                         </li>
