@@ -40,6 +40,7 @@ class Booking(models.Model):
     special_requirements = models.TextField(blank=True)
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
+    updated = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date', '-time']
