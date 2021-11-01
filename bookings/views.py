@@ -111,7 +111,6 @@ def my_bookings(request):
     """
     Customer review and manage bookings
     """
-    # current_bookings = Booking.objects.filter(date__gte=datetime.date.today())
     customer_bookings = Booking.objects.filter(
         customer__isnull=False, customer=request.user.id)
     bookings = customer_bookings.filter(date__gte=datetime.date.today())

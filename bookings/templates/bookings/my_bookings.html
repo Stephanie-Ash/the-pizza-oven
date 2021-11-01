@@ -2,10 +2,63 @@
 
 {% block content %}
 
-{% for booking in bookings %}
+<div class="container-fluid px-0 bookings-confirmed">
+    <div class="row confirmed-content">
+        {% for booking in bookings %}
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto mb-5 bg-color-booking-confirmed confirmed-box txt-dark lead">
+            <div class="row">
+                <div class="col-12 col-sm-6 mt-2 mb-4">
+                    <div class="image-cont"></div>
+                </div>
+                <div class="col-12 col-sm-6 mt-2 confirmed-info">
+                    <p>The Pizza Oven</p>
+                    <p>Table for {{ booking.party_size }} people</p>
+                    <p>{{ booking.date }} at {{ booking.time|time:"H:i" }}</p>
+                </div>
+                <div class="col-12 mt-2">
+                    <p class="mb-0">Click on the links below to change or cancel your booking:</p>
+                    <a class="manage-update mb-2" href="{% url 'update_booking' booking.id %}" aria-label="View and update the booking">Update</a>
+                    <button class="btn-delete manage-delete mb-2" data-delete-url="{% url 'delete_booking' booking.id %}">Cancel</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
-<p>{{ booking.date }}</p>
+{% endblock %}
 
-{% endfor %}
+{% block top-content %}
+<div class="modal fade" id="booking-delete-modal" tabindex="-1" role="alertdialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Cancel Booking</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="modal-desc">Are you sure you want to cancel and delete the booking?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          <a href="#" id="manage-delete" class="btn btn-danger" aria-label="Delete the booking">Yes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
 
+{% block postloadjs %}
+<script>
+    // Adapted from https://stackoverflow.com/questions/54806538/how-to-pass-object-instance-to-a-href-tag-within-a-django-modal-dialog
+    $(document).ready(function() {
+        $(".manage-delete").click(function() {
+            var del_url = $(this).data('delete-url');
+            $("#manage-delete").attr("href", del_url);
+            $("#booking-delete-modal").modal();
+        });
+    });
+</script>
 {% endblock %}
