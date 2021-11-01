@@ -1,6 +1,7 @@
 """ models for the bookings app """
 from datetime import datetime, date, time, timedelta
 from django.db import models
+from django.contrib.auth.models import User
 
 from restaurant.models import Table
 
@@ -21,6 +22,9 @@ class Booking(models.Model):
         (8, '8 people'),
     ]
 
+    customer = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='table_bookings')
     date = models.DateField(
         auto_now=False, auto_now_add=False, default=date.today)
     time = models.TimeField(
