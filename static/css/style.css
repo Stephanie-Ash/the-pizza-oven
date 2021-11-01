@@ -102,6 +102,14 @@ h4 {
     color: #F4F7F5;
 }
 
+.btn-white {
+    background-color: #F4F7F5;
+}
+
+.btn-white:hover {
+    background-color: #9DAEAD;
+}
+
 .btn-delete {
     color: Red;
     border: none;
@@ -280,7 +288,7 @@ iframe {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 .confirmed-content {

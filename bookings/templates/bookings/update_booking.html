@@ -38,6 +38,11 @@
                     <div class="row">
                         <div class="col pb-2">
                             <button type="submit" class="btn btn-large btn-green txt-dark">Update Booking</button>
+                            {% if user.is_superuser %}
+                            <a href="{% url 'manage_bookings' %}" class="btn btn-large btn-white txt-dark ml-2">Cancel</a>
+                            {% else %}
+                            <a href="{% url 'my_bookings' %}" class="btn btn-large btn-white txt-dark ml-2">Cancel</a>
+                            {% endif %}
                         </div>
                     </div>
                 </form>
