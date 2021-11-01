@@ -319,6 +319,18 @@ iframe {
     margin-top: 90px;
 }
 
+.manage-updated {
+    color: red;
+}
+
+.manage-name-title {
+    display: inline-block;
+}
+
+.manage-name {
+    margin-left: 21px;
+}
+
 .manage-details {
     display: inline-block;
 }
