@@ -137,10 +137,13 @@ def update_booking(request, booking_id):
                     'time' not in booking_form.changed_data and
                     'party_size' not in booking_form.changed_data):
                 booking_form.save()
-                messages.success(request, 'Booking successfully updated.')
                 if request.user.is_superuser:
+                    messages.success(request, 'Booking successfully updated.')
                     return redirect('manage_bookings')
                 else:
+                    booking.updated = True
+                    booking.save()
+                    messages.success(request, 'Booking successfully updated.')
                     return redirect('my_bookings')
             else:
                 updated_data = booking_form.cleaned_data
@@ -157,10 +160,13 @@ def update_booking(request, booking_id):
                 else:
                     booking_form.save()
                     booking.tables.add(tables)
-                messages.success(request, 'Booking successfully updated.')
                 if request.user.is_superuser:
+                    messages.success(request, 'Booking successfully updated.')
                     return redirect('manage_bookings')
                 else:
+                    booking.updated = True
+                    booking.save()
+                    messages.success(request, 'Booking successfully updated.')
                     return redirect('my_bookings')
             else:
                 messages.error(

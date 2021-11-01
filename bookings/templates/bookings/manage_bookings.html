@@ -8,7 +8,7 @@
             <div class="text-center">
                 <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}" aria-label="Go to the table booking form">Add Booking</a>
             </div>
-            <p class="text-center my-3">The <i class="fas fa-exclamation-circle manage-updated"></i> flag indicates bookings created or updated by the customer. Click the flag to turn it off.</p>
+            <p class="text-center my-3">The <i class="fas fa-exclamation-circle manage-updated"></i> flag indicates new bookings or those updated by the customer. Click the flag to turn it off.</p>
             {% if not bookings %}
             <div class="card manage-no-bookings txt-dark bg-color-manage-cards my-3">
                 <div class="card-body p-3">
