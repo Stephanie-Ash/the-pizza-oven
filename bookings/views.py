@@ -31,7 +31,7 @@ def make_booking(request):
                 booking.save()
             messages.success(request, 'Booking successfully made!')
             if request.user.is_superuser:
-                return redirect(reverse('manage_bookings'))
+                return redirect('manage_bookings')
             else:
                 return redirect(reverse(
                     'booking_confirmed', args=[booking.id]))
@@ -104,7 +104,7 @@ def add_table_no(request, booking_id):
         table_numbers = request.POST.get('table_numbers')
         booking.table_numbers = table_numbers
         booking.save()
-        return redirect(reverse('manage_bookings'))
+        return redirect('manage_bookings')
 
 
 def my_bookings(request):
@@ -138,7 +138,10 @@ def update_booking(request, booking_id):
                     'party_size' not in booking_form.changed_data):
                 booking_form.save()
                 messages.success(request, 'Booking successfully updated.')
-                return redirect('manage_bookings')
+                if request.user.is_superuser:
+                    return redirect('manage_bookings')
+                else:
+                    return redirect('my_bookings')
             else:
                 updated_data = booking_form.cleaned_data
                 tables = find_tables(
@@ -155,7 +158,10 @@ def update_booking(request, booking_id):
                     booking_form.save()
                     booking.tables.add(tables)
                 messages.success(request, 'Booking successfully updated.')
-                return redirect('manage_bookings')
+                if request.user.is_superuser:
+                    return redirect('manage_bookings')
+                else:
+                    return redirect('my_bookings')
             else:
                 messages.error(
                     request, 'Sorry no tables available at that time!')
@@ -180,4 +186,7 @@ def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
     messages.success(request, 'Booking cancelled!')
-    return redirect(reverse('manage_bookings'))
+    if request.user.is_superuser:
+        return redirect('manage_bookings')
+    else:
+        return redirect('my_bookings')
