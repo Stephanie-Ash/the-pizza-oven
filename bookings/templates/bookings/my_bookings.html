@@ -3,9 +3,14 @@
 {% block content %}
 
 <div class="container-fluid px-0 bookings-confirmed">
+    <div class="row">
+        <div class="col-12 text-center txt-light">
+            <h3 class="mb-4">Upcoming Bookings</h3>
+        </div>
+    </div>
+    {% for booking in bookings %}
     <div class="row confirmed-content">
-        {% for booking in bookings %}
-        <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto mb-5 bg-color-booking-confirmed confirmed-box txt-dark lead">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6 mx-auto mb-4 bg-color-booking-confirmed confirmed-box txt-dark lead">
             <div class="row">
                 <div class="col-12 col-sm-6 mt-2 mb-4">
                     <div class="image-cont"></div>
@@ -22,8 +27,8 @@
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
 
 {% endblock %}

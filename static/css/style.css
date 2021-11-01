@@ -280,10 +280,10 @@ iframe {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    padding-top: 100px;
 }
 
 .confirmed-content {
-    padding-top: 150px;
     margin-left: 6px;
     margin-right: 6px;
 }

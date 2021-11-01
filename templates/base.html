@@ -61,6 +61,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 {% if user.is_authenticated %}
                                 <a class="dropdown-item" href="{% url 'account_logout' %}" aria-label="Logout of your account">Logout</a>
+                                <a class="dropdown-item" href="{% url 'my_bookings' %}" aria-label="View your bookings">My Bookings</a>
                                 {% if user.is_superuser %}
                                 <a class="dropdown-item" href="{% url 'manage_bookings' %}"
                                     aria-label="Go to the manage bookings page">Manage Bookings</a>
