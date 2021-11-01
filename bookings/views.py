@@ -26,6 +26,9 @@ def make_booking(request):
                 booking.tables.set(tables)
             else:
                 booking.tables.add(tables)
+            if request.user.is_authenticated:
+                booking.customer = request.user
+                booking.save()
             messages.success(request, 'Booking successfully made!')
             if request.user.is_superuser:
                 return redirect(reverse('manage_bookings'))
