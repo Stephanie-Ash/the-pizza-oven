@@ -4,8 +4,11 @@
 <div class="container-fluid bg-color-manage manage-bookings">
     <div class="row">
         <div class="col-12 col-sm-10 col-md-12 col-lg-10 col-xl-8 mx-auto manage-content">
-            <h3 class="text-center mb-4">Booking Detail</h3>
-            <div class="card txt-dark bg-color-manage-cards my-5">
+            <h3 class="text-center mb-2">Booking Detail</h3>
+            <div class="text-center">
+                <a href="{% url 'manage_bookings' %}" class="btn btn-large btn-red"><i class="fas fa-chevron-left"></i> Back</a>
+            </div>
+            <div class="card txt-dark bg-color-manage-cards my-4">
                 <div class="row no-gutters">
                     <div class="col-12">
                         <h4 class="pl-2 pt-2"><strong>Booking Information:</strong></h4>
@@ -79,7 +82,7 @@
                     <a class="manage-update" href="{% url 'update_booking' booking.id %}"
                         aria-label="View and update the booking">Update</a>
                     <button class="btn-delete manage-delete pl-1"
-                        data-delete-url="{% url 'delete_booking' booking.id %}">Cancel</button>
+                        data-delete-url="{% url 'delete_booking' booking.id %}">Cancel Booking</button>
                 </div>
             </div>
         </div>
