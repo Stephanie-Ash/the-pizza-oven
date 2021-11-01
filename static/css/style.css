@@ -241,6 +241,21 @@ iframe {
     border-radius: 5px;
 }
 
+.bookings-intro {
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;  
+}
+
+.bookings-intro a {
+    color: #F4F7F5;
+    text-decoration: underline;
+}
+
+.bookings-intro a:hover {
+    color: #9DAEAD;
+    text-decoration: underline;
+}
+
 .booking-info {
     font-size: 18px;
 }
