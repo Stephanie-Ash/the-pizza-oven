@@ -6,9 +6,11 @@
         <div class="col-12 manage-content">
             <h3 class="text-center mb-4">Manage Bookings</h3>
             <div class="text-center">
-                <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}" aria-label="Go to the table booking form">Add Booking</a>
+                <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}"
+                    aria-label="Go to the table booking form">Add Booking</a>
             </div>
-            <p class="text-center my-3">The <i class="fas fa-exclamation-circle manage-updated"></i> flag indicates new bookings or those updated by the customer. Click the flag to turn it off.</p>
+            <p class="text-center my-3">The <i class="fas fa-exclamation-circle manage-updated"></i> flag indicates new
+                bookings or those updated by the customer. Click the flag to turn it off.</p>
             {% if not bookings %}
             <div class="card manage-no-bookings txt-dark bg-color-manage-cards my-3">
                 <div class="card-body p-3">
@@ -22,7 +24,8 @@
                     <div class="col-12 col-sm-6 col-md-3 col-lg-2">
                         <div class="card-body p-3">
                             {% if booking.updated %}
-                            <a href=""><i class="fas fa-exclamation-circle manage-updated"></i></a>
+                            <a href="{% url 'toggle_updated' booking.id %}"
+                                aria-label="Turn on or off the booking updated flag"><i class="fas fa-exclamation-circle manage-updated"></i></a>
                             <p class="mb-1 manage-name-title"><strong>Name:</strong></p>
                             <p class="mb-1 manage-name">{{ booking.name }}</p>
                             {% else %}
@@ -55,9 +58,11 @@
                             {% endif %}
                             <form class="manage-table-no" action="{% url 'add_table_no' booking.id %}" method="POST">
                                 {% csrf_token %}
-                                <input type="text" name="table_numbers" placeholder="eg. 1, 2" aria-label="add table number"
-                                    title="table number">
-                                <button type="submit" class="p-0 border-0" title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}"><i class="fas fa-plus-circle"></i></button>
+                                <input type="text" name="table_numbers" placeholder="eg. 1, 2"
+                                    aria-label="add table number" title="table number">
+                                <button type="submit" class="p-0 border-0"
+                                    title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}"><i
+                                        class="fas fa-plus-circle"></i></button>
                             </form>
                         </div>
                     </div>
@@ -69,9 +74,12 @@
                     </div>
                 </div>
                 <div class="manage-options pl-3 pb-3">
-                    <a class="manage-view" href="{% url 'booking_detail' booking.id %}" aria-label="View booking details">View</a>
-                    <a class="manage-update pl-1" href="{% url 'update_booking' booking.id %}" aria-label="View and update the booking">Update</a>
-                    <button class="btn-delete manage-delete pl-1" data-delete-url="{% url 'delete_booking' booking.id %}">Cancel Booking</button>
+                    <a class="manage-view" href="{% url 'booking_detail' booking.id %}"
+                        aria-label="View booking details">View</a>
+                    <a class="manage-update pl-1" href="{% url 'update_booking' booking.id %}"
+                        aria-label="View and update the booking">Update</a>
+                    <button class="btn-delete manage-delete pl-1"
+                        data-delete-url="{% url 'delete_booking' booking.id %}">Cancel Booking</button>
                 </div>
             </div>
             {% endfor %}
@@ -81,32 +89,33 @@
 {% endblock %}
 
 {% block top-content %}
-<div class="modal fade" id="booking-delete-modal" tabindex="-1" role="alertdialog" aria-labelledby="modal-title" aria-describedby="modal-desc">
+<div class="modal fade" id="booking-delete-modal" tabindex="-1" role="alertdialog" aria-labelledby="modal-title"
+    aria-describedby="modal-desc">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modal-title">Cancel Booking</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">Cancel Booking</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-desc">Are you sure you want to cancel and delete the booking?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <a href="#" id="manage-delete" class="btn btn-danger" aria-label="Delete the booking">Yes</a>
+            </div>
         </div>
-        <div class="modal-body">
-          <p id="modal-desc">Are you sure you want to cancel and delete the booking?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <a href="#" id="manage-delete" class="btn btn-danger" aria-label="Delete the booking">Yes</a>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
 <script>
     // Adapted from https://stackoverflow.com/questions/54806538/how-to-pass-object-instance-to-a-href-tag-within-a-django-modal-dialog
-    $(document).ready(function() {
-        $(".manage-delete").click(function() {
+    $(document).ready(function () {
+        $(".manage-delete").click(function () {
             var del_url = $(this).data('delete-url');
             $("#manage-delete").attr("href", del_url);
             $("#booking-delete-modal").modal();

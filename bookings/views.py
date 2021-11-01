@@ -107,6 +107,17 @@ def add_table_no(request, booking_id):
         return redirect('manage_bookings')
 
 
+def toggle_updated(request, booking_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only the restaurant owner can do this.')
+        return redirect('home')
+
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.updated = not booking.updated
+    booking.save()
+    return redirect('manage_bookings')
+
+
 def my_bookings(request):
     """
     Customer review and manage bookings
