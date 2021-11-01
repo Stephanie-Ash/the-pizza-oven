@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for booking in bookings %}
+
+<p>{{ booking.date }}</p>
+
+{% endfor %}
+
+{% endblock %}

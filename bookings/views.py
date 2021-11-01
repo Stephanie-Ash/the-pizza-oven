@@ -63,7 +63,7 @@ def booking_confirmed(request, booking_id):
 
 def manage_bookings(request):
     """
-    Review and manage bookings
+    Owner review and manage bookings
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry this area is for the restaurant owner.')
@@ -105,6 +105,22 @@ def add_table_no(request, booking_id):
         booking.table_numbers = table_numbers
         booking.save()
         return redirect(reverse('manage_bookings'))
+
+
+def my_bookings(request):
+    """
+    Customer review and manage bookings
+    """
+    # current_bookings = Booking.objects.filter(date__gte=datetime.date.today())
+    customer_bookings = Booking.objects.filter(
+        customer__isnull=False, customer=request.user.id)
+    bookings = customer_bookings.filter(date__gte=datetime.date.today())
+
+    context = {
+        'bookings': bookings
+    }
+
+    return render(request, 'bookings/my_bookings.html', context)
 
 
 def update_booking(request, booking_id):
