@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container-fluid px-0 bookings-confirmed">
-    <div class="row confirmed-content">
+    <div class="row confirmed-content confirmed-note">
         <div class="col-12 col-md-10 col-lg-8 col-xl-6 mb-5 mx-auto bg-color-booking-confirmed confirmed-box txt-dark lead">
             <div class="row">
                 <div class="col-12">
@@ -29,7 +29,7 @@
                     <button class="btn-delete manage-delete mb-2" data-delete-url="{% url 'delete_booking' booking.id %}">Cancel Booking</button>
                 </div>
                 {% else %}
-                <div class="col-12 mt-2">
+                <div class="col-12 mt-2 confirmed-contact">
                     <p>To change or cancel your booking please contact us on:</p>
                     <p class="mb-0">Phone: 020 7946 0441</p>
                     <p>Email: bookings@pizzaoven.com</p>

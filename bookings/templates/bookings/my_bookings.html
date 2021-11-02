@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container-fluid px-0 bookings-confirmed">
-    <div class="row">
+    <div class="row no-gutters confirmed-title">
         <div class="col-12 text-center txt-light">
             <h3 class="mb-4">Upcoming Bookings</h3>
             <div class="text-center">
@@ -13,7 +13,7 @@
     </div>
     {% if not bookings%}
     <div class="row confirmed-content">
-        <div class="col-12 col-md-6 mx-auto my-4 bg-color-booking-confirmed txt-dark lead">
+        <div class="col-12 col-md-6 mx-auto my-4 bg-color-booking-confirmed confirmed-box txt-dark lead">
             <p class="my-2 text-center">You currently have no upcoming bookings.</p>
         </div>
     </div>
