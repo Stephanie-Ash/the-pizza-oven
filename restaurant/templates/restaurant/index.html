@@ -9,14 +9,15 @@
                 <h1>{{ restaurant.name }}</h1>
                 <h2>South Bank</h2>
             </div>
-            <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}" aria-label="Go to the table booking form">Book Table</a>
+            <a class="btn btn-large btn-red txt-light" href="{% url 'make_booking' %}"
+                aria-label="Go to the table booking form">Book Table</a>
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<!-- About section -->
+<!-- About us section -->
 <section id="about">
     <div class="row bg-color-green txt-dark no-gutters px-2 about-content">
         <div class="col text-center my-4">
@@ -50,11 +51,11 @@
                     Why not check out our menu.
                 </p>
                 {% if "placeholder" in restaurant.menu.url %}
-                <a class="btn btn-large btn-red txt-light" target="_blank" href="{{ MEDIA_URL }}the-pizza-oven_menu.pdf"
-                    aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
+                    <a class="btn btn-large btn-red txt-light" target="_blank" href="{{ MEDIA_URL }}the-pizza-oven_menu.pdf"
+                        aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
                 {% else %}
-                <a class="btn btn-large btn-red txt-light" target="_blank" href="{{ restaurant.menu.url }}"
-                    aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
+                    <a class="btn btn-large btn-red txt-light" target="_blank" href="{{ restaurant.menu.url }}"
+                        aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
                 {% endif %}
             </div>
             <div class="col-xl-4 d-none d-xl-inline-block py-5 menu-pic1">
@@ -67,7 +68,7 @@
     </div>
 </section>
 
-<!-- Location and opening times -->
+<!-- Location and opening times section -->
 <section id="location">
     <div class="container-fluid bg-color-red">
         <div class="row">
@@ -95,10 +96,12 @@
                     <div class="col-md-5 col-lg-5 mb-4 opening-hours">
                         <p class="lead">Opening Hours:</p>
                         <p class="lead mb-0">
-                            Monday to Friday<span class="opening-wkday">{{ restaurant.opening_time|time:"H:i" }} - {{ restaurant.closing_time|time:"H:i" }}</span>
+                            Monday to Friday<span class="opening-wkday">{{ restaurant.opening_time|time:"H:i" }} -
+                                {{ restaurant.closing_time|time:"H:i" }}</span>
                         </p>
                         <p class="lead mb-0">
-                            Weekends<span class="opening-wkend">{{ restaurant.opening_time|time:"H:i" }} - {{ restaurant.closing_time|time:"H:i" }}</span>
+                            Weekends<span class="opening-wkend">{{ restaurant.opening_time|time:"H:i" }} -
+                                {{ restaurant.closing_time|time:"H:i" }}</span>
                         </p>
                     </div>
                 </div>

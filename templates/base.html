@@ -8,16 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Website and booking service for The Pizza Oven restaurant in London">
-    <meta name="keywords" content="restaurant, south bank, london, pizza, italian">
+    <meta name="keywords" content="restaurant, south bank, southbank, london, pizza, italian">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}favicon.ico">
 
-    <script src="https://kit.fontawesome.com/2891f43577.js" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ MEDIA_URL }}favicon.ico">
 
     <title>The Pizza Oven</title>
 </head>
@@ -60,15 +66,19 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 {% if user.is_authenticated %}
-                                <a class="dropdown-item" href="{% url 'account_logout' %}" aria-label="Logout of your account">Logout</a>
-                                <a class="dropdown-item" href="{% url 'my_bookings' %}" aria-label="View your bookings">My Bookings</a>
-                                {% if user.is_superuser %}
-                                <a class="dropdown-item" href="{% url 'manage_bookings' %}"
-                                    aria-label="Go to the manage bookings page">Manage Bookings</a>
-                                {% endif %}
+                                    <a class="dropdown-item" href="{% url 'account_logout' %}"
+                                        aria-label="Logout of your account">Logout</a>
+                                    <a class="dropdown-item" href="{% url 'my_bookings' %}"
+                                        aria-label="View your bookings">My Bookings</a>
+                                    {% if user.is_superuser %}
+                                        <a class="dropdown-item" href="{% url 'manage_bookings' %}"
+                                        aria-label="Go to the manage bookings page">Manage Bookings</a>
+                                    {% endif %}
                                 {% else %}
-                                <a class="dropdown-item" href="{% url 'account_signup' %}?next={{ request.path }}" aria-label="Register for an account">Register</a>
-                                <a class="dropdown-item" href="{% url 'account_login' %}?next={{ request.path }}" aria-label="Login to your account">Login</a>
+                                    <a class="dropdown-item" href="{% url 'account_signup' %}?next={{ request.path }}"
+                                        aria-label="Register for an account">Register</a>
+                                    <a class="dropdown-item" href="{% url 'account_login' %}?next={{ request.path }}"
+                                        aria-label="Login to your account">Login</a>
                                 {% endif %}
                             </div>
                         </li>
@@ -77,26 +87,28 @@
             </div>
         </nav>
 
+        <!-- Heading content block -->
         {% block heading %}
         {% endblock %}
     </header>
 
+    <!-- Alert messages -->
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8 col-xl-6 text-center messages">
                 {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                    <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                        {{ message | safe }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 {% endfor %}
             </div>
         </div>
     </div>
 
-    <!-- Main content -->
+    <!-- Main content block -->
     <main>
         {% block content %}
         {% endblock %}
@@ -127,15 +139,22 @@
         </div>
     </footer>
 
+    <!-- Top level content block -->
     {% block top-content %}
     {% endblock %}
 
+    <!-- Required Bootstrap scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2891f43577.js" crossorigin="anonymous"></script>
+
+    <!-- Timeout function to close alert messages after 3 secon -->
     <script>
         setTimeout(function () {
             let messages = document.getElementById("msg");
@@ -143,6 +162,8 @@
             alert.close();
         }, 3000);
     </script>
+
+    <!-- Additional post load javascript block -->
     {% block postloadjs %}
     {% endblock %}
 </body>

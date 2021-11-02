@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!-- Summary of details of an individual booking for restaurant owner -->
 <div class="container-fluid bg-color-green manage-bookings">
     <div class="row">
         <div class="col-12 col-sm-10 col-md-12 col-lg-10 col-xl-8 mx-auto manage-content">
             <h3 class="text-center mb-2">Booking Detail</h3>
             <div class="text-center">
-                <a href="{% url 'manage_bookings' %}" class="btn btn-large btn-red"><i class="fas fa-chevron-left"></i> Back</a>
+                <a href="{% url 'manage_bookings' %}" aria-label="Back to previous page"
+                    class="btn btn-large btn-red"><i class="fas fa-chevron-left"></i>
+                    Back</a>
             </div>
             <div class="card txt-dark bg-color-white my-4">
                 <div class="row no-gutters">
                     <div class="col-12">
+                        <!-- Information about the booking -->
                         <h4 class="pl-2 pt-2"><strong>Booking Information:</strong></h4>
                     </div>
                     <div class="col-6 col-md-3">
@@ -30,7 +34,7 @@
                         <div class="card-body p-2">
                             <p class="mb-1"><strong>Table Size:</strong></p>
                             {% for table in booking.tables.all %}
-                            <p class="mb-1 manage-sizes">{{ table.size }} person,</p>
+                                <p class="mb-1 manage-sizes">{{ table.size }} person,</p>
                             {% endfor %}
                         </div>
                     </div>
@@ -38,7 +42,7 @@
                         <div class="card-body p-2">
                             <p class="mb-1"><strong>Table No(s):</strong></p>
                             {% if booking.table_numbers %}
-                            <p class="mb-1">{{ booking.table_numbers }}</p>
+                                <p class="mb-1">{{ booking.table_numbers }}</p>
                             {% endif %}
                             <form class="manage-table-no" action="{% url 'add_table_no' booking.id %}" method="POST">
                                 {% csrf_token %}
@@ -51,6 +55,7 @@
                         </div>
                     </div>
                     <div class="col-12">
+                        <!-- Information about the booking customer -->
                         <h4 class="pl-2 pt-2"><strong>Customer Information:</strong></h4>
                     </div>
                     <div class="col-12 col-sm-6 col-md-3 col-lg-3">
@@ -75,16 +80,16 @@
                         <div class="card-body p-2">
                             <p class="mb-1"><strong>Requirements:</strong></p>
                             {% if booking.special_requirements %}
-                            <p class="mb-1">{{ booking.special_requirements }}</p>
+                                <p class="mb-1">{{ booking.special_requirements }}</p>
                             {% else %}
-                            <p class="mb-1">None</p>
+                                <p class="mb-1">None</p>
                             {% endif %}
                         </div>
                     </div>
                 </div>
+                <!-- Options to update or cancel booking -->
                 <div class="manage-options pl-2 pb-3">
-                    <a class="manage-update" href="{% url 'update_booking' booking.id %}"
-                        aria-label="View and update the booking">Update</a>
+                    <a href="{% url 'update_booking' booking.id %}" aria-label="View and update the booking">Update</a>
                     <button class="btn-delete manage-delete pl-1"
                         data-delete-url="{% url 'delete_booking' booking.id %}">Cancel Booking</button>
                 </div>
@@ -95,6 +100,7 @@
 {% endblock %}
 
 {% block top-content %}
+<!-- Modal to confirm whether booking should be cancelled -->
 <div class="modal fade" id="booking-delete-modal" tabindex="-1" role="alertdialog" aria-labelledby="modal-title"
     aria-describedby="modal-desc">
     <div class="modal-dialog modal-dialog-centered">
@@ -118,6 +124,7 @@
 {% endblock %}
 
 {% block postloadjs %}
+<!-- Modal launch script, url for the confirm delete button taken from data-delete-url attribute -->
 <script>
     // Adapted from https://stackoverflow.com/questions/54806538/how-to-pass-object-instance-to-a-href-tag-within-a-django-modal-dialog
     $(document).ready(function () {

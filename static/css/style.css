@@ -321,6 +321,14 @@ iframe {
     width: 80%;
 }
 
+.manage-no-bookings {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* View Update and cancel booking links various pages */
 .manage-options a {
     display: inline-block;
 }
@@ -331,13 +339,6 @@ iframe {
 
 .manage-cancel {
     color: red;
-}
-
-.manage-no-bookings {
-    width: -moz-fit-content;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* -------------------Media queries------------------ */
