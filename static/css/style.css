@@ -149,13 +149,13 @@ footer > ul {
 
 .accounts-content {
     flex: 1;
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 /* --------------------index.html-------------------- */
 
 /* Page Heading */
-.heading {
+.heading-container {
     background-image: url('/media/restaurant.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -163,7 +163,7 @@ footer > ul {
     height: 500px;
 }
 
-.heading > div {
+.heading-container > div {
     height: 500px;
 }
 
@@ -433,7 +433,7 @@ iframe {
         padding-right: 25px;
     }
 
-    .location-text p, .location-header {
+    .location-text p, .location-title {
         text-align: left;
     }
 
