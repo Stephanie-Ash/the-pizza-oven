@@ -258,6 +258,7 @@ iframe {
 }
 
 /* booking_confirmed and my_bookings pages */
+
 .booking-confirmation {
     padding-top: 120px;
 }
@@ -289,7 +290,7 @@ iframe {
     word-wrap: break-word;
 }
 
-/* ---------------manage_bookings.html--------------- */
+/* manage_bookings.html and booking_detail pages */
 
 .manage-bookings {
     flex: 1;
@@ -303,16 +304,13 @@ iframe {
     color: red;
 }
 
-.manage-name-title {
+.manage-name-label,
+.manage-details {
     display: inline-block;
 }
 
 .manage-name {
     margin-left: 21px;
-}
-
-.manage-details {
-    display: inline-block;
 }
 
 .manage-table-no {

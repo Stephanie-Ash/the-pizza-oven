@@ -26,7 +26,7 @@
                             {% if booking.updated %}
                             <a href="{% url 'toggle_updated' booking.id %}"
                                 aria-label="Turn off the booking updated flag"><i class="fas fa-exclamation-circle manage-updated"></i></a>
-                            <p class="mb-1 manage-name-title"><strong>Name:</strong></p>
+                            <p class="mb-1 manage-name-label"><strong>Name:</strong></p>
                             <p class="mb-1 manage-name">{{ booking.name }}</p>
                             {% else %}
                             <p class="mb-1"><strong>Name:</strong></p>
