@@ -257,26 +257,26 @@ iframe {
     list-style: none;
 }
 
-/* --------------booking_confirmed.html-------------- */
-.confirmed-note {
+/* booking_confirmed and my_bookings pages */
+.booking-confirmation {
     padding-top: 120px;
 }
 
-.confirmed-title {
+.booking-title {
     padding-top: 100px;
 }
 
-.confirmed-content {
+.booking-content {
     margin-left: 6px;
     margin-right: 6px;
 }
 
-.confirmed-box {
+.booking-card {
     border: 1px solid #9DAEAD;
     border-radius: 0.25rem;
 }
 
-.image-cont {
+.booking-image-cont {
     width: 100%;
     height: 200px;
     background-image: url('/media/restaurant.jpg');
@@ -285,7 +285,7 @@ iframe {
     background-position: center;
 }
 
-.confirmed-contact {
+.booking-contact {
     word-wrap: break-word;
 }
 

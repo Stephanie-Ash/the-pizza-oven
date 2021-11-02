@@ -3,8 +3,8 @@
 {% block content %}
 
 <div class="container-fluid px-0 customer-bookings">
-    <div class="row confirmed-content confirmed-note">
-        <div class="col-12 col-md-10 col-lg-8 col-xl-6 mb-5 mx-auto bg-color-white confirmed-box txt-dark lead">
+    <div class="row booking-content booking-confirmation">
+        <div class="col-12 col-md-10 col-lg-8 col-xl-6 mb-5 mx-auto bg-color-white booking-card txt-dark lead">
             <div class="row">
                 <div class="col-12">
                     <h3 class="mt-2"><strong>Thank You!</strong></h3>
@@ -15,9 +15,9 @@
             </div>
             <div class="row">
                 <div class="col-12 col-sm-6 mt-2 mb-4">
-                    <div class="image-cont"></div>
+                    <div class="booking-image-cont"></div>
                 </div>
-                <div class="col-12 col-sm-6 mt-2 confirmed-info">
+                <div class="col-12 col-sm-6 mt-2 booking-info">
                     <p>The Pizza Oven</p>
                     <p>Table for {{ booking.party_size }} people</p>
                     <p>{{ booking.date }} at {{ booking.time|time:"H:i" }}</p>
@@ -29,7 +29,7 @@
                     <button class="btn-delete manage-delete mb-2" data-delete-url="{% url 'delete_booking' booking.id %}">Cancel Booking</button>
                 </div>
                 {% else %}
-                <div class="col-12 mt-2 confirmed-contact">
+                <div class="col-12 mt-2 booking-contact">
                     <p>To change or cancel your booking please contact us on:</p>
                     <p class="mb-0">Phone: 020 7946 0441</p>
                     <p>Email: bookings@pizzaoven.com</p>
