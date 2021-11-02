@@ -8,7 +8,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 45px);
 }
 
 .heading-text {
@@ -144,21 +144,17 @@ h4 {
 
 /* Footer */
 footer {
-    height: 72px;
+    height: 45px;
     text-align: center;
 }
 
-footer > p, ul {
-    display: inline-block;
+footer > ul {
     margin-bottom: 0;
 }
 
-footer > p {
-    font-size: 18px;
-}
-
 .list-inline-item {
-    margin-left: 10px;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
 }
 
 .social {
@@ -364,17 +360,6 @@ iframe {
 
 /* -------------------Media queries------------------ */
 
-/* For screens 310px and up */
-@media screen and (min-width: 310px) {
-    footer {
-        height: 45px;
-    }
-
-    main {
-        min-height: calc(100vh - 45px);
-    }
-}
-
 /* For screens 376px and up */
 @media screen and (min-width: 376px) {
     .location-text p {
@@ -411,6 +396,11 @@ iframe {
         font-size: 24px;
     }
 
+    .list-inline-item {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
     .menu-text {
         text-align: left;
     }
@@ -441,6 +431,11 @@ iframe {
 
     h3 {
         font-size: 26px;
+    }
+
+    .list-inline-item {
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     .location-text p, .location-header {
