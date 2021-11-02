@@ -1,5 +1,7 @@
 """ Admin set-up for the restaurant app"""
 from django.contrib import admin
+from django.contrib.sites.models import Site
+from allauth.socialaccount.models import SocialAccount, SocialToken, SocialApp
 from .models import Restaurant, Table
 
 
@@ -19,3 +21,9 @@ class TableAdmin(admin.ModelAdmin):
     """ Admin options for the Table model """
     list_display = ('size', 'restaurant')
     ordering = ('size',)
+
+
+admin.site.unregister(Site)
+admin.site.unregister(SocialAccount)
+admin.site.unregister(SocialToken)
+admin.site.unregister(SocialApp)
