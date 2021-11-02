@@ -48,40 +48,20 @@ h4 {
     background-color: rgba(32, 22, 34, 0.5);
 }
 
-.bg-color-accounts {
+.bg-color-white {
     background-color: #F4F7F5;
 }
 
-.bg-color-footer {
+.bg-color-dark {
     background-color: #201622;
 }
 
-.bg-color-about {
+.bg-color-green {
     background-color: #43b792;
 }
 
-.bg-color-menu {
-    background-color: #F4F7F5;
-}
-
-.bg-color-location {
+.bg-color-red {
     background-color: #b03f57;
-}
-
-.bg-color-bookingform {
-    background-color: #b03f57;
-}
-
-.bg-color-booking-confirmed {
-    background-color: #F4F7F5;
-}
-
-.bg-color-manage {
-    background-color: #43b792;
-}
-
-.bg-color-manage-cards {
-    background-color: #F4F7F5;
 }
 
 /* Buttons */
