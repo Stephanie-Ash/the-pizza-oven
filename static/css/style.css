@@ -206,10 +206,11 @@ iframe {
     border: none;
 }
 
-/* -----------------make_booking.html---------------- */
+/* ------------------Bookings Pages------------------ */
 
-/* Backgound */
-.bookings {
+/* Backgound for pages accessed by customer */
+/* make_booking, update_booking, my_bookings booking_confirmed */
+.customer-bookings {
     background-image: url('/media/pizza4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -217,58 +218,46 @@ iframe {
     flex: 1;
 }
 
+/* make_booking and update_booking pages */
+
 /* Booking form */
-.bookings-content {
+.book-content {
     padding-top: 100px;
     margin-left: 6px;
     margin-right: 6px;
 }
 
-.booking-form {
+.book-form {
     border-radius: 5px;
 }
 
-.bookings-intro {
+.book-intro {
     font-size: 20px;
-    font-family: 'Poppins', sans-serif;  
 }
 
-.bookings-intro a {
+.book-intro a {
     color: #F4F7F5;
     text-decoration: underline;
 }
 
-.bookings-intro a:hover {
+.book-intro a:hover {
     color: #9DAEAD;
     text-decoration: underline;
 }
 
-.booking-info {
+.book-instruction {
     font-size: 18px;
 }
 
-.no-table-error div {
+.book-error div {
     background-color: #FFF3CD;
 }
 
-.no-table-error li {
+.book-error li {
     list-style: none;
 }
 
-.booking-details {
-    height: 200px;
-}
-
 /* --------------booking_confirmed.html-------------- */
-
-.bookings-confirmed {
-    flex: 1;
-    background-image: url('/media/pizza4.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
 .confirmed-note {
     padding-top: 120px;
 }

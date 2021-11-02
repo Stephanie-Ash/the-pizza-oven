@@ -4,17 +4,17 @@
 
 {% load crispy_forms_tags %}
 
-    <div class="container-fluid px-0 bookings">
-        <div class="row bookings-content">
+    <div class="container-fluid px-0 customer-bookings">
+        <div class="row book-content">
             <div class="col-12 text-center">
                 <h3 class="txt-light mb-4">Update Booking</h3>
             </div>
-            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto mb-4 booking-form bg-color-red txt-light">
-                <p class="my-3 booking-info">Edit the form below to update the booking:</p>
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto mb-4 book-form bg-color-red txt-light">
+                <p class="my-3 book-instruction">Edit the form below to update the booking:</p>
                 <form action="{% url 'update_booking' booking.id %}" method="POST">
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col no-table-error txt-dark">
+                        <div class="col book-error txt-dark">
                             {{ booking_form | as_crispy_errors }}
                         </div>
                     </div>
