@@ -43,7 +43,7 @@
                             <form class="manage-table-no" action="{% url 'add_table_no' booking.id %}" method="POST">
                                 {% csrf_token %}
                                 <input type="text" name="table_numbers" placeholder="eg. 1, 2"
-                                    aria-label="add table number" title="table number">
+                                    aria-label="add or replace table numbers" title="table number">
                                 <button type="submit" class="p-0 border-0"
                                     title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}"><i
                                         class="fas fa-plus-circle"></i></button>
@@ -74,7 +74,11 @@
                     <div class="col-12">
                         <div class="card-body p-2">
                             <p class="mb-1"><strong>Requirements:</strong></p>
+                            {% if booking.special_requirements %}
                             <p class="mb-1">{{ booking.special_requirements }}</p>
+                            {% else %}
+                            <p class="mb-1">None</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
