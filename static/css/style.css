@@ -391,7 +391,7 @@ iframe {
         font-size: 20px;
     }
 
-    .confirmed-info {
+    .booking-info {
         margin-top: auto !important;
         margin-bottom: auto !important;
     }
@@ -437,10 +437,7 @@ iframe {
         padding-right: 50px !important;
     }
 
-    .manage-sizes {
-        display: block;
-    }
-
+    .manage-sizes,
     .manage-details {
         display: block;
     }
