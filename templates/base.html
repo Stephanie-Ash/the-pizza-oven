@@ -33,7 +33,9 @@
         <!-- Navigation -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark heading-text bg-color-faint">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-pizza-slice"></i> The Pizza Oven</a>
+                <a class="navbar-brand" href="{% url 'home' %}" aria-label="Go to the top of the home page">
+                    <i class="fas fa-pizza-slice"></i> The Pizza Oven
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOptions"
                     aria-controls="navbarOptions" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

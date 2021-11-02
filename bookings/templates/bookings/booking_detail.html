@@ -7,7 +7,7 @@
         <div class="col-12 col-sm-10 col-md-12 col-lg-10 col-xl-8 mx-auto manage-content">
             <h3 class="text-center mb-2">Booking Detail</h3>
             <div class="text-center">
-                <a href="{% url 'manage_bookings' %}" aria-label="Back to previous page"
+                <a href="{% url 'manage_bookings' %}" aria-label="Back to manage bookings page"
                     class="btn btn-large btn-red"><i class="fas fa-chevron-left"></i>
                     Back</a>
             </div>
@@ -47,10 +47,11 @@
                             <form class="manage-table-no" action="{% url 'add_table_no' booking.id %}" method="POST">
                                 {% csrf_token %}
                                 <input type="text" name="table_numbers" placeholder="eg. 1, 2"
-                                    aria-label="add or replace table numbers" title="table number">
-                                <button type="submit" class="p-0 border-0"
-                                    title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}"><i
-                                        class="fas fa-plus-circle"></i></button>
+                                    aria-label="table numbers" title="table number">
+                                <button type="submit" class="p-0 border-0" aria-label="Add or replace table numbers"
+                                    title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}">
+                                    <i class="fas fa-plus-circle"></i>
+                                </button>
                             </form>
                         </div>
                     </div>

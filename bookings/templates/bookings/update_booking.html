@@ -41,10 +41,10 @@
                         <button type="submit" class="btn btn-large btn-green txt-dark">Update Booking</button>
                         {% if user.is_superuser %}
                             <!-- Redirect restaurant owner to manage bookings page if they cancel -->
-                            <a href="{% url 'manage_bookings' %}" class="btn btn-large btn-white txt-dark ml-2">Cancel</a>
+                            <a href="{% url 'manage_bookings' %}" aria-label="Return to manage bookings page" class="btn btn-large btn-white txt-dark ml-2">Cancel</a>
                         {% else %}
                             <!-- Redirect customer to my bookings page if they cancel -->
-                            <a href="{% url 'my_bookings' %}" class="btn btn-large btn-white txt-dark ml-2">Cancel</a>
+                            <a href="{% url 'my_bookings' %}" aria-label="return to my bookings page" class="btn btn-large btn-white txt-dark ml-2">Cancel</a>
                         {% endif %}
                     </div>
                 </div>

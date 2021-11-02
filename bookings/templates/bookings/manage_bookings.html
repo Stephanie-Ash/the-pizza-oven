@@ -64,9 +64,10 @@
                                     {% csrf_token %}
                                     <input type="text" name="table_numbers" placeholder="eg. 1, 2"
                                         aria-label="add or replace table numbers" title="table number">
-                                    <button type="submit" class="p-0 border-0"
-                                        title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}"><i
-                                            class="fas fa-plus-circle"></i></button>
+                                    <button type="submit" class="p-0 border-0" aria-label="Add or replace table numbers"
+                                        title="{% if booking.table_numbers %}Replace{% else %}Add{% endif %}">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </button>
                                 </form>
                             </div>
                         </div>
