@@ -21,6 +21,7 @@ class TableAdmin(admin.ModelAdmin):
     """ Admin options for the Table model """
     list_display = ('size', 'restaurant')
     ordering = ('size',)
+    list_filter = ('size',)
 
 
 admin.site.unregister(Site)
