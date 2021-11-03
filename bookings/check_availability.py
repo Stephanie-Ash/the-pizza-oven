@@ -10,7 +10,10 @@ def create_booking_slots(opening_time, closing_time):
     Create a list of 15 minute interval booking slots
     for use in the booking form
     """
+    # Allow bookings from the restaurant opening time.
     current_slot = datetime.combine(date.today(), opening_time)
+
+    # Set final booking to 1 hour before closing time.
     final_slot = datetime.combine(date.today(), closing_time) - timedelta(
         minutes=59)
     slot_interval = timedelta(minutes=15)
@@ -23,44 +26,50 @@ def create_booking_slots(opening_time, closing_time):
     return [(slot.time(), slot.strftime('%H:%M')) for slot in booking_slots]
 
 
-def find_tables(date, time, end_time, party_size, booking_id):
+def find_tables(selected_date, selected_time, end, party_size, booking_id):
     """ Search for available tables on the date and time of the booking """
-    # Exclude any tables whose bookings overlap
+
+    # If updating a booking exclude the booking id from the search
+    # so that the table will be considered available.
+
+    # Exclude tables whose bookings overlap
     # the start time of the required booking
     if booking_id:
         check1 = Table.objects.exclude(
             bookings__in=Booking.objects.exclude(id=booking_id).filter(
-                date=date, time__lt=time, end_time__gt=time))
+                date=selected_date, time__lt=selected_time,
+                end_time__gt=selected_time))
     else:
         check1 = Table.objects.exclude(
-            bookings__date=date,
-            bookings__time__lt=time,
-            bookings__end_time__gt=time)
+            bookings__date=selected_date,
+            bookings__time__lt=selected_time,
+            bookings__end_time__gt=selected_time)
 
-    # Exclude any tables whose bookings overlap
+    # Exclude tables whose bookings overlap
     # the end time of the required booking
     if booking_id:
         check2 = check1.exclude(
             bookings__in=Booking.objects.exclude(id=booking_id).filter(
-                date=date, time__lt=end_time, end_time__gt=end_time))
+                date=selected_date, time__lt=end, end_time__gt=end))
     else:
         check2 = check1.exclude(
-            bookings__date=date,
-            bookings__time__lt=end_time,
-            bookings__end_time__gt=end_time)
+            bookings__date=selected_date,
+            bookings__time__lt=end,
+            bookings__end_time__gt=end)
 
     # Exclude any tables whose bookings span the required booking
     # booking length is fixed at 2 hours so there will be no bookings
-    # within the time range
+    # in the centre of the time range
     if booking_id:
         available_tables = check2.exclude(
             bookings__in=Booking.objects.exclude(id=booking_id).filter(
-                date=date, time__lte=time, end_time__gte=end_time))
+                date=selected_date, time__lte=selected_time,
+                end_time__gte=end))
     else:
         available_tables = check2.exclude(
-            bookings__date=date,
-            bookings__time__lte=time,
-            bookings__end_time__gte=end_time)
+            bookings__date=selected_date,
+            bookings__time__lte=selected_time,
+            bookings__end_time__gte=end)
 
     # If there are any tables left after the checks
     # we need to select one or more for the booking
@@ -103,20 +112,24 @@ def select_single_table(tables, party_size):
 
 
 def combine_tables(tables, party_size):
-    """ Combine available tables to fit the party size if possible"""
+    """ Combine available tables to fit the required party size"""
 
     # With tables only 2 or 4 person in size and party size maximum 8
-    # we will only need to combine up to 4 tables
+    # we will only ever need to combine up to 4 tables
     combos2 = combinations(tables, 2)
     combos3 = combinations(tables, 3)
     combos4 = combinations(tables, 4)
     leftover = 0
     combined_tables = ''
     for combo in chain(combos2, combos3, combos4):
+        # for each combination of tables calculate combined size
         combined_size = sum([table.size for table in combo])
+        # if combined size matches the party size great return the table
         if combined_size == party_size:
             combined_tables = list(combo)
             return combined_tables
+        # if there is no exact match return the tables with the
+        # least leftover spaces
         elif combined_size > party_size:
             spaces_left = combined_size - party_size
             if leftover:

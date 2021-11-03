@@ -15,5 +15,6 @@ class BookingAdmin(admin.ModelAdmin):
     list_filter = ('date', 'party_size', 'updated')
     ordering = ('-date', '-time')
 
+    # Ensure that bookings are not added without checking for availability
     def has_add_permission(self, request):
         return False
