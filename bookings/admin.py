@@ -15,6 +15,7 @@ class BookingAdmin(admin.ModelAdmin):
     readonly_fields = ('date', 'time', 'party_size', 'tables')
     search_fields = ['name']
     list_filter = ('date', 'party_size', 'updated')
+    ordering = ('-date', '-time')
 
     def has_add_permission(self, request):
         """

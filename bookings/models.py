@@ -45,9 +45,9 @@ class Booking(models.Model):
 
     class Meta:
         """
-        Set ordering to ensure oldest bookings are displayed last.
+        Set ordering to ensure oldest bookings are displayed first.
         """
-        ordering = ['-date', '-time']
+        ordering = ['date', 'time']
 
     def _generate_end_time(self):
         """
