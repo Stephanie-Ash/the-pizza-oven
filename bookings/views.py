@@ -5,8 +5,8 @@ from django.contrib import messages
 
 from restaurant.models import Restaurant
 from .models import Booking
-from .forms import BookingForm, UpdateBookingForm
-from .check_availability import create_booking_slots, find_tables
+from .forms import BookingForm
+from .check_availability import create_booking_slots
 
 
 def make_booking(request):
@@ -14,14 +14,23 @@ def make_booking(request):
     Display the booking form and make a booking
     """
     restaurant = Restaurant.objects.get(name="The Pizza Oven")
+    # Create time slots between restaurant opening and closing
+    # for the booking form time selection.
     slots = create_booking_slots(
         restaurant.opening_time, restaurant.closing_time)
 
+    # Set a null booking id for the search for available tables
+    # The current booking id will be used when updating a booking
+    booking_id = ''
+
     if request.method == 'POST':
-        booking_form = BookingForm(slots, data=request.POST)
+        booking_form = BookingForm(slots, booking_id, data=request.POST)
         if booking_form.is_valid():
+            # Get the selected available table(s)
             tables = booking_form.cleaned_data['tables']
             booking = booking_form.save()
+
+            # Add the selected table(s) to the booking
             if isinstance(tables, list):
                 booking.tables.set(tables)
             else:
@@ -30,6 +39,8 @@ def make_booking(request):
                 booking.customer = request.user
                 booking.save()
             messages.success(request, 'Booking successfully made!')
+
+            # Assign the redirect based on who is making the booking
             if request.user.is_superuser:
                 return redirect('manage_bookings')
             else:
@@ -39,7 +50,7 @@ def make_booking(request):
             messages.error(
                 request, 'Failed to make the booking. Please check the form.')
     else:
-        booking_form = BookingForm(slots)
+        booking_form = BookingForm(slots, booking_id)
 
     context = {
         'booking_form': booking_form,
@@ -134,35 +145,41 @@ def my_bookings(request):
 
 
 def update_booking(request, booking_id):
+    """ Make changes to an existing booking """
     restaurant = Restaurant.objects.get(name="The Pizza Oven")
+    # Create time slots between restaurant opening and closing
+    # for the booking form time selection.
     slots = create_booking_slots(
         restaurant.opening_time, restaurant.closing_time)
 
+    # Get the current booking
     booking = get_object_or_404(Booking, id=booking_id)
 
     if request.method == 'POST':
-        booking_form = UpdateBookingForm(
-            slots, data=request.POST, instance=booking)
+        booking_form = BookingForm(
+            slots, booking_id, data=request.POST, instance=booking)
         if booking_form.is_valid():
+            # If only the customer information has changed
+            # save the form without updating the booked tables
             if ('date' not in booking_form.changed_data and
                     'time' not in booking_form.changed_data and
                     'party_size' not in booking_form.changed_data):
                 booking_form.save()
+                # Assign the redirect based on who is making the booking
                 if request.user.is_superuser:
                     messages.success(request, 'Booking successfully updated.')
                     return redirect('manage_bookings')
                 else:
+                    # Set the upated flag so the restaurant owner knows the
+                    # booking has been changed
                     booking.updated = True
                     booking.save()
                     messages.success(request, 'Booking successfully updated.')
                     return redirect('my_bookings')
             else:
-                updated_data = booking_form.cleaned_data
-                tables = find_tables(
-                    updated_data['date'], updated_data['time'],
-                    updated_data['booking_end'], updated_data['party_size'],
-                    booking_id)
-            if tables:
+                # If the booking information has changed remove original tables
+                # and add the newly selected tables to the booking
+                tables = booking_form.cleaned_data['tables']
                 booking.tables.clear()
                 booking.table_numbers = ''
                 if isinstance(tables, list):
@@ -171,23 +188,23 @@ def update_booking(request, booking_id):
                 else:
                     booking_form.save()
                     booking.tables.add(tables)
+                # Assign the redirect based on who is making the booking
                 if request.user.is_superuser:
                     messages.success(request, 'Booking successfully updated.')
                     return redirect('manage_bookings')
                 else:
+                    # Set the upated flag so the restaurant owner knows the
+                    # booking has been changed
                     booking.updated = True
                     booking.save()
                     messages.success(request, 'Booking successfully updated.')
                     return redirect('my_bookings')
-            else:
-                messages.error(
-                    request, 'Sorry no tables available at that time!')
         else:
             messages.error(
                 request,
                 'Failed to update the booking. Please check the form.')
     else:
-        booking_form = BookingForm(slots, instance=booking)
+        booking_form = BookingForm(slots, booking_id, instance=booking)
 
     context = {
         'booking_form': booking_form,
