@@ -1,7 +1,8 @@
-""" Views for the bookings app """
+""" Views for the bookings app. """
 import datetime
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from restaurant.models import Restaurant
 from .models import Booking
@@ -11,7 +12,7 @@ from .check_availability import create_booking_slots
 
 def make_booking(request):
     """
-    Display the booking form and make a booking
+    Display the booking form and make a booking.
     """
     restaurant = Restaurant.objects.get(name="The Pizza Oven")
     # Create time slots between restaurant opening and closing
@@ -61,7 +62,7 @@ def make_booking(request):
 
 def booking_confirmed(request, booking_id):
     """
-    Confirm a successful booking
+    Confirm a successful booking.
     """
     booking = get_object_or_404(Booking, id=booking_id)
 
@@ -72,9 +73,10 @@ def booking_confirmed(request, booking_id):
     return render(request, 'bookings/booking_confirmed.html', context)
 
 
+@login_required
 def manage_bookings(request):
     """
-    Owner review and manage bookings
+    List current and future bookings for the restaurant owner.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry this area is for the restaurant owner.')
@@ -87,8 +89,11 @@ def manage_bookings(request):
     return render(request, 'bookings/manage_bookings.html', context)
 
 
+@login_required
 def booking_detail(request, booking_id):
-    """ A view to show individual booking details for the restaurant owner """
+    """
+    Display the details of an individual booking for the restaurant owner.
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry this area is for the restaurant owner.')
         return redirect('home')
@@ -102,9 +107,10 @@ def booking_detail(request, booking_id):
     return render(request, 'bookings/booking_detail.html', context)
 
 
+@login_required
 def add_table_no(request, booking_id):
     """
-    Add table numbers to the saved bookings
+    Allow the restaurant owner to add table numbers to the saved bookings.
     """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only the restaurant owner can do this.')
@@ -118,7 +124,12 @@ def add_table_no(request, booking_id):
         return redirect('manage_bookings')
 
 
+@login_required
 def toggle_updated(request, booking_id):
+    """
+    Allow the restaurant owner to change the value of the updated field
+    of the Booking model.
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry only the restaurant owner can do this.')
         return redirect('home')
@@ -129,9 +140,10 @@ def toggle_updated(request, booking_id):
     return redirect('manage_bookings')
 
 
+@login_required
 def my_bookings(request):
     """
-    Customer review and manage bookings
+    List the current and future bookings created by the logged in user.
     """
     customer_bookings = Booking.objects.filter(
         customer__isnull=False, customer=request.user.id)
@@ -144,8 +156,11 @@ def my_bookings(request):
     return render(request, 'bookings/my_bookings.html', context)
 
 
+@login_required
 def update_booking(request, booking_id):
-    """ Make changes to an existing booking """
+    """
+    Allow the logged in user to make changes to an existing booking.
+    """
     restaurant = Restaurant.objects.get(name="The Pizza Oven")
     # Create time slots between restaurant opening and closing
     # for the booking form time selection.
@@ -213,9 +228,10 @@ def update_booking(request, booking_id):
     return render(request, 'bookings/update_booking.html', context)
 
 
+@login_required
 def delete_booking(request, booking_id):
     """
-    Cancel a booking
+    Allow the logged in user to cancel and delete a booking.
     """
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
