@@ -156,7 +156,7 @@ footer > ul {
 
 /* Page Heading */
 .heading-container {
-    background-image: url('/media/restaurant.jpg');
+    background-image: url('https://res.cloudinary.com/drjtefr2g/image/upload/v1635952343/media/restaurant_dt96wg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -211,7 +211,7 @@ iframe {
 /* Backgound for pages accessed by customer */
 /* make_booking, update_booking, my_bookings booking_confirmed */
 .customer-bookings {
-    background-image: url('/media/pizza4.jpg');
+    background-image: url('https://res.cloudinary.com/drjtefr2g/image/upload/v1635954115/media/pizza4_bcovnq.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -280,7 +280,7 @@ iframe {
 .booking-image-cont {
     width: 100%;
     height: 200px;
-    background-image: url('/media/restaurant.jpg');
+    background-image: url('https://res.cloudinary.com/drjtefr2g/image/upload/v1635952343/media/restaurant_dt96wg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
