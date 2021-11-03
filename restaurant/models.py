@@ -1,11 +1,15 @@
-""" Models for the restaurant app """
+""" Models for the restaurant app. """
 import datetime
 from django.db import models
 from cloudinary.models import CloudinaryField
 
 
 class Restaurant(models.Model):
-    """ Model to add information about the restuarant """
+    """
+    Restaurant model to add information about the restaurant.
+    The times will be used to assign available slots for the
+    booking system.
+    """
     name = models.CharField(max_length=50)
     description = models.TextField()
     opening_time = models.TimeField(
@@ -19,7 +23,10 @@ class Restaurant(models.Model):
 
 
 class Table(models.Model):
-    """ Table model to add tables of a certain size to the restaurant"""
+    """
+    Table model to add tables of a certain size to the restaurant
+    to be used for bookings.
+    """
 
     # Limit to only the most common tables sizes.
     # These can be combined for bigger party sizes.
