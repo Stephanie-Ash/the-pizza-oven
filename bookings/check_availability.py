@@ -1,4 +1,4 @@
-""" Set up booking slots and check for available tables """
+""" Set up booking slots and check for available tables. """
 from datetime import datetime, date, timedelta
 from itertools import combinations, chain
 from restaurant.models import Table
@@ -8,7 +8,7 @@ from .models import Booking
 def create_booking_slots(opening_time, closing_time):
     """
     Create a list of 15 minute interval booking slots
-    for use in the booking form
+    for use in the booking form.
     """
     # Allow bookings from the restaurant opening time.
     current_slot = datetime.combine(date.today(), opening_time)
@@ -27,7 +27,9 @@ def create_booking_slots(opening_time, closing_time):
 
 
 def find_tables(selected_date, selected_time, end, party_size, booking_id):
-    """ Search for available tables on the date and time of the booking """
+    """
+    Search for available tables on the date and time of the required booking.
+    """
 
     # If updating a booking exclude the booking id from the search
     # so that the table will be considered available.
@@ -79,8 +81,8 @@ def find_tables(selected_date, selected_time, end, party_size, booking_id):
 
 def select_single_table(tables, party_size):
     """
-    Check the available tables and see if there is one
-    big enough for the required party size
+    Check the available tables from the find_tables function
+    and see if there is one big enough for the required party size.
     """
 
     # It is preferred to fulfil the booking will a single table
@@ -112,7 +114,10 @@ def select_single_table(tables, party_size):
 
 
 def combine_tables(tables, party_size):
-    """ Combine available tables to fit the required party size"""
+    """
+    Combine available tables to see if a combined table will
+    fit the required party size.
+    """
 
     # With tables only 2 or 4 person in size and party size maximum 8
     # we will only ever need to combine up to 4 tables

@@ -1,4 +1,4 @@
-""" models for the bookings app """
+""" Models for the bookings app. """
 from datetime import datetime, date, time, timedelta
 from django.db import models
 from django.contrib.auth.models import User
@@ -7,7 +7,10 @@ from restaurant.models import Table
 
 
 class Booking(models.Model):
-    """ Bookings model to book tables in the restaurant"""
+    """
+    Bookings model to save restaurant table bookings.
+    Tables will be assigned to the booking once availability checked.
+    """
 
     # Limit maximum bookings to 8 people.
     # Larger bookings can be handled in person with the restaurant.
@@ -43,16 +46,28 @@ class Booking(models.Model):
     updated = models.BooleanField(default=True)
 
     class Meta:
+        """
+        Set ordering to ensure oldest bookings are displayed last.
+        """
         ordering = ['-date', '-time']
 
     def _generate_end_time(self):
+        """
+        Calculate the end time of the booking when it is saved.
+        """
         end_time = (
             datetime.combine(date.today(), self.time)) + timedelta(hours=2)
         return end_time.time()
 
     def save(self, *args, **kwargs):
+        """
+        Override the original save method to ensure an end time is set.
+        """
         self.end_time = self._generate_end_time()
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"A table of {self.party_size} on {self.date}"
+        return (
+            f"A table of {self.party_size} on "
+            f"{datetime.strftime(self.date, '%d-%m-%Y')}"
+            )
