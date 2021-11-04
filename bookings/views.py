@@ -8,6 +8,7 @@ from restaurant.models import Restaurant
 from .models import Booking
 from .forms import BookingForm
 from .check_availability import create_booking_slots
+from .confirmation_email import send_confirmation_email
 
 
 def make_booking(request):
@@ -39,6 +40,7 @@ def make_booking(request):
             if request.user.is_authenticated:
                 booking.customer = request.user
                 booking.save()
+            send_confirmation_email(booking)
             messages.success(request, 'Booking successfully made!')
 
             # Assign the redirect based on who is making the booking
