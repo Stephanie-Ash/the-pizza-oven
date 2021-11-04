@@ -10,11 +10,11 @@ def send_confirmation_email(booking):
         {'booking': booking})
     if booking.customer:
         body = render_to_string(
-            'bookings/confirmation_emails/confirmation_email_body.txt',
+            'bookings/confirmation_emails/confirmation_email_body_user.txt',
             {'booking': booking})
     else:
         body = render_to_string(
-            'bookings/confirmation_emails/confirmation_email_body_user.txt',
+            'bookings/confirmation_emails/confirmation_email_body.txt',
             {'booking': booking})
 
     send_mail(
