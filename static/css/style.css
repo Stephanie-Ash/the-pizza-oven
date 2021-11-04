@@ -245,6 +245,10 @@ iframe {
     text-decoration: underline;
 }
 
+.book-links {
+    display: block;
+}
+
 .book-instruction {
     font-size: 18px;
 }
@@ -362,6 +366,10 @@ iframe {
 
     h3 {
         font-size: 24px;
+    }
+
+    .book-links {
+        display: inline;
     }
 }
 

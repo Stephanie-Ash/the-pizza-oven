@@ -14,10 +14,10 @@
             {% if user.is_authenticated %}
             {% else %}
                 <p class="text-center book-intro heading-text mt-3 mb-0">
-                    Continue as a guest or <a href="{% url 'account_login' %}?next={{ request.path }}"
+                    Continue as a guest or <span class="book-links"><a href="{% url 'account_login' %}?next={{ request.path }}"
                         aria-label="Login to your account">Login</a> / <a
                         href="{% url 'account_signup' %}?next={{ request.path }}"
-                        aria-label="Register for an account">Register</a>
+                        aria-label="Register for an account">Register</a></span>
                 </p>
                 <p class="text-center book-intro mb-4">to update your booking in the future</p>
             {% endif %}
