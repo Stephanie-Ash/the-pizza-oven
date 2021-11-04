@@ -25,7 +25,7 @@
                     <p>{{ booking.date }} at {{ booking.time|time:"H:i" }}</p>
                 </div>
                 <!-- Options to update or cancel booking if registered user -->
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and booking.customer %}
                     <div class="col-12 mt-2">
                         <p class="mb-0">Click on the links below to change or cancel your booking:</p>
                         <a class="mb-2" href="{% url 'update_booking' booking.id %}"
