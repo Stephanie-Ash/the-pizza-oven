@@ -1,6 +1,7 @@
 """ Models for the restaurant app. """
 import datetime
 from django.db import models
+from django.core.exceptions import ValidationError
 from cloudinary.models import CloudinaryField
 
 
@@ -11,12 +12,22 @@ class Restaurant(models.Model):
     booking system.
     """
     name = models.CharField(max_length=50)
-    description = models.TextField()
+    description = models.TextField(
+        blank=True, help_text='Warning editing this field will change the'
+        ' About Us section on the home page!'
+        ' Clear the field to display the default text.')
     opening_time = models.TimeField(
         auto_now=False, auto_now_add=False, default=datetime.time(11, 00, 00))
     closing_time = models.TimeField(
         auto_now=False, auto_now_add=False, default=datetime.time(23, 00, 00))
-    menu = CloudinaryField('image', default='placeholder', use_filename=True)
+    menu = CloudinaryField('image', default='placeholder', use_filename=True, help_text='Image of restaurant menu.')
+
+    # Taken from:
+    # https://stackoverflow.com/questions/62521421/django-save-only-time-and-validate-start-time-is-earlier-than-end-time
+    def clean(self):
+        if self.closing_time < self.opening_time:
+            raise ValidationError('Closing time should be after start time!')
+        return super().clean()
 
     def __str__(self):
         return self.name

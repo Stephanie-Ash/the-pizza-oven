@@ -22,19 +22,32 @@
     <div class="row bg-color-green txt-dark no-gutters px-2 about-content">
         <div class="col text-center my-4">
             <h3>About Us</h3>
-            <p class="about-text lead my-0">{{ restaurant.description }}</p>
+            {% if restaurant.decription %}
+                <p class="about-text lead my-0">{{ restaurant.description }}</p>
+            {% else %}
+                <p class="about-text lead my-0">Set in a fantastic South Bank location, our restaurant serves up authentic
+                    Italian pizzas in an informal relaxed setting. With delicious starters and freshly fired hand stretched
+                    pizzas we are a great place to catch up with friends and family whilst enjoying great food and a river
+                    view.</p>
+            {% endif %}
         </div>
     </div>
     <!-- Image dividers -->
     <div class="row no-gutters bg-color-green">
         <div class="col-sm-6 col-lg-4 d-none d-sm-inline-block">
-            <img class="img-fluid" src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954099/media/pizza1_diluuu.jpg" alt="A pizza on a plate.">
+            <img class="img-fluid"
+                src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954099/media/pizza1_diluuu.jpg"
+                alt="A pizza on a plate.">
         </div>
         <div class="col-lg-4 d-none d-lg-inline-block">
-            <img class="img-fluid" src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954117/media/pizza2_qrxxfh.jpg" alt="A pizza firing in a pizza oven.">
+            <img class="img-fluid"
+                src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954117/media/pizza2_qrxxfh.jpg"
+                alt="A pizza firing in a pizza oven.">
         </div>
         <div class="col-12 col-sm-6 col-lg-4">
-            <img class="img-fluid" src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954095/media/pizza3_jhh8za.jpg" alt="A pizza next to rosemary and some tomatoes.">
+            <img class="img-fluid"
+                src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954095/media/pizza3_jhh8za.jpg"
+                alt="A pizza next to rosemary and some tomatoes.">
         </div>
     </div>
 </section>
@@ -51,7 +64,8 @@
                     Why not check out our menu.
                 </p>
                 {% if "placeholder" in restaurant.menu.url %}
-                    <a class="btn btn-large btn-red txt-light" target="_blank" href="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954411/media/the-pizza-oven_menu_rcdcsi.jpg"
+                    <a class="btn btn-large btn-red txt-light" target="_blank"
+                        href="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954411/media/the-pizza-oven_menu_rcdcsi.jpg"
                         aria-label="View the Pizza Oven menu (opens in a new tab)">View Menu</a>
                 {% else %}
                     <a class="btn btn-large btn-red txt-light" target="_blank" href="{{ restaurant.menu.url }}"
@@ -59,10 +73,14 @@
                 {% endif %}
             </div>
             <div class="col-xl-4 d-none d-xl-inline-block py-5 menu-pic1">
-                <img class="img-fluid" src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954097/media/pizza-making_kdkszl.jpg" alt="Hands kneading pizza dough">
+                <img class="img-fluid"
+                    src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954097/media/pizza-making_kdkszl.jpg"
+                    alt="Hands kneading pizza dough">
             </div>
             <div class="col-6 col-xl-4 d-none d-sm-inline-block py-5 menu-pic2">
-                <img class="img-fluid" src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954069/media/pizza-ingredients_kz1tvg.jpg" alt="Various pizza ingredients">
+                <img class="img-fluid"
+                    src="https://res.cloudinary.com/drjtefr2g/image/upload/v1635954069/media/pizza-ingredients_kz1tvg.jpg"
+                    alt="Various pizza ingredients">
             </div>
         </div>
     </div>
