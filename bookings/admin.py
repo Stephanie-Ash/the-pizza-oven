@@ -16,6 +16,8 @@ class BookingAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_filter = ('date', 'party_size', 'updated')
     ordering = ('-date', '-time')
+    # Enable delete action for this model
+    actions = ['delete_selected']
 
     def has_add_permission(self, request):
         """

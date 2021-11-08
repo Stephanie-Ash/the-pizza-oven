@@ -11,6 +11,9 @@ admin.site.unregister(SocialAccount)
 admin.site.unregister(SocialToken)
 admin.site.unregister(SocialApp)
 
+# Disable delete action for the site
+admin.site.disable_action('delete_selected')
+
 
 @admin.register(Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
@@ -24,12 +27,12 @@ class RestaurantAdmin(admin.ModelAdmin):
     list_display = ('name', 'opening_time', 'closing_time')
     search_fields = ('name',)
 
-    def has_delete_permission(self, request, obj=None):
-        """
-        Remove permission to delete The Pizza Oven restaurant to
-        ensure that the site functions correctly.
-        """
-        return False
+    # def has_delete_permission(self, request, obj=None):
+    #     """
+    #     Remove permission to delete The Pizza Oven restaurant to
+    #     ensure that the site functions correctly.
+    #     """
+    #     return False
 
 
 @admin.register(Table)
@@ -40,3 +43,5 @@ class TableAdmin(admin.ModelAdmin):
     list_display = ('size', 'restaurant')
     ordering = ('size',)
     list_filter = ('size',)
+    # Enable delete action for this model
+    actions = ['delete_selected']
