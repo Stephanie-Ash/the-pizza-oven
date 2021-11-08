@@ -29,7 +29,6 @@ class Restaurant(models.Model):
     def clean(self):
         if self.closing_time < self.opening_time:
             raise ValidationError('Closing time should be after start time!')
-        return super().clean()
 
     def __str__(self):
         return self.name
