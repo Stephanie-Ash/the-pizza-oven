@@ -20,7 +20,9 @@ class Restaurant(models.Model):
         auto_now=False, auto_now_add=False, default=datetime.time(11, 00, 00))
     closing_time = models.TimeField(
         auto_now=False, auto_now_add=False, default=datetime.time(23, 00, 00))
-    menu = CloudinaryField('image', default='placeholder', use_filename=True, help_text='Image of restaurant menu.')
+    menu = CloudinaryField(
+        'image', default='placeholder', use_filename=True,
+        help_text='Image of restaurant menu.')
 
     # Taken from:
     # https://stackoverflow.com/questions/62521421/django-save-only-time-and-validate-start-time-is-earlier-than-end-time
