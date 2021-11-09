@@ -1,4 +1,4 @@
-""" Testcases for the restaurant app views. """
+""" Testcases for the bookings app views. """
 import datetime
 from django.test import TestCase
 from django.test.client import Client
