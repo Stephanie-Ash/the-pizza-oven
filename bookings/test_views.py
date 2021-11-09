@@ -47,3 +47,10 @@ class TestViews(TestCase):
             f'/bookings/booking_detail/{self.booking.id}')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'bookings/booking_detail.html')
+
+    def test_get_my_bookings_page(self):
+        """ Test the get booking my bookings page view. """
+        self.client.login(username='admin', password='adminpassword')
+        response = self.client.get('/bookings/my_bookings')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'bookings/my_bookings.html')
