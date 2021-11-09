@@ -71,3 +71,15 @@ class TestViews(TestCase):
         self.assertRedirects(response, '/bookings/manage_bookings')
         existing_bookings = Booking.objects.filter(id=self.booking.id)
         self.assertEqual(len(existing_bookings), 0)
+
+    def test_can_toggle_updated(self):
+        """
+        Test that the toggle updated view changes the value
+        of the updated field.
+        """
+        self.client.login(username='admin', password='adminpassword')
+        response = self.client.get(
+            f'/bookings/toggle_updated/{self.booking.id}')
+        self.assertRedirects(response, '/bookings/manage_bookings')
+        updated_booking = Booking.objects.get(id=self.booking.id)
+        self.assertFalse(updated_booking.updated)
