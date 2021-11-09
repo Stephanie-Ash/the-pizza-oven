@@ -54,3 +54,11 @@ class TestViews(TestCase):
         response = self.client.get('/bookings/my_bookings')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'bookings/my_bookings.html')
+
+    def test_get_update_booking_page(self):
+        """ Test the get update booking page view. """
+        self.client.login(username='admin', password='adminpassword')
+        response = self.client.get(
+            f'/bookings/update_booking/{self.booking.id}')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'bookings/update_booking.html')
