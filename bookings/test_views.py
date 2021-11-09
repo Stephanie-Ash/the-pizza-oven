@@ -19,7 +19,8 @@ class TestViews(TestCase):
         self.restaurant = Restaurant.objects.create(name='The Pizza Oven')
         self.table = Table.objects.create(restaurant=self.restaurant, size=2)
         self.booking = Booking.objects.create(
-            name='Test Name', email='test@email.com',
+            date=datetime.date.today(), time=datetime.time(18, 00),
+            party_size=2, name='Test Name', email='test@email.com',
             phone_number='01234567890')
         self.booking.tables.add(self.table)
 
@@ -184,3 +185,46 @@ class TestViews(TestCase):
         self.assertRedirects(response_su, '/bookings/manage_bookings')
         message_su = list(response_su.context.get('messages'))[0]
         self.assertEqual(message_su.message, 'Booking successfully made!')
+
+    def test_can_update_booking(self):
+        """
+        Test that a booking can be updated with the update booking view.
+        """
+        # If standard user
+        self.client.login(username='john', password='johnpassword')
+        self.booking.updated = False
+        self.booking.save()
+        response = self.client.post(
+            f'/bookings/update_booking/{self.booking.id}',
+            {
+                'date': self.booking.date,
+                'time': datetime.time(17, 00),
+                'party_size': self.booking.party_size,
+                'name': self.booking.name,
+                'email': self.booking.email,
+                'phone_number': self.booking.phone_number,
+            }, follow=True)
+        self.assertRedirects(response, '/bookings/my_bookings')
+        message = list(response.context.get('messages'))[0]
+        self.assertEqual(message.message, 'Booking successfully updated.')
+        updated_booking = Booking.objects.get(id=self.booking.id)
+        self.assertEqual(updated_booking.time, datetime.time(17, 00))
+        self.assertTrue(updated_booking.updated)
+
+        # Test redirect if superuser
+        self.client.login(username='admin', password='adminpassword')
+        self.booking.updated = False
+        self.booking.save()
+        response_su = self.client.post(
+            f'/bookings/update_booking/{self.booking.id}',
+            {
+                'date': self.booking.date,
+                'time': datetime.time(16, 00),
+                'party_size': self.booking.party_size,
+                'name': self.booking.name,
+                'email': self.booking.email,
+                'phone_number': self.booking.phone_number,
+            }, follow=True)
+        self.assertRedirects(response_su, '/bookings/manage_bookings')
+        updated_booking = Booking.objects.get(id=self.booking.id)
+        self.assertFalse(updated_booking.updated)
