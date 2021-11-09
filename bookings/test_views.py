@@ -1,4 +1,5 @@
 """ Testcases for the restaurant app views. """
+import datetime
 from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth.models import User
@@ -140,6 +141,7 @@ class TestViews(TestCase):
         self.assertEqual(
             msg_toggle.message, 'Sorry only the restaurant owner can do this.')
 
+        # add table number
         add_no = self.client.post(
             f'/bookings/add_table_no/{self.booking.id}',
             {'table_numbers': '20'}, follow=True)
@@ -147,3 +149,38 @@ class TestViews(TestCase):
         msg_add_no = list(add_no.context.get('messages'))[0]
         self.assertEqual(
             msg_add_no.message, 'Sorry only the restaurant owner can do this.')
+
+    def test_can_make_booking(self):
+        """ Test that a booking can be made on the make booking view. """
+        # If no or standard user.
+        response = self.client.post(
+            '/bookings/make_booking',
+            {
+                'date': datetime.date.today(),
+                'time': datetime.time(14, 00),
+                'party_size': 2,
+                'name': 'User Name',
+                'email': 'test@email.com',
+                'phone_number': '01234567890',
+            }, follow=True)
+        booking = Booking.objects.get(name='User Name')
+        self.assertRedirects(
+            response, f'/bookings/booking_confirmed/{booking.id}')
+        message = list(response.context.get('messages'))[0]
+        self.assertEqual(message.message, 'Booking successfully made!')
+
+        # If user is superuser.
+        self.client.login(username='admin', password='adminpassword')
+        response_su = self.client.post(
+            '/bookings/make_booking',
+            {
+                'date': datetime.date.today(),
+                'time': datetime.time(21, 00),
+                'party_size': 2,
+                'name': 'Test Name',
+                'email': 'test@email.com',
+                'phone_number': '01234567890',
+            }, follow=True)
+        self.assertRedirects(response_su, '/bookings/manage_bookings')
+        message_su = list(response_su.context.get('messages'))[0]
+        self.assertEqual(message_su.message, 'Booking successfully made!')
