@@ -83,3 +83,16 @@ class TestViews(TestCase):
         self.assertRedirects(response, '/bookings/manage_bookings')
         updated_booking = Booking.objects.get(id=self.booking.id)
         self.assertFalse(updated_booking.updated)
+
+    def test_can_add_table_no(self):
+        """
+        Test that the add table no view sets the
+        table numbers field.
+        """
+        self.client.login(username='admin', password='adminpassword')
+        response = self.client.post(
+            f'/bookings/add_table_no/{self.booking.id}',
+            {'table_numbers': '20'})
+        self.assertRedirects(response, '/bookings/manage_bookings')
+        updated_booking = Booking.objects.get(id=self.booking.id)
+        self.assertEqual(updated_booking.table_numbers, '20')
