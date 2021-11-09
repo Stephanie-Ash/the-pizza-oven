@@ -62,3 +62,12 @@ class TestViews(TestCase):
             f'/bookings/update_booking/{self.booking.id}')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'bookings/update_booking.html')
+
+    def test_can_delete_booking(self):
+        """ Test that the delete booking view deletes a booking. """
+        self.client.login(username='admin', password='adminpassword')
+        response = self.client.get(
+            f'/bookings/delete_booking/{self.booking.id}')
+        self.assertRedirects(response, '/bookings/manage_bookings')
+        existing_bookings = Booking.objects.filter(id=self.booking.id)
+        self.assertEqual(len(existing_bookings), 0)
