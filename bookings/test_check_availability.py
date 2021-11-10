@@ -93,3 +93,35 @@ class TestCheckAvailability(TestCase):
             datetime.date.today(), datetime.time(19, 00),
             datetime.time(21, 00), 3, '')
         self.assertEqual(selected_table3.id, self.table8.id)
+
+    def test_booked_table_not_used_in_search_when_updating_booking(self):
+        """
+        Test that the update booking functionality is working correctly
+        and the booked table is excluded from any search and so not
+        assumed to be unavailable.
+        """
+        booking1 = Booking.objects.create(
+            date=datetime.date.today(), time=datetime.time(18, 00),
+            party_size=8, name='Test Name', email='test@email.com',
+            phone_number='01234567890')
+        booking1.tables.add(self.table1)
+        booking1.tables.add(self.table2)
+
+        booking2 = Booking.objects.create(
+            date=datetime.date.today(), time=datetime.time(18, 00),
+            party_size=8, name='Test Name', email='test@email.com',
+            phone_number='01234567890')
+        booking2.tables.add(self.table6)
+        booking2.tables.add(self.table8)
+
+        booking3 = Booking.objects.create(
+            date=datetime.date.today(), time=datetime.time(18, 00),
+            party_size=4, name='Test Name', email='test@email.com',
+            phone_number='01234567890')
+        booking3.tables.add(self.table3)
+        booking3.tables.add(self.table4)
+
+        selected_table = find_tables(
+            datetime.date.today(), datetime.time(19, 00),
+            datetime.time(21, 00), 8, booking1.id)
+        self.assertIsNotNone(selected_table)
