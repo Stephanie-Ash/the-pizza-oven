@@ -16,8 +16,10 @@ class TestCheckAvailability(TestCase):
         self.table4 = Table.objects.create(restaurant=self.restaurant, size=4)
         self.table5 = Table.objects.create(restaurant=self.restaurant, size=2)
         self.table6 = Table.objects.create(restaurant=self.restaurant, size=4)
+        self.table7 = Table.objects.create(restaurant=self.restaurant, size=2)
+        self.table8 = Table.objects.create(restaurant=self.restaurant, size=4)
 
-    def test_smallest_single_table_always_chosen(self):
+    def test_smallest_single_table_chosen(self):
         """
         Test that the smallest available table is chosen when no table
         combination is required.
@@ -41,3 +43,21 @@ class TestCheckAvailability(TestCase):
             datetime.date.today(), datetime.time(18, 00),
             datetime.time(20, 00), 4, '')
         self.assertEqual(selected_table4.size, 4)
+
+    def test_smallest_table_combination_chosen(self):
+        """
+        Test that when the tables are combined the smallest number
+        of tables are used and that the combined tables have the
+        smallest amount of leftover space.
+        """
+        selected_tables1 = find_tables(
+            datetime.date.today(), datetime.time(18, 00),
+            datetime.time(20, 00), 5, '')
+        tables1_sizes = [table.size for table in selected_tables1]
+        self.assertEqual(tables1_sizes, [2, 4])
+
+        selected_tables2 = find_tables(
+            datetime.date.today(), datetime.time(18, 00),
+            datetime.time(20, 00), 7, '')
+        tables2_sizes = [table.size for table in selected_tables2]
+        self.assertEqual(tables2_sizes, [4, 4])
