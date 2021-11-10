@@ -18,6 +18,7 @@ class TestViews(TestCase):
 
         self.restaurant = Restaurant.objects.create(name='The Pizza Oven')
         self.table = Table.objects.create(restaurant=self.restaurant, size=2)
+        self.table = Table.objects.create(restaurant=self.restaurant, size=4)
         self.booking = Booking.objects.create(
             date=datetime.date.today(), time=datetime.time(18, 00),
             party_size=2, name='Test Name', email='test@email.com',
@@ -69,7 +70,6 @@ class TestViews(TestCase):
 
     def test_can_delete_booking_user(self):
         """ Test that the delete booking view deletes a booking. """
-
         # Test for a standard user.
         self.client.login(username='john', password='johnpassword')
         response = self.client.get(
@@ -80,7 +80,6 @@ class TestViews(TestCase):
 
     def test_can_delete_booking_superuser(self):
         """ Test that the delete booking view redirects. """
-
         # Test the redirect for a superuser
         self.client.login(username='admin', password='adminpassword')
         response = self.client.get(
@@ -168,6 +167,22 @@ class TestViews(TestCase):
         self.assertRedirects(
             response, f'/bookings/booking_confirmed/{booking.id}')
         message = list(response.context.get('messages'))[0]
+        self.assertEqual(message.message, 'Booking successfully made!')
+
+        response2 = self.client.post(
+            '/bookings/make_booking',
+            {
+                'date': datetime.date.today(),
+                'time': datetime.time(11, 00),
+                'party_size': 6,
+                'name': 'User2 Name',
+                'email': 'test@email.com',
+                'phone_number': '01234567890',
+            }, follow=True)
+        booking2 = Booking.objects.get(name='User2 Name')
+        self.assertRedirects(
+            response2, f'/bookings/booking_confirmed/{booking2.id}')
+        message = list(response2.context.get('messages'))[0]
         self.assertEqual(message.message, 'Booking successfully made!')
 
         # If user is superuser.
