@@ -174,26 +174,8 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/2891f43577.js" crossorigin="anonymous"></script>
 
-    <!-- Timeout function to close alert messages after 3 secon -->
-    <script>
-        setTimeout(function () {
-            let messages = document.getElementById("msg");
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 3000);
-    </script>
-
-    <!-- Modal launch script, url for the confirm delete button taken from data-delete-url attribute -->
-    <script>
-        // Adapted from https://stackoverflow.com/questions/54806538/how-to-pass-object-instance-to-a-href-tag-within-a-django-modal-dialog
-        $(document).ready(function () {
-            $(".manage-delete").click(function () {
-                let del_url = $(this).data('delete-url');
-                $("#manage-delete").attr("href", del_url);
-                $("#booking-delete-modal").modal();
-            });
-        });
-    </script>
+    <!-- Additional post load JS -->
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
