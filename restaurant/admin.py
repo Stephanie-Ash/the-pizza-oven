@@ -27,13 +27,6 @@ class RestaurantAdmin(admin.ModelAdmin):
     list_display = ('name', 'opening_time', 'closing_time')
     search_fields = ('name',)
 
-    # def has_delete_permission(self, request, obj=None):
-    #     """
-    #     Remove permission to delete The Pizza Oven restaurant to
-    #     ensure that the site functions correctly.
-    #     """
-    #     return False
-
 
 @admin.register(Table)
 class TableAdmin(admin.ModelAdmin):

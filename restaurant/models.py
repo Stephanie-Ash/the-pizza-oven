@@ -25,10 +25,10 @@ class Restaurant(models.Model):
         help_text='Image of restaurant menu.')
 
     # Taken from:
-    # https://stackoverflow.com/questions/62521421/django-save-only-time-and-validate-start-time-is-earlier-than-end-time
+    # https://stackoverflow.com/questions/62521421/
     def clean(self):
-        if self.closing_time < self.opening_time:
-            raise ValidationError('Closing time should be after start time!')
+        if self.closing_time <= self.opening_time:
+            raise ValidationError('Closing time should be after opening time!')
 
     def __str__(self):
         return self.name

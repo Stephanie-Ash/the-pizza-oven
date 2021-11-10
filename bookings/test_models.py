@@ -17,7 +17,12 @@ class TestModels(TestCase):
         self.assertEqual(str(self.booking), 'A table of 4 on 08-11-2021')
 
     def test_booking_end_time_generated_on_save(self):
-        """ Test the Booking model generate_end_time method. """
+        """
+        Test the Booking model generate_end_time method is
+        run on save and saves a time 2 hours after the booking
+        time.
+
+        """
         self.assertEqual(self.booking.end_time, datetime.time(14, 00))
 
     def test_updated_defaults_to_true(self):
