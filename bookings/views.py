@@ -36,7 +36,7 @@ def make_booking(request):
             if isinstance(tables, list):
                 booking.tables.set(tables)
             else:
-                booking.tables.add(tables)
+                booking.tables.ad(tables)
             if request.user.is_authenticated:
                 booking.customer = request.user
                 booking.save()
