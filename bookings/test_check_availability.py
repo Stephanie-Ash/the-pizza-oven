@@ -62,6 +62,43 @@ class TestCheckAvailability(TestCase):
         tables2_sizes = [table.size for table in selected_tables2]
         self.assertEqual(tables2_sizes, [4, 4])
 
+    def test_other_table_combinations_chosen_when_best_not_available(self):
+        """
+        Test that when the best table combination is not avaiable
+        the next best option is chosen.
+        """
+        booking1 = Booking.objects.create(
+            date=datetime.date.today(), time=datetime.time(18, 00),
+            party_size=8, name='Test Name', email='test@email.com',
+            phone_number='01234567890')
+        tables1 = [self.table3, self.table4, self.table5, self.table7]
+        booking1.tables.set(tables1)
+
+        booking2 = Booking.objects.create(
+            date=datetime.date.today(), time=datetime.time(12, 00),
+            party_size=8, name='Test Name', email='test@email.com',
+            phone_number='01234567890')
+        tables2 = [self.table1, self.table2]
+        booking2.tables.set(tables2)
+
+        booking3 = Booking.objects.create(
+            date=datetime.date.today(), time=datetime.time(12, 00),
+            party_size=4, name='Test Name', email='test@email.com',
+            phone_number='01234567890')
+        booking3.tables.add(self.table6)
+
+        selected_tables1 = find_tables(
+            datetime.date.today(), datetime.time(18, 00),
+            datetime.time(20, 00), 5, '')
+        tables1_sizes = [table.size for table in selected_tables1]
+        self.assertEqual(tables1_sizes, [4, 4])
+
+        selected_tables2 = find_tables(
+            datetime.date.today(), datetime.time(12, 00),
+            datetime.time(14, 00), 8, '')
+        tables2_sizes = [table.size for table in selected_tables2]
+        self.assertEqual(tables2_sizes, [2, 2, 4])
+
     def test_booked_table_not_selected(self):
         """
         Test to ensure that tables are not double booked.
@@ -70,8 +107,8 @@ class TestCheckAvailability(TestCase):
             date=datetime.date.today(), time=datetime.time(18, 00),
             party_size=8, name='Test Name', email='test@email.com',
             phone_number='01234567890')
-        booking1.tables.add(self.table1)
-        booking1.tables.add(self.table2)
+        tables1 = [self.table1, self.table2]
+        booking1.tables.set(tables1)
 
         booking2 = Booking.objects.create(
             date=datetime.date.today(), time=datetime.time(18, 00),
@@ -104,22 +141,22 @@ class TestCheckAvailability(TestCase):
             date=datetime.date.today(), time=datetime.time(18, 00),
             party_size=8, name='Test Name', email='test@email.com',
             phone_number='01234567890')
-        booking1.tables.add(self.table1)
-        booking1.tables.add(self.table2)
+        tables1 = [self.table1, self.table2]
+        booking1.tables.set(tables1)
 
         booking2 = Booking.objects.create(
             date=datetime.date.today(), time=datetime.time(18, 00),
             party_size=8, name='Test Name', email='test@email.com',
             phone_number='01234567890')
-        booking2.tables.add(self.table6)
-        booking2.tables.add(self.table8)
+        tables2 = [self.table6, self.table8]
+        booking2.tables.set(tables2)
 
         booking3 = Booking.objects.create(
             date=datetime.date.today(), time=datetime.time(18, 00),
             party_size=4, name='Test Name', email='test@email.com',
             phone_number='01234567890')
-        booking3.tables.add(self.table3)
-        booking3.tables.add(self.table4)
+        tables3 = [self.table3, self.table4]
+        booking3.tables.set(tables3)
 
         selected_table = find_tables(
             datetime.date.today(), datetime.time(19, 00),
