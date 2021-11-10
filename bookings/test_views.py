@@ -226,6 +226,25 @@ class TestViews(TestCase):
         self.assertEqual(updated_booking.time, datetime.time(17, 00))
         self.assertTrue(updated_booking.updated)
 
+        self.booking.updated = False
+        self.booking.save()
+        response2 = self.client.post(
+            f'/bookings/update_booking/{self.booking.id}',
+            {
+                'date': self.booking.date,
+                'time': self.booking.time,
+                'party_size': 6,
+                'name': self.booking.name,
+                'email': self.booking.email,
+                'phone_number': self.booking.phone_number,
+            }, follow=True)
+        self.assertRedirects(response2, '/bookings/my_bookings')
+        message2 = list(response2.context.get('messages'))[0]
+        self.assertEqual(message2.message, 'Booking successfully updated.')
+        updated_booking = Booking.objects.get(id=self.booking.id)
+        self.assertEqual(updated_booking.party_size, 6)
+        self.assertTrue(updated_booking.updated)
+
         # Test redirect if superuser
         self.client.login(username='admin', password='adminpassword')
         self.booking.updated = False
