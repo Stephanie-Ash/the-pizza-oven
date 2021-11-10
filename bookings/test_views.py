@@ -262,3 +262,42 @@ class TestViews(TestCase):
         self.assertRedirects(response_su, '/bookings/manage_bookings')
         updated_booking = Booking.objects.get(id=self.booking.id)
         self.assertFalse(updated_booking.updated)
+
+    def test_error_message_generated_when_booking_form_not_valid(self):
+        """
+        Test the make booking and update booking post views to
+        ensure that an error message is generated when the
+        booking form is not valid.
+        """
+        # Make booking
+        response = self.client.post(
+            '/bookings/make_booking',
+            {
+                'date': datetime.date.today(),
+                'time': datetime.time(14, 00),
+                'party_size': 8,
+                'name': 'User Name',
+                'email': 'test@email.com',
+                'phone_number': '01234567890',
+            })
+        message = list(response.context.get('messages'))[0]
+        self.assertEqual(
+            message.message,
+            'Failed to make the booking. Please check the form.')
+
+        # Update booking
+        self.client.login(username='john', password='johnpassword')
+        response2 = self.client.post(
+            f'/bookings/update_booking/{self.booking.id}',
+            {
+                'date': self.booking.date,
+                'time': self.booking.time,
+                'party_size': 8,
+                'name': self.booking.name,
+                'email': self.booking.email,
+                'phone_number': self.booking.phone_number,
+            })
+        message2 = list(response2.context.get('messages'))[0]
+        self.assertEqual(
+            message2.message,
+            'Failed to update the booking. Please check the form.')
