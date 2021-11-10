@@ -61,3 +61,35 @@ class TestCheckAvailability(TestCase):
             datetime.time(20, 00), 7, '')
         tables2_sizes = [table.size for table in selected_tables2]
         self.assertEqual(tables2_sizes, [4, 4])
+
+    def test_booked_table_not_selected(self):
+        """
+        Test to ensure that tables are not double booked.
+        """
+        booking1 = Booking.objects.create(
+            date=datetime.date.today(), time=datetime.time(18, 00),
+            party_size=8, name='Test Name', email='test@email.com',
+            phone_number='01234567890')
+        booking1.tables.add(self.table2)
+        booking1.tables.add(self.table4)
+
+        booking2 = Booking.objects.create(
+            date=datetime.date.today(), time=datetime.time(18, 00),
+            party_size=4, name='Test Name', email='test@email.com',
+            phone_number='01234567890')
+        booking2.tables.add(self.table6)
+
+        selected_table1 = find_tables(
+            datetime.date.today(), datetime.time(18, 00),
+            datetime.time(20, 00), 3, '')
+        self.assertEqual(selected_table1.id, self.table8.id)
+
+        selected_table2 = find_tables(
+            datetime.date.today(), datetime.time(17, 00),
+            datetime.time(19, 00), 4, '')
+        self.assertEqual(selected_table2.id, self.table8.id)
+
+        selected_table3 = find_tables(
+            datetime.date.today(), datetime.time(19, 00),
+            datetime.time(21, 00), 3, '')
+        self.assertEqual(selected_table3.id, self.table8.id)
