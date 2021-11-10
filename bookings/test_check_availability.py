@@ -10,10 +10,10 @@ class TestCheckAvailability(TestCase):
     """ Tests for the available table searches. """
     def setUp(self):
         self.restaurant = Restaurant.objects.create(name='The Pizza Oven')
-        self.table1 = Table.objects.create(restaurant=self.restaurant, size=2)
+        self.table1 = Table.objects.create(restaurant=self.restaurant, size=4)
         self.table2 = Table.objects.create(restaurant=self.restaurant, size=4)
         self.table3 = Table.objects.create(restaurant=self.restaurant, size=2)
-        self.table4 = Table.objects.create(restaurant=self.restaurant, size=4)
+        self.table4 = Table.objects.create(restaurant=self.restaurant, size=2)
         self.table5 = Table.objects.create(restaurant=self.restaurant, size=2)
         self.table6 = Table.objects.create(restaurant=self.restaurant, size=4)
         self.table7 = Table.objects.create(restaurant=self.restaurant, size=2)
@@ -54,11 +54,11 @@ class TestCheckAvailability(TestCase):
             datetime.date.today(), datetime.time(18, 00),
             datetime.time(20, 00), 5, '')
         tables1_sizes = [table.size for table in selected_tables1]
-        self.assertEqual(tables1_sizes, [2, 4])
+        self.assertEqual(tables1_sizes, [4, 2])
 
         selected_tables2 = find_tables(
             datetime.date.today(), datetime.time(18, 00),
-            datetime.time(20, 00), 7, '')
+            datetime.time(20, 00), 8, '')
         tables2_sizes = [table.size for table in selected_tables2]
         self.assertEqual(tables2_sizes, [4, 4])
 
@@ -70,8 +70,8 @@ class TestCheckAvailability(TestCase):
             date=datetime.date.today(), time=datetime.time(18, 00),
             party_size=8, name='Test Name', email='test@email.com',
             phone_number='01234567890')
+        booking1.tables.add(self.table1)
         booking1.tables.add(self.table2)
-        booking1.tables.add(self.table4)
 
         booking2 = Booking.objects.create(
             date=datetime.date.today(), time=datetime.time(18, 00),
