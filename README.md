@@ -8,7 +8,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
 
 ## User Stories
 
-* As a customer:
+* ### As a customer:
 
     **General**
     * I can view a menu so that I can see what food is available.
@@ -22,7 +22,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
     * I can receive an email with my booking details so that I can have a reminder of the details of my booking.
     * I can register for an account so that I can review or change my bookings.
 
-* As a registered customer:
+* ### As a registered customer:
 
     **Bookings**
     * I can view a list of bookings I have made so that I can easily select and update the individual booking information.
@@ -30,7 +30,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
     * I can view and cancel a booking I have made so that I can easily let the restaurant know I won't be attending.
     * I can save my personal information so that I can save time when booking in the future.
 
-* As a restaurant owner:
+* ### As a restaurant owner:
 
     **Restaurant**
     * I can set the opening and closing times of my restaurant so that bookings will only be made when the restaurant is open.
