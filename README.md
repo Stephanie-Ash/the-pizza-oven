@@ -118,6 +118,13 @@ The site is based around three custom models:
 
     ![Homepage Location Section](readme/screenshots/homepage-location.jpg)
 
+* **Footer**
+    * The footer provides links to the social media sites of the restaurant.
+    * The links open in a new tab providing easy navigation for the user.
+    * The footer provides other ways to engage with the restaurant and could help attract more customers through shares from existing customers.
+
+    ![The Footer](readme/screenshots/footer.jpg)
+
 * **Make Booking and Booking Confirmation**
     * The make booking page contains a simple booking form allowing the user to book a table quickly and easily.
     * The use of a dropdown menu of booking slots ensures that the user does not accidently submit an invalid booking time. Similarly the party size dropdown controls the party sizes that are allowed.
@@ -165,4 +172,4 @@ The site is based around three custom models:
 * **The Admin Panel**
     * The admin panel gives the restaurant owner further control over the site by changing the restaurant description, uploading a new menu file or changing the opening and closing time of the restaurant. They are also able to add or delete tables from the restaurant.
     * The restaurant owner can view and delete bookings on the admin panel or update the customer details of a booking. However they cannot create a new booking from this panel to ensure that no bookings are created without first checking for available tables.
-    * The admin panel has been customised to give the restaurant owner control where possible whilst providing safeguards to ensure that the site or booking system is not compromised.
+    * The admin panel has been customised to give the restaurant owner control where possible whilst providing safeguards to ensure that the site or booking system are not compromised.
