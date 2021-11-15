@@ -15,7 +15,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
     * I can see a map of the restaurant location so that I can easily find the restautant.
 
     **Bookings**
-    * I can easily specify a date and time for s booking so that I can quickly book a table for when I want it.
+    * I can easily specify a date and time for a booking so that I can quickly book a table for when I want it.
     * I can easily specify the size of my party for a booking so that I can ensure I book a table of the correct size.
     * I can detail special or dietary requirements when I book so that I can inform the restaurant.
     * I can see whether a table is abailable at my specified booking time so that I can confirm my booking straight away.
@@ -43,3 +43,28 @@ This is the website for a pizza restaurant located on the South Bank in London. 
     * I can view, update or cancel bookings so that I can manage the daily bookings.
     * I can see when a customer has made or updated a booking so that I can review the information.
 
+## Design
+
+### Wireframes
+
+The site is designed to be simple to use thus allowing a customer to quickly book a table. The following wireframes were used to help plan the layout of the site:
+
+* Desktop view wireframes
+    * [Homepage](readme/wireframes/home-wireframe.png)
+    * [Make Booking Page](readme/wireframes/make-booking-wireframe.png)
+    * [My Bookings Page](readme/wireframes/my-bookings-wireframe.png)
+    * [Manage Bookings Page](readme/wireframes/manage-bookings-wireframe.png)
+
+* Tablet view wireframes
+    * [Homepage](readme/wireframes/home-wireframe-tablet.png)
+    * [Make Booking Page](readme/wireframes/make-booking-wireframe-tablet.png)
+    * [My Bookings Page](readme/wireframes/my-bookings-wireframe-tablet.png)
+    * [Manage Bookings Page](readme/wireframes/manage-bookings-wireframe-tablet.png)
+
+* Mobile view wireframes
+    * [Homepage](readme/wireframes/home-wireframe-mobile.png)
+    * [Make Booking Page](readme/wireframes/make-booking-wireframe-mobile.png)
+    * [My Bookings Page](readme/wireframes/my-bookings-wireframe-mobile.png)
+    * [Manage Bookings Page](readme/wireframes/manage-bookings-wireframe-mobile.png)
+
+In the course of creating the site another two pages, booking confirmed (adapted from the my bookings page layout) and booking detail (adapted from the manage bookings page layout) were also created.
