@@ -95,4 +95,10 @@ The site is based around three custom models:
 
 ![Colour Scheme](readme/screenshots/colour-scheme.jpg)
 
+* Navigation Bar
+    * This is found on all pages and allows the user to easily navigate to the important parts of the site without using the browser navigation buttons.
+    * It is identical on all pages and is fixed to the top of the page making it easy for the user to locate.
+    * The My Account dropdown contains different options depending on user status quickly alerting the user as to whether or not they are logged in. It also contains extra options only visible to the Superuser.
+    * The menu collapses to a toggler on smaller screens allowing for easy navigation across all devices.
 
+![Navigation Bar](readme/screenshots/navigation-bar.jpg) 
