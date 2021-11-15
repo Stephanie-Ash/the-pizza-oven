@@ -75,7 +75,7 @@ In the course of creating the site another two pages, booking confirmed (adapted
 The database schema was created using [Quick Database Diagrams](https://www.quickdatabasediagrams.com/)
 
 The site is based around three custom models:
-* **Restaurant** - This provides some general information about the restaurant. It allows the restaurant owner keep their homepage fresh by updating the description or the menu. It also allows them to set the restaurant opening and closing times which define the first and last slot of the booking system. The inclusion of a restaurant model with tables connected via a Foreign Key relationship would allow, without too many changes, the expansion of the booking system to multiple restaurants in the future.
+* **Restaurant** - This provides some general information about the restaurant. It allows the restaurant owner keep their homepage fresh by updating the description or the menu file. It also allows them to set the restaurant opening and closing times which define the first and last slot of the booking system. The inclusion of a restaurant model with tables connected via a Foreign Key relationship would allow, without too many changes, the expansion of the booking system to multiple restaurants in the future.
 
 * **Table** - This model is connected to the Restaurant model through a Foreign Key relationship. It allows the addition to the booking system of a table of a certain size. The decision has been made to restrict the table sizes in the system to just the two most common sizes, 2 person and 4 person tables. These can be combined to create larger tables to cover all party sizes.
 
@@ -98,14 +98,13 @@ The site is based around three custom models:
 * **Navigation Bar**
     * The navigation bar is found on all pages and allows the user to easily navigate to the important parts of the site without using the browser navigation buttons.
     * It is identical on all pages and is fixed to the top of the page making it easy for the user to locate.
-    * The My Account dropdown contains different options depending on user status quickly alerting the user as to whether or not they are logged in. It also contains extra options only visible to the Superuser.
+    * The My Account dropdown contains different options depending on user status quickly alerting the user as to whether or not they are logged in. It also contains extra options only visible to the superuser (restaurant owner).
     * The menu collapses to a toggler on smaller screens allowing for easy navigation across all devices.
     
     ![Navigation Bar](readme/screenshots/navigation-bar.jpg)
 
 * **Homepage**
     * This page provides the user with information about the restaurant and hopefully convinces them to book a table. It provides two links to the booking form, one in the navigation bar and a button below the heading making it even easier to book a table.
-
     * The imagery quickly alerts the user to what the restaurant serves and entices them with tasty looking food.
     
     ![Homepage imagery](readme/screenshots/homepage-imagery.jpg)
@@ -173,3 +172,9 @@ The site is based around three custom models:
     * The admin panel gives the restaurant owner further control over the site by changing the restaurant description, uploading a new menu file or changing the opening and closing time of the restaurant. They are also able to add or delete tables from the restaurant.
     * The restaurant owner can view and delete bookings on the admin panel or update the customer details of a booking. However they cannot create a new booking from this panel to ensure that no bookings are created without first checking for available tables.
     * The admin panel has been customised to give the restaurant owner control where possible whilst providing safeguards to ensure that the site or booking system are not compromised.
+
+### Features Left to Implement
+
+* User profiles to save customer information for automatic form population.
+* Automatic user registration using the provided email address and a booking number as a password. Ensuring all customers can cancel or update a booking.
+* Creation of a restaurant table plan with the bookings shown to give the restaurant owner a visual representation of the bookings for any specific time.
