@@ -152,3 +152,12 @@ The site is based around three custom models:
     * A confirmation modal is launched when the user selects Cancel Booking ensuring that they do not cancel their booking accidently.
 
     ![Booking cancellation confirmation modal](readme/screenshots/cancel-confirmation-modal.jpg)
+
+* **Manage Bookings Page**
+    * The manage bookings page can only be accessed by the superuser. It contains details of upcoming bookings with the current day at the top. It enables the restaurant owner to keep track of the bookings for each day.
+    * The restaurant owner can view (on the booking detail page), update and cancel bookings from this page. Giving them control over the bookings in the restaurant.
+    * The page has a plain colour background to distinguish it from the customer accessed areas which have a pizza image background.
+    * When the booking system combines tables it has no way of knowing if they are near each other in the restaurant and so it is not helpful for the table objects to have restaurant table numbers. The table number input on this page allows the restaurant owner to add table numbers to the bookings themselves to help plan the seating for the day.
+    * The 'updated' exclamation mark flag on the bookings is displayed based on the 'updated' BooleanField in the Booking model. It alerts the restaurant owner that a booking has been created or updated by a customer so that they do not overlook any new information. The flag can be turned off once the booking has been reviewed.
+
+    ![Manage Bookings Page](readme/screenshots/manage-bookings-page.jpg)
