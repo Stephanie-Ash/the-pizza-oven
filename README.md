@@ -204,3 +204,7 @@ The site is based around three custom models:
 * [Balsamiq](https://balsamiq.com/wireframes/desktop/) has been used to create the wireframes for the project.
 * [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) has been used to create the database schema for the project.
 * [Am I responsive](http://ami.responsivedesign.is/) has been used to make a mockup of the site.
+
+## Testing
+
+The poject has been thoroughly tested through both manual and automated testing. Details of the testing can be found [here](TESTING.md).
