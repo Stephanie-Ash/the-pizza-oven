@@ -96,7 +96,7 @@ The site is based around three custom models:
 ![Colour Scheme](readme/screenshots/colour-scheme.jpg)
 
 * **Navigation Bar**
-    * This is found on all pages and allows the user to easily navigate to the important parts of the site without using the browser navigation buttons.
+    * The navigation bar is found on all pages and allows the user to easily navigate to the important parts of the site without using the browser navigation buttons.
     * It is identical on all pages and is fixed to the top of the page making it easy for the user to locate.
     * The My Account dropdown contains different options depending on user status quickly alerting the user as to whether or not they are logged in. It also contains extra options only visible to the Superuser.
     * The menu collapses to a toggler on smaller screens allowing for easy navigation across all devices.
@@ -117,3 +117,18 @@ The site is based around three custom models:
     * The location section provides all the information the user requires to find the restaurant which again makes booking a table a more appealing prospect.
 
     ![Homepage Location Section](readme/screenshots/homepage-location.jpg)
+
+* **Make Booking and Booking Confirmation**
+    * The make booking page contains a simple booking form allowing the user to book a table quickly and easily.
+    * The use of a dropdown menu of booking slots ensures that the user does not accidently submit an invalid booking time. Similarly the party size dropdown controls the party sizes that are allowed.
+    * The special requirements box allows the user send any requirements they may have directly to the restaurant.
+
+    ![Table Booking Form](readme/screenshots/booking-form.jpg)
+
+    * The form validation alerts the user if there are no tables available at their booking time allowing them to book a table instantly rather than awaiting a response from the restaurant.
+
+    ![Form Validation](readme/screenshots/form-validation.jpg)
+
+    * The booking confirmation confirms to the user that a table is avaiable providing confidence that a booking has been made. It also confirms the details of the booking they have just made.
+
+    ![Booking Confirmation](readme/screenshots/booking-confirmation.jpg)
