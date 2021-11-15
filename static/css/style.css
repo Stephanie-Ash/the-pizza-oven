@@ -208,6 +208,8 @@ footer > ul {
 
 iframe {
     border: none;
+    width: 100%;
+    height: 100%;
 }
 
 /* ------------------Bookings Pages------------------ */
@@ -396,10 +398,6 @@ iframe {
         padding-right: 15px;
     }
 
-    .menu-text {
-        text-align: left;
-    }
-
     .location-text p {
         font-size: 20px;
     }
@@ -431,6 +429,10 @@ iframe {
     .list-inline-item {
         padding-left: 25px;
         padding-right: 25px;
+    }
+
+    .menu-text {
+        text-align: left;
     }
 
     .location-text p, .location-title {
