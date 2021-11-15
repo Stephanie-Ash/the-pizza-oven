@@ -47,7 +47,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
 
 ### Wireframes
 
-The site is designed to be simple to use thus allowing a customer to quickly book a table. The following wireframes were used to help plan the layout of the site:
+The site is designed to be simple to use thus allowing a customer to quickly book a table. The following wireframes were created using [Balsamiq](https://balsamiq.com/wireframes/desktop/) to help plan the layout of the site:
 
 * Desktop view wireframes
     * [Homepage](readme/wireframes/home-wireframe.png)
@@ -71,7 +71,8 @@ In the course of creating the site another two pages, booking confirmed (adapted
 
 ### Models and Database Schema
 
-![Site Mockup](readme/database-schema/database-schema.png)
+![Database Schema](readme/database-schema/database-schema.png)
+The database schema was created using [Quick Database Diagrams](https://www.quickdatabasediagrams.com/)
 
 The site is based around three custom models:
 * **Restaurant** - This provides some general information about the restaurant. It allows the restaurant owner keep their homepage fresh by updating the description or the menu. It also allows them to set the restaurant opening and closing times which define the first and last slot of the booking system. The inclusion of a restaurant model with tables connected via a Foreign Key relationship would allow, without too many changes, the expansion of the booking system to multiple restaurants in the future.
@@ -79,4 +80,19 @@ The site is based around three custom models:
 * **Table** - This model is connected to the Restaurant model through a Foreign Key relationship. It allows the addition to the booking system of a table of a certain size. The decision has been made to restrict the table sizes in the system to just the two most common sizes, 2 person and 4 person tables. These can be combined to create larger tables to cover all party sizes.
 
 * **Booking** - This model contains all the required information about the booking including the date, time and party size. The booking end time is calculated automatically with two hours allowed for each booking. Tables are connected to bookings through a Many to Many relationship and searching through the bookings for each table allows the booking system to check whether there are tables avaialable at the required booking date and time. The model also provides information about the customer who made the booking and if the customer is a registered user the booking will be connected to their AllAuth user model via a Foreign Key relationship. The date created and updated fields were intended to be used alert the restaurant owner when a booking had been updated however over the course of development a simpler 'updated' Boolean field was chosen instead.
+
+## Features
+
+### Existing Features
+
+* **Colour Scheme**
+    * The website is for an Italian pizza restaurant and shades of red, white and green have been used throughout the site to hint at the Italian flag. [ColorSpace](https://mycolor.space/) and [Colormind](http://colormind.io/) were used to help select the colours required.
+    * The main colours used are:
+        * #F4F7F5 for the off white
+        * #43b792 for the green
+        * #B03F57 for the red
+        * #201622 for the darker accents
+
+![Colour Scheme](readme/screenshots/colour-scheme.jpg)
+
 
