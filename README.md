@@ -178,3 +178,29 @@ The site is based around three custom models:
 * User profiles to save customer information for automatic form population.
 * Automatic user registration using the provided email address and a booking number as a password. Ensuring all customers can cancel or update a booking.
 * Creation of a restaurant table plan with the bookings shown to give the restaurant owner a visual representation of the bookings for any specific time.
+
+## Technologies Used
+
+### Languages Used
+* [HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/CSS), [JavaScript](https://en.wikipedia.org/wiki/JavaScript), [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Frameworks, Libraries & Programs Used
+
+* [Django](https://www.djangoproject.com/) is the MVC framework used to create the site.
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html) has been used to set up user authentication on the site.
+* [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) has been used to add boostrap styling to the booking form.
+* [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) has been used to assist with the styling of the site and particularly the responsiveness.
+* [Hover.css](https://ianlunn.github.io/Hover/) has been used to apply colour change to links and buttons when hovered over.
+* [jQuery](https://jquery.com/) has been used for some of the Bootstrap components and also in the custom JS file.
+* [Google Fonts](https://fonts.google.com/) has been used for the Poppins and Roboto fonts used throughout the site.
+* [Font Awesome](https://fontawesome.com/) has been used to provide icons for the site.
+* [Heroku](https://www.heroku.com) has been used to deploy the site.
+* [Gunicorn](https://gunicorn.org/) has been used as the server to run Django on Heroku.
+* [Cloudinary](https://cloudinary.com/) has been used to store the static and media files for the site.
+* [PostgresSQL](https://www.postgresql.org/) has been used as the database for the site.
+* [TingPNG](https://tinypng.com/) has been used to compress the images used on the site.
+* [Git](https://git-scm.com/) has been used for version control by using the Gitpod terminal to commit and push code to GitHub.
+* [Github](https://github.com/) has been used to store the project's code.
+* [Balsamiq](https://balsamiq.com/wireframes/desktop/) has been used to create the wireframes for the project.
+* [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) has been used to create the database schema for the project.
+* [Am I responsive](http://ami.responsivedesign.is/) has been used to make a mockup of the site.
