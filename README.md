@@ -129,7 +129,7 @@ The site is based around three custom models:
 
     ![Form Validation](readme/screenshots/form-validation.jpg)
 
-    * The booking confirmation confirms to the user that a table is avaiable providing confidence that a booking has been made. It also confirms the details of the booking they have just made.
+    * The booking confirmation confirms to the user that a table is avaiable providing confidence that a booking has been made. It also confirms the details of the booking they have just made. An email of the booking is sent to the given email address so that the user can easily check the booking details.
 
     ![Booking Confirmation](readme/screenshots/booking-confirmation.jpg)
 
@@ -140,3 +140,15 @@ The site is based around three custom models:
     * If a table is found the booking is save and the selected table(s) added to the booking.
     * If no tables are available, the user is alerted.
     * This table search allows the user to book a free table instantly.
+
+* **Registered User Area**
+    * Registered users are able to see a list of their upcoming bookings on the My Bookings page. This is an easy way for them to check the booking details.
+    * This page also gives them the option to update or cancel the booking without having to contact the restaurant themselves, saving the user time.
+    
+    ![Upcoming Booking Detail](readme/screenshots/upcoming-bookings.jpg)
+
+    * The update button takes the user to the booking form populated with their booking details. This form will be familiar to the user making it simple for them to update the booking as they wish.
+    * The table search is carried out again if the user changes the booking date, time or party size ensuring that they do not book when no tables are available.
+    * A confirmation modal is launched when the user selects Cancel Booking ensuring that they do not cancel their booking accidently.
+
+    ![Booking cancellation confirmation modal](readme/screenshots/cancel-confirmation-modal.jpg)
