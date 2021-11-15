@@ -207,4 +207,4 @@ The site is based around three custom models:
 
 ## Testing
 
-The poject has been thoroughly tested through both manual and automated testing. Details of the testing can be found [here](TESTING.md).
+The project has been thoroughly tested through both manual and automated testing. Details of the testing can be found [here](TESTING.md).
