@@ -95,10 +95,25 @@ The site is based around three custom models:
 
 ![Colour Scheme](readme/screenshots/colour-scheme.jpg)
 
-* Navigation Bar
+* **Navigation Bar**
     * This is found on all pages and allows the user to easily navigate to the important parts of the site without using the browser navigation buttons.
     * It is identical on all pages and is fixed to the top of the page making it easy for the user to locate.
     * The My Account dropdown contains different options depending on user status quickly alerting the user as to whether or not they are logged in. It also contains extra options only visible to the Superuser.
     * The menu collapses to a toggler on smaller screens allowing for easy navigation across all devices.
+    
+    ![Navigation Bar](readme/screenshots/navigation-bar.jpg)
 
-![Navigation Bar](readme/screenshots/navigation-bar.jpg) 
+* **Homepage**
+    * This page provides the user with information about the restaurant and hopefully convinces them to book a table. It provides two links to the booking form, one in the navigation bar and a button below the heading making it even easier to book a table.
+
+    * The imagery quickly alerts the user to what the restaurant serves and entices them with tasty looking food.
+    
+    ![Homepage imagery](readme/screenshots/homepage-imagery.jpg)
+
+    * The view menu button allows the user to browse the menu available before booking. When combined with the Restaurant model it also allows the restaurant owner to keep the homepage fresh and up to date by uploading the latest menu.
+
+    ![Homepage View Menu Section](readme/screenshots/homepage-view-menu.jpg)
+
+    * The location section provides all the information the user requires to find the restaurant which again makes booking a table a more appealing prospect.
+
+    ![Homepage Location Section](readme/screenshots/homepage-location.jpg)
