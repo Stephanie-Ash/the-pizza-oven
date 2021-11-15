@@ -161,3 +161,8 @@ The site is based around three custom models:
     * The 'updated' exclamation mark flag on the bookings is displayed based on the 'updated' BooleanField in the Booking model. It alerts the restaurant owner that a booking has been created or updated by a customer so that they do not overlook any new information. The flag can be turned off once the booking has been reviewed.
 
     ![Manage Bookings Page](readme/screenshots/manage-bookings-page.jpg)
+
+* **The Admin Panel**
+    * The admin panel gives the restaurant owner further control over the site by changing the restaurant description, uploading a new menu file or changing the opening and closing time of the restaurant. They are also able to add or delete tables from the restaurant.
+    * The restaurant owner can view and delete bookings on the admin panel or update the customer details of a booking. However they cannot create a new booking from this panel to ensure that no bookings are created without first checking for available tables.
+    * The admin panel has been customised to give the restaurant owner control where possible whilst providing safeguards to ensure that the site or booking system is not compromised.
