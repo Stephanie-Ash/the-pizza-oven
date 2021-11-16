@@ -1,5 +1,61 @@
 ## Testing
 
+### User Story Testing
+
+* #### As a customer:
+
+    **General**
+    * I can view a menu so that I can see what food is available.
+        * The view menu button on the homepage launches the menu for the user to view.
+    * I can see a map of the restaurant location so that I can easily find the restautant.
+        * The location section of the homepage provides the address of the restaurant and a map of the location.
+
+    **Bookings**
+    * I can easily specify a date and time for a booking so that I can quickly book a table for when I want it.
+        * The booking form includes an easy to use date and time input.
+    * I can easily specify the size of my party for a booking so that I can ensure I book a table of the correct size.
+        * The booking form includes an easy to use party size dropdown input.
+    * I can detail special or dietary requirements when I book so that I can inform the restaurant.
+        * The booking form includes an optional special requirements input.
+    * I can see whether a table is available at my specified booking time so that I can confirm my booking straight away.
+        * The booking form shows a validation error if no tables are available. The booking confirmation page confirms that a table is available and the table is booked instantly.
+    * I can receive an email with my booking details so that I can have a reminder of the details of my booking.
+        * A booking confirmation email is sent out when a booking is made.
+    * I can register for an account so that I can review or change my bookings.
+        * Account registration has been added to the site.
+
+* #### As a registered customer:
+
+    **Bookings**
+    * I can view a list of bookings I have made so that I can easily select and update the individual booking information.
+        * The my bookings page shows cards of the users upcoming bookings with links to update or cancel the booking.
+    * I can view and amend bookings I have made so that I can change the information as required.
+        * The update booking page allows users to see and amend their booking details as required.
+    * I can view and cancel a booking I have made so that I can easily let the restaurant know I won't be attending.
+        * A booking can be cancelled from the my bookings page. A warning confirmation modal is launched to ensure that the cancel link was not selected in error.
+    * I can save my personal information so that I can save time when booking in the future.
+        * The decision has been made to not implement this user story in this iteration however it could be implemented in the future.
+
+* #### As a restaurant owner:
+
+    **Restaurant**
+    * I can set the opening and closing times of my restaurant so that bookings will only be made when the restaurant is open.
+        * The opening and closing times of the restaurant can be changed in the admin panel and these are used in the booking system to define the slots.
+    * I can view, add, update or remove tables from the booking system so that I can ensure the correct number of tables available for booking.
+        * Tables can be added or deleted in the admin panel.
+
+    **Bookings**
+    * I can view a list of table bookings so that I can see how many customers will be visiting each day.
+        * The manage bookings page provides the restaurant owner with a list of upcoming bookings with those for the current day at the top.
+    * I can view my customers' special requirements so that I can respond accordingly.
+        * The manage bookings and booking detail pages both list the booking special requirements.
+    * I can assign a restaurant table number to the customer bookings so that I can plan the seating in my restaurant.
+        * The table number input on the manage bookings and booking detail pages allows the restaurant owner to add their own table numbers to the bookings.
+    * I can view, update or cancel bookings so that I can manage the daily bookings.
+        * The manage bookings page provides the option to View booking details, update or cancel bookings. The cancel confirmation modal ensures that cancel has not been selected accidently.
+    * I can see when a customer has made or updated a booking so that I can review the information.
+        * The updated flag displays on bookings on the manage bookings page when the booking has been created or updated by a customer ensuring that the restaurant owner is aware of any changes.
+
 ### Validator Testing
 * HTML
     * All pages have been passed through the [W3C validator](https://validator.w3.org/) using URI input. An initial check flagged two spurious end tags and some issues with the iframe styles. These problems have been corrected.

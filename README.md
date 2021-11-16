@@ -18,7 +18,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
     * I can easily specify a date and time for a booking so that I can quickly book a table for when I want it.
     * I can easily specify the size of my party for a booking so that I can ensure I book a table of the correct size.
     * I can detail special or dietary requirements when I book so that I can inform the restaurant.
-    * I can see whether a table is abailable at my specified booking time so that I can confirm my booking straight away.
+    * I can see whether a table is available at my specified booking time so that I can confirm my booking straight away.
     * I can receive an email with my booking details so that I can have a reminder of the details of my booking.
     * I can register for an account so that I can review or change my bookings.
 
