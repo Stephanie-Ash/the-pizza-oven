@@ -57,4 +57,54 @@ Automated testing on all original Python code was carried out on both project ap
 
 ![Bookings App test results](readme/screenshots/bookings-test-results.jpg)
 
+### Manual Testing
+
+Continuous manual testing was carried out throughout the development process with display or functionality errors corrected as they appeared. Detail of some of the manual testing is listed below:
+
+* **Navigation Bar**
+    * All navigation bar links have been tested on desktop and mobile and work correctly.
+    * The navigation dropdown menu displays correctly when the arrow has been clicked and the dropdown links work correctly.
+    * The registered user and superuser links only display when the correct users are logged in.
+* **Footer**
+    * The social media links take the user to the correct page and open in a new tab.
+* **Homepage**
+    * The book a table button on the homepage goes to the correct page.
+    * The homepage view menu button launches the menu in a new tab.
+* **Make Booking Page**
+    * The login and register links for non registered users go to the correct pages.
+    * Time and party sizse dropdown inputs work as expected and the date input launches a calendar widget as expected.
+    * The form cannot be submitted without all required inputs entered.
+    * A form error and alert error message are both displayed when there are no tables available.
+    * The make booking button submits the form.
+    * The page redirects to the booking confirmed page, or manage bookings page when a booking is made and a success message is displayed.
+* **Booking Confirmed Page**
+    * The Update link for registered users goes to the correct page.
+    * The Cancel Booking link correctly launches the confirmation modal.
+    * The booking is successfully cancelled on confirmation.
+* **My Bookings Page**
+    * The Book Table button goes to the correct page.
+    * The Update link goes to the correct page.
+    * The Cancel Booking link launches the confirmation modal and the booking is cancelled on confirmation.
+* **Manage Bookings Page**
+    * The Add Booking button goes to the correct page.
+    * Clicking on the update flag turns off the flag.
+    * The add table number input adds table numbers to the booking.
+    * The View and Update links go to the correct pages.
+    * The Cancel Booking button launches the modal.
+* **Booking Detail Page**
+    * The Update Booking link and Back button go to the correct pages and the Cancel Booking correcly launches the confirmation modal.
+    * The add table number input adds table numbers to the booking.
+* **Update Booking Page**
+    * The Back button goes to the correct pages.
+    * The form is submitted when the Update Booking button is selected and the booking is updated correctly.
+    * Updating a booking without changing the date, time or party size (not covered in manual testing) updates the booking as expected and does not reset the table number field.
+* **Account Pages**
+    * The login and register pages both redirect to the previous page on confirmation.
+    * The user is redirected to the homepage after logout.
+* **Alert Messages**
+    * The messages appear correctly when relevant actions have been taken.
+    * The timeout JS works correctly and the messages close as intended.
+* **Device and Browser Testing**
+    * The site has been tested on the Google Chrome, Microsoft Edge and Firefox browsers.
+    * The sites responsivenes has be tested by friends and family members on various devices and also using the Chrome Developer tools.
 
