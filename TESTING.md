@@ -164,3 +164,7 @@ Continuous manual testing was carried out throughout the development process wit
     * The site has been tested on the Google Chrome, Microsoft Edge and Firefox browsers.
     * The sites responsivenes has be tested by friends and family members on various devices and also using the Chrome Developer tools.
 
+### Fixed Bugs
+* During the development process it was discovered that the booking end_time did not update when the booking was updated. This was fixed by ensuring the end time is calculated on every save.
+* The footer was not originally fixed to the bottom of the page on pages with little content for example the manage bookings page with no bookings. CSS for a sticky footer was added.
+* On a review of the site a spurious sign out button was noted on the logout page. This has been removed.
