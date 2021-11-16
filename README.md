@@ -8,9 +8,9 @@ This is the website for a pizza restaurant located on the South Bank in London. 
 
 ## Table of Contents
 - [User Stories](#user-stories)
-  * [As a customer:](#as-a-customer-)
-  * [As a registered customer:](#as-a-registered-customer-)
-  * [As a restaurant owner:](#as-a-restaurant-owner-)
+  * [As a customer:](#as-a-customer)
+  * [As a registered customer:](#as-a-registered-customer)
+  * [As a restaurant owner:](#as-a-restaurant-owner)
 - [Design](#design)
   * [Wireframes](#wireframes)
   * [Models and Database Schema](#models-and-database-schema)
@@ -19,7 +19,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
   * [Features Left to Implement](#features-left-to-implement)
 - [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
-  * [Frameworks, Libraries & Programs Used](#frameworks--libraries---programs-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
   * [Heroku](#heroku)
