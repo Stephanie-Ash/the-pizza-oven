@@ -47,7 +47,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
 
 ### Wireframes
 
-The site is designed to be simple to use thus allowing a customer to quickly book a table. The following wireframes were created using [Balsamiq](https://balsamiq.com/wireframes/desktop/) to help plan the layout of the site:
+The site is designed to be simple to use thus allowing a customer to quickly book a table. The following wireframes were created to help plan the layout of the site:
 
 * Desktop view wireframes
     * [Homepage](readme/wireframes/home-wireframe.png)
@@ -72,7 +72,6 @@ In the course of creating the site another two pages, booking confirmed (adapted
 ### Models and Database Schema
 
 ![Database Schema](readme/database-schema/database-schema.png)
-The database schema was created using [Quick Database Diagrams](https://www.quickdatabasediagrams.com/)
 
 The site is based around three custom models:
 * **Restaurant** - This provides some general information about the restaurant. It allows the restaurant owner keep their homepage fresh by updating the description or the menu file. It also allows them to set the restaurant opening and closing times which define the first and last slot of the booking system. The inclusion of a restaurant model with tables connected via a Foreign Key relationship would allow, without too many changes, the expansion of the booking system to multiple restaurants in the future.
@@ -192,18 +191,13 @@ The site is based around three custom models:
 * [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) has been used to assist with the styling of the site and particularly the responsiveness.
 * [Hover.css](https://ianlunn.github.io/Hover/) has been used to apply colour change to links and buttons when hovered over.
 * [jQuery](https://jquery.com/) has been used for some of the Bootstrap components and also in the custom JS file.
-* [Google Fonts](https://fonts.google.com/) has been used for the Poppins and Roboto fonts used throughout the site.
-* [Font Awesome](https://fontawesome.com/) has been used to provide icons for the site.
 * [Heroku](https://www.heroku.com) has been used to deploy the site.
 * [Gunicorn](https://gunicorn.org/) has been used as the server to run Django on Heroku.
 * [Cloudinary](https://cloudinary.com/) has been used to store the static and media files for the site.
 * [PostgresSQL](https://www.postgresql.org/) has been used as the database for the site.
-* [TingPNG](https://tinypng.com/) has been used to compress the images used on the site.
+* [TinyPNG](https://tinypng.com/) has been used to compress the images used on the site.
 * [Git](https://git-scm.com/) has been used for version control by using the Gitpod terminal to commit and push code to GitHub.
 * [Github](https://github.com/) has been used to store the project's code.
-* [Balsamiq](https://balsamiq.com/wireframes/desktop/) has been used to create the wireframes for the project.
-* [Quick Database Diagrams](https://www.quickdatabasediagrams.com/) has been used to create the database schema for the project.
-* [Am I responsive](http://ami.responsivedesign.is/) has been used to make a mockup of the site.
 
 ## Testing
 
@@ -284,3 +278,39 @@ The following steps can be used to fork the GitHub repository:
 * On GitHub navigate to the main page of the repository.
 * The 'Fork' button can be found on the top righthand side of the screen.
 * Click the button to create a copy of the original repository.
+
+## Credits
+
+### Code
+
+* The code institute **Hello Django**, **I Think Therefore I Blog** and **Boutique Ado** walkthroughs were all used to assist in the building of this project.
+* The following stack overflow threads were used for assistance
+    * Information on adding time to a TimeField value was found [here](https://stackoverflow.com/questions/100210/what-is-the-standard-way-to-add-n-seconds-to-datetime-time-in-python).
+    * Assistance with iterating over numerous lists was found [here](https://stackoverflow.com/questions/35205162/iterating-over-two-lists-one-after-another).
+    * Information on disabling the Add action in Django admin was found [here](https://stackoverflow.com/questions/4143886/django-admin-disable-the-add-action-for-a-specific-model).
+    * Assistance with the delete confirmation modal was found [here](https://stackoverflow.com/questions/54806538/how-to-pass-object-instance-to-a-href-tag-within-a-django-modal-dialog).
+    * Assistance with setting Allauth to redirect to the previous page was found [here](https://stackoverflow.com/questions/63886066/redirect-back-to-previous-page-after-login-in-django-allauth).
+    * Assistance with testing messages was found [here](https://stackoverflow.com/questions/16143149/django-testing-check-messages-for-a-view-that-redirects).
+* Information on Django custom form validation was found on [Brennan Tymrak](https://www.brennantymrak.com/articles/django-custom-form-validation.html).
+
+### Content
+* The 'Poppins' and 'Roboto' fonts were taken from [Google Fonts](https://fonts.google.com/).
+* Icons on the site including the logo icon were taken from [Font Awesome](https://fontawesome.com/).
+
+### Media
+* The menu was created on [Must Have Menus](https://www.musthavemenus.com/).
+* The restaurant image used as Homepage hero and on the booking confirmations was taken by Nick Karvonis and found on [Unsplash](https://unsplash.com/).
+* The pizza images below the About Us section from left to right were:
+    * Taken by Engin Akyurt and found on [Pexels](https://www.pexels.com/).
+    * Taken by Ivan Torres and found on [Unsplash](https://unsplash.com/).
+    * Taken by Hemant Latawa and found on [Unsplash](https://unsplash.com/).
+* The picture of pizza ingredients on the homepage was taken by Frank Shrader and found on [Pixabay](https://pixabay.com/).
+* The homepage picture of the hands kneading dough was taken by Nadya Spetditskaya and found on [Unsplash](https://unsplash.com/).
+* The background image on the bookings pages was taken by Narda Yescas and found on [Pexels](https://www.pexels.com/).
+* The icon used for the favicon was created by cdz and found on [Pixabay](https://pixabay.com/).
+
+### Other
+
+* The wireframes for the project were created using [Balsamiq](https://balsamiq.com/wireframes/desktop/).
+* The database schema was created using [Quick Database Diagrams](https://www.quickdatabasediagrams.com/).
+* The mockup of the website in the README.md was created using [Am I Responsive?](http://ami.responsivedesign.is/).
