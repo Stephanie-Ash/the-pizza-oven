@@ -277,4 +277,10 @@ The project has been deployed to Heroku. The following steps are used to deploy 
     * In Heroku select the deploy tab from the menu at the top.
     * Select GitHub as the deployment method and browse and connect to the correct repository.
     * Under manual deploy select the main branch and the select deploy branch.
-    
+
+### Forking the GitHub Repository
+
+The following steps can be used to fork the GitHub repository:
+* On GitHub navigate to the main page of the repository.
+* The 'Fork' button can be found on the top righthand side of the screen.
+* Click the button to create a copy of the original repository.
