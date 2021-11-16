@@ -208,3 +208,40 @@ The site is based around three custom models:
 ## Testing
 
 The project has been thoroughly tested through both manual and automated testing. Details of the testing can be found [here](TESTING.md).
+
+## Deployment
+
+### Heroku
+
+The project has been deployed to Heroku. The following steps are used to deploy the site:
+
+* **Creating The App**
+    * On the Heroku dashboard at the top righthand side select the New button and then Create new app.
+    * Give the app a name and select the most appropriate location then select create app.
+* **Configuring The App**
+    * From the menu at the top of the page select the Resources tab.
+    * In the Add-ons box search for Postgres and select Heroku Postgres selecting the free plan before confirming.
+    * In the workspace terminal type the following to install the required libraries:
+        ```
+        pip3 install dj_database_url psycopg2
+        ```
+    * In the django settings file import os and import dj_database_url at the top.
+    * Set the databases setting in the Django settings file:
+        ```
+        DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+        ```
+    * The 'DATABASE_URL' can be found in the Heroku app under Settings and Reveal Config Vars and should added to an env.py file in the development environment:
+        ```
+        os.environ["DATABASE_URL"] = "your_database_url"
+        ```
+    * Migrate the models to the database:
+        ```
+        python3 manage.py migrate
+        ```
+    * Create a superuser for the app:
+        ```
+        python3 manage.py createsuperuser
+        ```
+
