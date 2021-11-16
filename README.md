@@ -6,6 +6,31 @@ This is the website for a pizza restaurant located on the South Bank in London. 
 
 ![Site Mockup](readme/screenshots/site-mockup.jpg)
 
+## Table of Contents
+- [User Stories](#user-stories)
+  * [As a customer:](#as-a-customer-)
+  * [As a registered customer:](#as-a-registered-customer-)
+  * [As a restaurant owner:](#as-a-restaurant-owner-)
+- [Design](#design)
+  * [Wireframes](#wireframes)
+  * [Models and Database Schema](#models-and-database-schema)
+- [Features](#features)
+  * [Existing Features](#existing-features)
+  * [Features Left to Implement](#features-left-to-implement)
+- [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks--libraries---programs-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  * [Heroku](#heroku)
+  * [Forking the GitHub Repository](#forking-the-github-repository)
+- [Credits](#credits)
+  * [Code](#code)
+  * [Content](#content)
+  * [Media](#media)
+  * [Other](#other)
+
+
 ## User Stories
 
 * ### As a customer:
@@ -314,3 +339,4 @@ The following steps can be used to fork the GitHub repository:
 * The wireframes for the project were created using [Balsamiq](https://balsamiq.com/wireframes/desktop/).
 * The database schema was created using [Quick Database Diagrams](https://www.quickdatabasediagrams.com/).
 * The mockup of the website in the README.md was created using [Am I Responsive?](http://ami.responsivedesign.is/).
+* The README.md table of contents was created using [Markdown TOC](https://ecotrust-canada.github.io/markdown-toc/).
