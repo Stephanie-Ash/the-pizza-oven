@@ -215,33 +215,66 @@ The project has been thoroughly tested through both manual and automated testing
 
 The project has been deployed to Heroku. The following steps are used to deploy the site:
 
-* **Creating The App**
+* **Creating the Heroku App**
     * On the Heroku dashboard at the top righthand side select the New button and then Create new app.
     * Give the app a name and select the most appropriate location then select create app.
-* **Configuring The App**
+* **Configuring the Heroku App**
     * From the menu at the top of the page select the Resources tab.
-    * In the Add-ons box search for Postgres and select Heroku Postgres selecting the free plan before confirming.
-    * In the workspace terminal type the following to install the required libraries:
+    * In the Add-ons box on the resources tab search for Postgres and select Heroku Postgres selecting the free plan before confirming.
+    * From the menu at the top of the page select the settings tab.
+    * Under Config Vars select Reveal Config Vars. The DATABASE_URL should already be listed.
+    * Add a SECRET_KEY and any other required environment variables. For this project this includes CLOUDINARY_URL, EMAIL_HOST_PASS, EMAIL_HOST_USER.
+* **Configuring the Django Settings**
+    * In the workspace terminal install the Gunicorn web server:
+        ```
+        pip3 install gunicorn
+        ```
+    * In the workspace terminal install the libraries required by the database:
         ```
         pip3 install dj_database_url psycopg2
         ```
-    * In the django settings file import os and import dj_database_url at the top.
-    * Set the databases setting in the Django settings file:
+    * Add the installs to the requirements.txt file
+        ```
+        pip3 freeze --local > requirements.txt
+        ```
+    * Create an env.py file in the top level of the directory and add the environment variables to the file.
+    * At the top of the django settings file import os and import dj_database_url.
+    * At the top of the django settings file add the following if statement to use the env.py file in the development environment:
+        ```
+        if os.path.isfile('env.py'):
+        import env
+        ````
+    * Replace the databases section in the Django settings file with:
         ```
         DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
         }
         ```
-    * The 'DATABASE_URL' can be found in the Heroku app under Settings and Reveal Config Vars and should added to an env.py file in the development environment:
+    * Replace the SECRET_KEY setting in the Django settings file with:
         ```
-        os.environ["DATABASE_URL"] = "your_database_url"
+        SECRET_KEY = os.environ.get('SECRET_KEY')
         ```
     * Migrate the models to the database:
         ```
         python3 manage.py migrate
         ```
+    * Any model objects that may have been added to the default database in development will have to be added to the Heroku Postgres database.
     * Create a superuser for the app:
         ```
         python3 manage.py createsuperuser
         ```
-
+    * Add the Heroku Hostname to the ALLOWED_HOSTS setting in the Django settings file:
+        ```
+        ALLOWED_HOSTS = ['the-pizza-oven.herokuapp.com', 'localhost']
+        ```
+    * Set DEBUG to False in the Django settings file.
+    * Add a Procfile containing the following code in the top level of the directory:
+    ```
+    web: gunicorn pizza_oven.wsgi
+    ```
+    * In the terminal add, commit and push all changes.
+* **Deploying the App**
+    * In Heroku select the deploy tab from the menu at the top.
+    * Select GitHub as the deployment method and browse and connect to the correct repository.
+    * Under manual deploy select the main branch and the select deploy branch.
+    
