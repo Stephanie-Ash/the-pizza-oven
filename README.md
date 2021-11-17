@@ -37,7 +37,7 @@ This is the website for a pizza restaurant located on the South Bank in London. 
 
     **General**
     * I can view a menu so that I can see what food is available.
-    * I can see a map of the restaurant location so that I can easily find the restautant.
+    * I can see a map of the restaurant location so that I can easily find the restaurant.
 
     **Bookings**
     * I can easily specify a date and time for a booking so that I can quickly book a table for when I want it.
@@ -103,7 +103,7 @@ The site is based around three custom models:
 
 * **Table** - This model is connected to the Restaurant model through a Foreign Key relationship. It allows the addition to the booking system of a table of a certain size. The decision has been made to restrict the table sizes in the system to just the two most common sizes, 2 person and 4 person tables. These can be combined to create larger tables to cover all party sizes.
 
-* **Booking** - This model contains all the required information about the booking including the date, time and party size. The booking end time is calculated automatically with two hours allowed for each booking. Tables are connected to bookings through a Many to Many relationship and searching through the bookings for each table allows the booking system to check whether there are tables avaialable at the required booking date and time. The model also provides information about the customer who made the booking and if the customer is a registered user the booking will be connected to their AllAuth user model via a Foreign Key relationship. The date created and date updated fields were intended to be used to alert the restaurant owner when a booking had been updated however over the course of development a simpler 'updated' Boolean field was chosen instead.
+* **Booking** - This model contains all the required information about the booking including the date, time and party size. The booking end time is calculated automatically with two hours allowed for each booking. Tables are connected to bookings through a Many to Many relationship and searching through the bookings for each table allows the booking system to check whether there are tables available at the required booking date and time. The model also provides information about the customer who made the booking and if the customer is a registered user the booking will be connected to their Allauth user model via a Foreign Key relationship. The date created and date updated fields were intended to be used to alert the restaurant owner when a booking had been updated however over the course of development a simpler 'updated' Boolean field was chosen instead.
 
 ## Features
 
@@ -159,7 +159,7 @@ The site is based around three custom models:
 
     ![Form Validation](readme/screenshots/form-validation.jpg)
 
-    * The booking confirmation confirms to the user that a table is avaiable providing confidence that a booking has been made. It also confirms the details of the booking they have just made. An email of the booking is sent to the given email address so that the user can easily check the booking details.
+    * The booking confirmation confirms to the user that a table is available providing confidence that a booking has been made. It also confirms the details of the booking they have just made. An email of the booking is sent to the given email address so that the user can easily check the booking details.
 
     ![Booking Confirmation](readme/screenshots/booking-confirmation.jpg)
 
@@ -213,7 +213,7 @@ The site is based around three custom models:
 
 * [Django](https://www.djangoproject.com/) is the MVC framework used to create the site.
 * [Django Allauth](https://django-allauth.readthedocs.io/en/latest/index.html) has been used to set up user authentication on the site.
-* [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) has been used to add boostrap styling to the booking form.
+* [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) has been used to add bootstrap styling to the booking form.
 * [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/) has been used to assist with the styling of the site and particularly the responsiveness.
 * [Hover.css](https://ianlunn.github.io/Hover/) has been used to apply colour change to links and buttons when hovered over.
 * [jQuery](https://jquery.com/) has been used for some of the Bootstrap components and also in the custom JS file.

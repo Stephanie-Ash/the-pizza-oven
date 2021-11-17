@@ -1,5 +1,17 @@
 ## Testing
 
+### Table of Contents
+
+- [User Story Testing](#user-story-testing)
+  * [As a customer:](#as-a-customer-)
+  * [As a registered customer:](#as-a-registered-customer-)
+  * [As a restaurant owner:](#as-a-restaurant-owner-)
+- [Validator Testing](#validator-testing)
+- [Python Automated Testing](#python-automated-testing)
+- [Manual Testing](#manual-testing)
+- [Fixed Bugs](#fixed-bugs)
+
+
 ### User Story Testing
 
 * #### As a customer:
@@ -7,7 +19,7 @@
     **General**
     * I can view a menu so that I can see what food is available.
         * The view menu button on the homepage launches the menu for the user to view.
-    * I can see a map of the restaurant location so that I can easily find the restautant.
+    * I can see a map of the restaurant location so that I can easily find the restaurant.
         * The location section of the homepage provides the address of the restaurant and a map of the location.
 
     **Bookings**
@@ -128,7 +140,7 @@ Continuous manual testing was carried out throughout the development process wit
     * The homepage view menu button launches the menu in a new tab.
 * **Make Booking Page**
     * The login and register links for non registered users go to the correct pages.
-    * Time and party sizse dropdown inputs work as expected and the date input launches a calendar widget as expected.
+    * Time and party size dropdown inputs work as expected and the date input launches a calendar widget as expected.
     * The form cannot be submitted without all required inputs entered.
     * A form error and alert error message are both displayed when there are no tables available.
     * The make booking button submits the form.
@@ -149,7 +161,7 @@ Continuous manual testing was carried out throughout the development process wit
     * The Cancel Booking button launches the modal and the booking is cancelled on confirmation.
 * **Booking Detail Page**
     * The Update Booking link and Back button go to the correct pages.
-    * The Cancel Booking link correcly launches the confirmation modal and the booking is cancelled on confirmation.
+    * The Cancel Booking link correctly launches the confirmation modal and the booking is cancelled on confirmation.
     * The add table number input adds table numbers to the booking.
 * **Update Booking Page**
     * The Back button goes to the correct pages.
@@ -164,7 +176,7 @@ Continuous manual testing was carried out throughout the development process wit
     * The timeout JS works correctly and the messages close as intended.
 * **Device and Browser Testing**
     * The site has been tested on the Google Chrome, Microsoft Edge and Firefox browsers.
-    * The sites responsivenes has be tested by friends and family members on various devices and also using the Chrome Developer tools.
+    * The sites responsiveness has been tested by friends and family members on various devices and also using the Chrome Developer tools.
 
 ### Fixed Bugs
 * During the development process it was discovered that the booking end_time did not update when the booking was updated. This was fixed by ensuring the end time is calculated on every save.
