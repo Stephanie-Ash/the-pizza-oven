@@ -3,9 +3,9 @@
 ### Table of Contents
 
 - [User Story Testing](#user-story-testing)
-  * [As a customer:](#as-a-customer-)
-  * [As a registered customer:](#as-a-registered-customer-)
-  * [As a restaurant owner:](#as-a-restaurant-owner-)
+  * [As a customer:](#as-a-customer)
+  * [As a registered customer:](#as-a-registered-customer)
+  * [As a restaurant owner:](#as-a-restaurant-owner)
 - [Validator Testing](#validator-testing)
 - [Python Automated Testing](#python-automated-testing)
 - [Manual Testing](#manual-testing)
