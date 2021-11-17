@@ -167,9 +167,9 @@ The site is based around three custom models:
     * The booking system carries out a table search in the form validation.
     * First tables with bookings overlapping the required booking date and time are excluded.
     * The remaining tables are then checked to see if a table of the appropriate size is available. If not the tables are combined to see if a combined table will satisfy the booking criteria.
-    * If a table is found the booking is save and the selected table(s) added to the booking.
+    * If a table is found the booking is saved and the selected table(s) added to the booking.
     * If no tables are available, the user is alerted.
-    * This table search allows the user to book a free table instantly.
+    * This table search allows the user to book an available table instantly rather than awaiting feedback from the restaurant.
 
 * **Registered User Area**
     * Registered users are able to see a list of their upcoming bookings on the My Bookings page. This is an easy way for them to check the booking details.
