@@ -116,7 +116,6 @@ class TestViews(TestCase):
         Test that views that only allow access by a superuser
         redirect a normal user to the homepage.
         """
-        # From https://stackoverflow.com/questions/16143149/
         # manage bookings
         self.client.login(username='john', password='johnpassword')
         manage = self.client.get('/bookings/manage_bookings', follow=True)

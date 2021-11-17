@@ -1,5 +1,6 @@
 $(document).ready(function () {
     // Timeout function to close alert messages after 3 seconds
+    // Taken from the Code Institute 'I Think Therefore I Blog' walkthrough
     setTimeout(function () {
         let messages = $("#msg");
         let alert = new bootstrap.Alert(messages);
