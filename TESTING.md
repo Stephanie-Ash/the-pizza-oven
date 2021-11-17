@@ -146,17 +146,19 @@ Continuous manual testing was carried out throughout the development process wit
     * Clicking on the update flag turns off the flag.
     * The add table number input adds table numbers to the booking.
     * The View and Update links go to the correct pages.
-    * The Cancel Booking button launches the modal.
+    * The Cancel Booking button launches the modal and the booking is cancelled on confirmation.
 * **Booking Detail Page**
-    * The Update Booking link and Back button go to the correct pages and the Cancel Booking correcly launches the confirmation modal.
+    * The Update Booking link and Back button go to the correct pages.
+    * The Cancel Booking link correcly launches the confirmation modal and the booking is cancelled on confirmation.
     * The add table number input adds table numbers to the booking.
 * **Update Booking Page**
     * The Back button goes to the correct pages.
     * The form is submitted when the Update Booking button is selected and the booking is updated correctly.
-    * Updating a booking without changing the date, time or party size (not covered in manual testing) updates the booking as expected and does not reset the table number field.
+    * Updating a booking without changing the date, time or party size (not covered in automated testing) updates the booking as expected and does not reset the table number field.
 * **Account Pages**
     * The login and register pages both redirect to the previous page on confirmation.
     * The user is redirected to the homepage after logout.
+    * Users are correctly registered, logged in or logged out on confirmation.
 * **Alert Messages**
     * The messages appear correctly when relevant actions have been taken.
     * The timeout JS works correctly and the messages close as intended.
