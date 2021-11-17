@@ -200,8 +200,9 @@ The site is based around three custom models:
 ### Features Left to Implement
 
 * User profiles to save customer information for automatic form population.
-* Automatic user registration using the provided email address and a booking number as a password. Ensuring all customers can cancel or update a booking.
+* Automatic user registration using the provided email address and a booking number as a password. Ensuring that all customers can cancel or update a booking.
 * Creation of a restaurant table plan with the bookings shown to give the restaurant owner a visual representation of the bookings for any specific time.
+* More advanced table checking to offer the customer alternative available booking slots if there are no tables available at their selected time.
 
 ## Technologies Used
 
