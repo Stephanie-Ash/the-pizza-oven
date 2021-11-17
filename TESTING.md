@@ -72,7 +72,7 @@
 
 ### Python Automated Testing
 
-Automated testing on all original Python code was carried out on both project apps using the Django testing framework. The following tests were carried out:
+Automated testing on all original Python code has been carried out on both project apps using the Django testing framework. The following tests have been carried out:
 
 * **Restaurant App - Models**
     * The Restaurant model string method returns the restaurant name.
@@ -103,7 +103,7 @@ Automated testing on all original Python code was carried out on both project ap
     * The update_booking view updates an existing booking and redirects correctly based on the user.
     * Both the make_booking and update_booking views generate an error message when there are no tables available.
 * **Bookings App - Available Table Check**
-    * The smallest available table is chosen when no table combination required.
+    * The smallest available table is chosen when no table combination is required.
     * The smallest table combination is chosen when tables are combined.
     * Larger table combinations are chosen when the smallest is not available.
     * Booked tables are not selected.
