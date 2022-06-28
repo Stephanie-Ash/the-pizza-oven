@@ -1,14 +1,17 @@
 """ Testcases for the bookings app views. """
 import datetime
+
+from django.contrib.auth.models import User
 from django.test import TestCase
 from django.test.client import Client
-from django.contrib.auth.models import User
+
 from restaurant.models import Restaurant, Table
 from .models import Booking
 
 
 class TestViews(TestCase):
     """ Tests for the views. """
+
     def setUp(self):
         self.client = Client()
         self.superuser = User.objects.create_superuser(

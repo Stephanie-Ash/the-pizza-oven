@@ -1,5 +1,6 @@
 """ Admin panel set-up for the bookings app. """
 from django.contrib import admin
+
 from .models import Booking
 
 

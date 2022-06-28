@@ -1,12 +1,15 @@
 """ Testcases for the restaurant app models. """
 import datetime
-from django.test import TestCase
+
 from django.core.exceptions import ValidationError
+from django.test import TestCase
+
 from .models import Restaurant, Table
 
 
 class TestModels(TestCase):
     """ Tests for the models. """
+
     def setUp(self):
         self.restaurant = Restaurant.objects.create(name='Test Restaurant')
 

@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('restaurant', '0010_alter_restaurant_description'),
     ]
@@ -14,11 +13,13 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='restaurant',
             name='description',
-            field=models.TextField(blank=True, help_text='Warning editing this field will change the About Us section on the home page! Clear the field to display the default text.'),
+            field=models.TextField(blank=True,
+                                   help_text='Warning editing this field will change the About Us section on the home page! Clear the field to display the default text.'),
         ),
         migrations.AlterField(
             model_name='restaurant',
             name='menu',
-            field=cloudinary.models.CloudinaryField(default='placeholder', help_text='Image of restaurant menu.', max_length=255, verbose_name='image'),
+            field=cloudinary.models.CloudinaryField(default='placeholder', help_text='Image of restaurant menu.',
+                                                    max_length=255, verbose_name='image'),
         ),
     ]

@@ -1,13 +1,16 @@
 """ Testcases for the check availability functions """
 import datetime
+
 from django.test import TestCase
+
 from restaurant.models import Restaurant, Table
-from .models import Booking
 from .check_availability import find_tables
+from .models import Booking
 
 
 class TestCheckAvailability(TestCase):
     """ Tests for the available table searches. """
+
     def setUp(self):
         self.restaurant = Restaurant.objects.create(name='The Pizza Oven')
         self.table1 = Table.objects.create(restaurant=self.restaurant, size=4)

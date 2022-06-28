@@ -1,5 +1,6 @@
 """ Testcases for the restaurant app views. """
 from django.test import TestCase
+
 from .models import Restaurant
 
 

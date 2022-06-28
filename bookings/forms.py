@@ -1,15 +1,17 @@
 """ Forms for making or updating bookings """
 import datetime
+
 from django import forms
 
-from .models import Booking
 from .check_availability import find_tables
+from .models import Booking
 
 
 class BookingForm(forms.ModelForm):
     """
     A form for making or updating a booking in the restaurant.
     """
+
     class Meta:
         """ Select the model and define the fields. """
         model = Booking

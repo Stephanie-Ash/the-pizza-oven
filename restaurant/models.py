@@ -1,8 +1,9 @@
 """ Models for the restaurant app. """
 import datetime
-from django.db import models
-from django.core.exceptions import ValidationError
+
 from cloudinary.models import CloudinaryField
+from django.core.exceptions import ValidationError
+from django.db import models
 
 
 class Restaurant(models.Model):
@@ -14,8 +15,8 @@ class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(
         blank=True, help_text='Warning editing this field will change the'
-        ' About Us section on the home page!'
-        ' Clear the field to display the default text.')
+                              ' About Us section on the home page!'
+                              ' Clear the field to display the default text.')
     opening_time = models.TimeField(
         auto_now=False, auto_now_add=False, default=datetime.time(11, 00, 00))
     closing_time = models.TimeField(

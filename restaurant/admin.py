@@ -1,9 +1,9 @@
 """ Admin panel set-up for the restaurant app. """
+from allauth.socialaccount.models import SocialAccount, SocialToken, SocialApp
 from django.contrib import admin
 from django.contrib.sites.models import Site
-from allauth.socialaccount.models import SocialAccount, SocialToken, SocialApp
-from .models import Restaurant, Table
 
+from .models import Restaurant, Table
 
 # Remove unrequired models from the admin panel.
 admin.site.unregister(Site)

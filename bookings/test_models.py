@@ -1,11 +1,14 @@
 """ Testcases for the bookings app models. """
 import datetime
+
 from django.test import TestCase
+
 from .models import Booking
 
 
 class TestModels(TestCase):
     """ Tests for the model. """
+
     def setUp(self):
         self.booking = Booking.objects.create(
             date=datetime.date(2021, 11, 8), time=datetime.time(12, 00),

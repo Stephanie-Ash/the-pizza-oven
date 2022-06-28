@@ -1,14 +1,15 @@
 """ Views for the bookings app. """
 import datetime
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 from restaurant.models import Restaurant
-from .models import Booking
-from .forms import BookingForm
 from .check_availability import create_booking_slots
 from .confirmation_email import send_confirmation_email
+from .forms import BookingForm
+from .models import Booking
 
 
 def make_booking(request):

@@ -1,5 +1,6 @@
 """ Views for the restaurant app. """
 from django.shortcuts import render
+
 from .models import Restaurant
 
 

@@ -1,14 +1,17 @@
 """ Testcases for the bookings app forms. """
 import datetime
+
 from django.test import TestCase
+
 from restaurant.models import Restaurant, Table
-from .models import Booking
 from .check_availability import create_booking_slots
 from .forms import BookingForm
+from .models import Booking
 
 
 class TestBookingForm(TestCase):
     """ Tests for the booking form. """
+
     def setUp(self):
         self.restaurant = Restaurant.objects.create(name='The Pizza Oven')
         self.table = Table.objects.create(restaurant=self.restaurant, size=2)

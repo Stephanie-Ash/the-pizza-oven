@@ -1,7 +1,8 @@
 """ Models for the bookings app. """
 from datetime import datetime, date, time, timedelta
-from django.db import models
+
 from django.contrib.auth.models import User
+from django.db import models
 
 from restaurant.models import Table
 
@@ -54,7 +55,7 @@ class Booking(models.Model):
         Calculate the end time of the booking when it is saved.
         """
         end_time = (
-            datetime.combine(date.today(), self.time)) + timedelta(hours=2)
+                       datetime.combine(date.today(), self.time)) + timedelta(hours=2)
         return end_time.time()
 
     def save(self, *args, **kwargs):
@@ -68,4 +69,4 @@ class Booking(models.Model):
         return (
             f"A table of {self.party_size} on "
             f"{datetime.strftime(self.date, '%d-%m-%Y')}"
-            )
+        )

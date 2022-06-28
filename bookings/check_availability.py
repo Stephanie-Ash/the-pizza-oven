@@ -1,6 +1,7 @@
 """ Set up booking slots and check for available tables. """
 from datetime import datetime, date, timedelta
 from itertools import combinations, chain
+
 from restaurant.models import Table
 from .models import Booking
 

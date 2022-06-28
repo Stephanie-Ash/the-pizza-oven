@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('restaurant', '0007_alter_restaurant_menu'),
     ]
@@ -13,6 +12,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='restaurant',
             name='description',
-            field=models.TextField(blank=True, help_text='Warning editing this field will change the About Us section on the home page!'),
+            field=models.TextField(blank=True,
+                                   help_text='Warning editing this field will change the About Us section on the home page!'),
         ),
     ]

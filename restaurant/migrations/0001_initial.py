@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -20,7 +19,8 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('opening_time', models.TimeField()),
                 ('closing_time', models.TimeField()),
-                ('menu', cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='image')),
+                (
+                'menu', cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='image')),
             ],
         ),
     ]
