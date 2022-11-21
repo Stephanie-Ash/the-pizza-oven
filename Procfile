@@ -1,1 +1,0 @@
-web: gunicorn pizza_oven.wsgi
